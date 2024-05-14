@@ -95,14 +95,14 @@ var resumeIframe = document.getElementById("resume-iframe");
 viewBtn.onclick = function() {
   modal.style.display = "block";
   // Set the source of the iframe to the URL of your resume
-  resumeIframe.src = "https://drive.google.com/file/d/1AzlUXk1nsRXD71NXWjcpKnROnOJTDBtp/view?usp=drive_link";
+  resumeIframe.src = "https://1drv.ms/b/s!Av0WPbKOYrgLgmJ3XLSdunG9Bl9b?e=Nty1JC";
 }
 
 // Close modal when clicking outside the modal content
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
-    resumeIframe.src = "https://drive.google.com/file/d/1AzlUXk1nsRXD71NXWjcpKnROnOJTDBtp/view?usp=drive_link"; // Clear iframe source
+    resumeIframe.src = "https://1drv.ms/b/s!Av0WPbKOYrgLgmJ3XLSdunG9Bl9b?e=Nty1JC"; // Clear iframe source
   }
 }
 
