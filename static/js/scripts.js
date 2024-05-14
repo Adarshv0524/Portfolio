@@ -112,7 +112,7 @@ closeBtn.innerHTML = "&times;"; // Cross icon symbol
 closeBtn.classList.add("close-modal");
 closeBtn.onclick = function() {
   modal.style.display = "none";
-  resumeIframe.src = "https://drive.google.com/file/d/1AzlUXk1nsRXD71NXWjcpKnROnOJTDBtp/view?usp=drive_link"; // Clear iframe source
+  resumeIframe.src = "https://1drv.ms/b/s!Av0WPbKOYrgLgmJ3XLSdunG9Bl9b?e=Nty1JC"; // Clear iframe source
 };
 document.getElementsByClassName("view-resume-content")[0].appendChild(closeBtn);
 
