@@ -1,0 +1,125 @@
+/* ==============================================
+                HERO SECTION 
+==================================================*/
+
+@media screen and (min-height: 768px) {
+  #hero {
+      background: url("assets/hero-background\ 1.png") center center fixed ;
+      padding-right: 0;
+      width: calc(100% - 300px); /* Adjust for the width of the header */
+      margin-left:0px; /* Adjust for the width of the header */
+      height: 100vh;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+    }
+
+}
+
+
+/* ==============================================
+                ABOUT ME SECTION 
+==================================================*/
+
+@media screen and (max-width: 1142px) {
+    #grouping-li{
+        display: flex;
+        flex-direction: column;
+      }
+}
+
+@media screen and (max-width:1040px){
+    #list-details{
+        display: flex;
+        flex-direction: column;
+        box-shadow: 10px 10px 10px var(--box-shadow);
+        padding: 8px;
+        padding-right: 5px;
+        background-color: rgb(255, 255, 255);
+      }
+    .list-details-child{
+        display: flex;
+        justify-content: center;
+    }
+    #list-details img {
+        display: block;
+        height: 50vh;
+        width: auto;
+      }
+
+}
+
+/* ==============================================
+                SKILLS SECTION 
+==================================================*/
+@media screen and (max-width:1142px){
+    .skills-line{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin: 0px;
+        margin-right: 40px;
+        margin-top: 10px;
+        gap: 0px;
+      
+      }
+    
+}
+
+
+
+/* ==============================================
+                RESUME SECTION 
+==================================================*/
+
+
+
+/* ==============================================
+                PROJECT SECTION 
+==================================================*/
+
+@media screen and (max-width:1000px){
+  .card-container{
+      display: flex;
+      flex-direction: column;
+    }
+  .card{
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width:768px){
+  .card-container{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;    
+    }
+  .card{
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width:768px){
+  .card-container{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;    
+    }
+  .card{
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media screen and (max-width:550px){
+  .card-container{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;    
+    }
+  .card{
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

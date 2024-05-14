@@ -1,0 +1,1325 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #898f93;
+}
+:root{
+  --primary-color: rgb(4,11,20) ;
+  --secondary-color: rgb(32, 14, 14);
+  --text-color: rgb(131, 131, 30);
+  --skill-bars : rgb(186, 115, 230);
+  --box-shadow :rgb(207, 207, 242);
+  --social-link-background : rgb(243, 240, 240);
+}
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+
+.font-Ubuntu-sans{
+  font-family: "Ubuntu Sans", sans-serif;
+  font-weight: 430;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+  line-height: 21px;
+}
+.font-Raleway-Dots{
+  font-family: "Raleway Dots", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.font-Kode-Mono{
+  font-family: "Kode Mono", sans-serif;
+  font-weight: 400;
+}
+
+/* 
+------------------------------
+         HEADER SECTION 
+------------------------------
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+
+#header {
+  
+  padding: 0 15px;
+  display: flex ;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  width: 300px;
+  transition: all ease-in-out 0.5s;
+  height: 100%;
+  background-color: var(--primary-color);
+
+}
+
+.sidebar{
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+ .profile h1 {
+  font-size: 24px;
+  margin: 15px;
+  padding: 0;
+  font-weight: 600;
+  -moz-text-align-last: center;
+  text-align-last: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.profile h1 a{
+  color: #fff;
+  text-decoration: none;
+}
+
+.profile h1 a:hover {
+  color: #fc0000;
+  text-decoration: none;
+}
+
+@keyframes flowAnimation {
+  0% {
+    border-width: 8px;
+    border-color: #9b59b6;
+  }
+  50% {
+    border-width: 8px;
+    border-color: #ffb6c1;
+  }
+  100% {
+    border-width: 8px;
+    border-color: #a2cffe;
+  }
+}
+
+
+
+#image-container{
+  display: inline-block;
+  padding: 8px; /* Minimum margin around the image */
+  border: 8px solid #834c4c;
+  border-radius: 50%;
+  overflow: hidden;
+  height: 100px;
+  width: 100px;
+  margin-top: 25px;
+  margin-left: 80px;
+  animation: flowAnimation 5s infinite alternate;
+}
+
+.logo-image{
+  display: block;
+  max-width: 100%;
+  height: auto;
+  
+}
+
+.nav-menu{
+  padding: 10px 0 0 0;
+}
+.nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav-menu >ul > li{
+  position: relative;
+  white-space: nowrap;
+}
+.nav-menu a,
+.nav-menu a:focus {
+  display: flex;
+  align-items: center;
+  color: #eeeff3;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.nav-menu a i,
+.nav-menu a:focus i {
+  font-size: 24px;
+  padding-right: 8px;
+  color: #cccdd5;
+}
+
+.nav-menu a:hover,
+.nav-menu .active,
+.nav-menu .active:focus,
+.nav-menu li:hover>a {
+  text-decoration: none;
+  color: #ff4949;
+}
+
+.nav-menu a:hover i,
+.nav-menu .active i,
+.nav-menu .active:focus i,
+.nav-menu li:hover>a i {
+  color: #dced19;
+}
+.navbar{
+  display: flex;
+}
+
+.profile .social-links a i{
+  display: inline-block;
+  border-radius: 50%;
+  background-color: var(--social-link-background);
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 35px;
+  width: 35px;
+}
+
+.profile .social-links a i img{
+  margin: 10px;
+  height: 17px;
+  max-width: 100%;
+}
+.social-links{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-link{
+  text-decoration: none;
+  color: white;
+}
+
+
+/* 
+------------------------------
+         HERO SECTION 
+------------------------------
+*/
+
+#hero {
+  background: url("../assets/hero.png") top center fixed ;
+  padding: 20px;
+  width: calc(100% - 300px); /* Adjust for the width of the header */
+  margin-left: 300px; /* Adjust for the width of the header */
+  height: 100vh;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 50px;
+  height: 100vh;
+
+}
+.content{
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
+  margin-right: 130px;
+}
+
+.title{
+  font-size: 48px;
+  margin-bottom: 0px;
+  font-family: "Jura", sans-serif;
+}
+.description{
+  padding-top: -10px;
+  font-size: 24px;
+  margin-bottom: 50px;
+  margin-top: 0;
+  font-family : "Shantell Sans", cursive;
+}
+
+.button{
+  display: inline-flex;
+  width: fit-content;
+  margin-right: 20px;
+  padding: 10px 20px;
+  background-color: #7b4990;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: background-color 0.3 ease;
+  font-family: "Protest Revolution", sans-serif;
+}
+.button:hover {
+  background-color: #294659;
+}
+
+
+
+/* 
+--------------------------------------------------------------
+                    MAIN SECTION 
+--------------------------------------------------------------
+*/
+
+#main-content {
+  width: calc(100% - 300px);
+  margin-left: 300px;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: url('../assets/bg.png') fixed;
+}
+
+.content-section {
+  margin: 50px;
+  margin-top: 0px;
+}
+
+
+
+/* 
+--------------------------------------------------------------
+                    PROJECTS SECTION 
+--------------------------------------------------------------
+*/
+
+
+.projects{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+#section-title{
+  margin-top: 25px;
+  margin-bottom: 25px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 10px 10px 10px var(--box-shadow);
+  padding: 10px;
+  padding-top: 0px;
+
+}
+
+#section-title .section-heading {
+  font-size: 32px;
+  font-family : "Protest Revolution", sans-serif;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  
+}
+
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  justify-content: center;
+}
+
+.card {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  max-width: 350px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.card img {
+  width: 100%;
+  height: 300px;
+}
+
+
+.card-content {
+  padding: 20px;
+  text-align: center;
+}
+.card-content p{
+  text-align: justify;
+}
+
+.card-content h3 {
+  margin-top: 0;
+}
+.card-content > p{
+  text-align: justify;
+  font-family: "Glegoo", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: smaller;
+}
+
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #8a2e2e;
+}
+
+
+
+/* LISTING */
+
+/* ABOUT ME SECTION */
+
+#descriptive-text-about-me{
+  text-align: justify;
+
+}
+.about-post-content{
+  text-align: justify;
+  margin-left: 0;
+}
+
+
+#list-details{
+  display: flex;
+  flex-direction: row;
+  box-shadow: 10px 10px 10px var(--box-shadow);
+  padding: 8px;
+  padding-right: 5px;
+  background-color: rgb(255, 255, 255);
+  
+}
+
+#list-details img {
+  display: block;
+  height: 400px;
+  border-radius: 10px;
+}
+#listing-details{
+  display: flex;
+  flex-direction: column;
+  margin-left: 0px;
+  justify-content:flex-start;
+  align-items: flex-start;
+  line-height: 1.2;
+  
+  
+}
+#listing-details p{
+  font-size: 32px;
+  margin-bottom: 5px;
+  margin-top: 0px;
+  flex-shrink: 5;
+  font-family: "Ojuju", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+
+}
+
+#grouping-li{
+  display: flex;
+  flex-direction: row;
+}
+
+#listing-details ul li{
+  margin: 7px;
+  list-style: circle;
+  flex: 1;
+}
+
+
+/* --------------------------------------
+            RESUME SECTION
+------------------------------------------*/
+
+
+/* Styles for Resume Options */
+.resume-options {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.resume-options button {
+  padding: 7px 7px;
+  margin: 0 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+  font-family: cursive;
+}
+#resume-descreption{
+  text-align: justify;
+}
+
+
+
+.timeline {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  max-width: 100%;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 10px 10px 10px var(--box-shadow);
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+
+.timeline-box{
+  flex: 1;
+}
+
+.timeline-box::before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: #340a0a;
+  transform: translateX(-50%);
+}
+
+
+.timeline-item {
+  padding: 20px;
+  margin-bottom: 10px;
+  position: relative;
+  
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -8px;
+  width: 16px;
+  height: 16px;
+  background-color: #333;
+  border-radius: 50%;
+}
+
+.timeline-item-header {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.timeline-item-description {
+  font-size: 16px;
+  color: #666;
+}
+.timeline-box p{
+  margin-left: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 25px;
+  margin-bottom: 0px;
+}
+
+.timeline-item-description{
+  text-align: justify;
+}
+
+
+
+/* --------------------------------------
+            SKILLS SECTION
+------------------------------------------*/
+
+
+
+.skills {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-s {
+  display: flex;
+  flex-direction: row;
+
+  background-color: #ffffff;
+}
+
+.skill-line-duplicator{
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  box-shadow: 0px 5px 25px var(--box-shadow); 
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.skill-type-header{
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 27px;
+  font-size: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.skills-line{
+  display: flex;
+  justify-content: center;
+  margin: 7px;
+  margin-top: 10px;
+  gap: 50px;
+
+}
+
+.unique{
+  width: 100%;
+  margin: 20px;
+}
+.skill{
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-name {
+  font-weight: bold;
+  margin-bottom: 0px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  
+}
+.skill-name img{
+  height: 20px;
+  margin-right: 5px;
+  margin-top: 6px;
+}
+
+.skill-bar {
+  width: 100%;
+  background-color: #f0e8e8;
+  height: 21px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.skill-progress {
+  display: flex;
+  height: 100%;
+  border-radius: 5px;
+  align-items: center;
+  padding-top: 1px;
+  padding-left: 20px;
+}
+
+.html-progress {
+  width: 100%;
+  background-color:var(--skill-bars);
+}
+
+.css-progress {
+  width: 90%; /* Change the width based on your CSS skill level */
+  background-color: var(--skill-bars);
+}
+
+.python-progress {
+  width: 80%; /* Change the width based on your Python skill level */
+  background-color: var(--skill-bars);
+}
+.javascript-progress {
+  width: 70%;
+  background-color: var(--skill-bars);
+}
+.java-progress{
+  width: 65%;
+  background-color: var(--skill-bars);
+}
+.mysql-progress {
+  width: 50%;
+  background-color: var(--skill-bars);
+}
+.communication-progress {
+  width: 90%;
+  background-color:var(--skill-bars);
+}
+.teamwork-progress {
+  width: 100%;
+  background-color: var(--skill-bars);
+}
+.problem-solving-progress {
+  width: 85%;
+  background-color: var(--skill-bars);
+}
+.work-ethics-progress {
+  width: 100%;
+  background-color: var(--skill-bars);
+}
+.leadership-progress {
+  width: 75%;
+  background-color: var(--skill-bars);
+}
+.time-management-progress {
+  width: 65%;
+  background-color: var(--skill-bars);
+}
+
+/* -------------------------------------------
+          CONTACT SECTION
+------------------------------------------ */
+
+#map-frame-container iframe{
+
+  width: 80%;
+  height: 60vh;
+}
+#map-frame-container{
+  display: flex;
+  justify-content: center;
+}
+
+
+/* Form container */
+#contact-form {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form elements */
+#contact-form div {
+  margin-bottom: 20px;
+}
+
+/* Labels */
+#contact-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Inputs and textarea */
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form input[type="tel"],
+#contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+#contact-form input[type="text"]:focus,
+#contact-form input[type="email"]:focus,
+#contact-form input[type="tel"]:focus,
+#contact-form textarea:focus {
+  border-color: #21178f;
+}
+
+/* Button */
+#contact-form button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  outline: none;
+}
+
+#contact-form button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#contact-form {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#footer {
+  padding: 15px;
+  color: #f4f6fd;
+  font-size: 14px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  background: #040b14;
+
+}
+
+.footer-container{
+  display: flex;
+  flex-direction: row;
+}
+.credits{
+  margin: 5px;
+}
+
+
+
+
+
+
+
+
+
+/* contact form for cta 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: linear-gradient(135deg, #8e2d2d, #a2740f, #474324, #2b216c, #76d7ea);
+  background-size: 800% 800%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding-left: 40px;
+  padding-right: 40px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  max-width: 800px;
+}
+
+@media (max-width: 767px) {
+  .modal-content {
+      width: 80%;
+  }
+}
+
+@media (min-width: 768px) {
+  .modal-content {
+      width: 50%;
+  }
+}
+
+.modal-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, transparent, rgba(255, 255, 255, 0.2));
+  z-index: -1;
+}
+
+.modal-content h2 {
+  font-family: 'Courier New', monospace;
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+  background-color: #f9e8d8;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter 3s steps(30) forwards;
+}
+
+@keyframes typewriter {
+  from {
+      width: 0;
+  }
+  to {
+      width: 100%;
+  }
+}
+
+.modal-content h2::before {
+  content: "📜";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: paperScroll 1s linear forwards;
+}
+
+@keyframes paperScroll {
+  from {
+      transform: translateY(-50%) translateX(-100%);
+  }
+  to {
+      transform: translateY(-50%) translateX(0);
+  }
+}
+
+.close-contact{
+  display: none;
+}
+
+
+.form-group {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn {
+  background: linear-gradient(90deg, #ff9a9e, #fad0c4, #ffecd2, #daf3d4, #b8e2e5);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+  color: #150101;
+  padding: 15px 30px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.submit-btn {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.05);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.resume-options button:hover {
+  background-color: #d19595;
+}
+
+/* Styles for View Resume Modal */
+.view-resume {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+  backdrop-filter: blur(1px);
+  transition: backdrop-filter 0.3s ease;
+}
+
+/* View Resume Modal Content */
+.view-resume-content {
+  background-color: #dba7a7;
+  margin: 5% auto;
+  padding: 0px;
+  border: 1px solid #888;
+  width: 70%;
+  max-width: 1000pxpx;
+  height: 90vh;
+  border-radius: 25px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+  animation-name: modalEnter;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  position: relative;
+}
+
+@keyframes modalEnter {
+  0% {
+      transform: scale(0.8);
+      opacity: 0;
+  }
+  100% {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
+
+/* Close Button */
+.close {
+  display: none;
+}
+
+.close:hover,
+.close:focus {
+  color: #333;
+  text-decoration: none;
+}
+
+/* Resume Iframe */
+#resume-iframe {
+  width: 100%;
+  height: 100%;
+  border: #091423 4px solid;
+  border-radius: 25px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.credits{
+  margin-left: 15px;
+}
+
+.credits > a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-weight: bold; 
+  font-family: "Gotu" ,sans-serif;
+}
+
+.credits > a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ff6600;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.credits > a:hover{
+  color: #633636;
+  transform: scale(1.5);
+}
+.credits > a:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+
+
+
+
+
+
+/* 
+some fonts which has been included using google font , make the changes as necessary
+
+
+Ojuju: CSS class for a variable style
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 200 to 800
+
+.ojuju-<uniquifier> {
+  font-family: "Ojuju", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+Prompt: CSS classes
+
+.prompt-thin {
+  font-family: "Prompt", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.prompt-extralight {
+  font-family: "Prompt", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.prompt-light {
+  font-family: "Prompt", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.prompt-regular {
+  font-family: "Prompt", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.prompt-medium {
+  font-family: "Prompt", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.prompt-semibold {
+  font-family: "Prompt", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.prompt-bold {
+  font-family: "Prompt", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.prompt-extrabold {
+  font-family: "Prompt", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.prompt-black {
+  font-family: "Prompt", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.prompt-thin-italic {
+  font-family: "Prompt", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.prompt-extralight-italic {
+  font-family: "Prompt", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.prompt-light-italic {
+  font-family: "Prompt", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.prompt-regular-italic {
+  font-family: "Prompt", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.prompt-medium-italic {
+  font-family: "Prompt", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.prompt-semibold-italic {
+  font-family: "Prompt", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.prompt-bold-italic {
+  font-family: "Prompt", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.prompt-extrabold-italic {
+  font-family: "Prompt", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.prompt-black-italic {
+  font-family: "Prompt", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+Ubuntu Sans: CSS class for a variable style
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 800
+
+.ubuntu-sans-<uniquifier> {
+  font-family: "Ubuntu Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+Kode Mono: CSS class for a variable style
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 400 to 700
+
+.kode-mono-<uniquifier> {
+  font-family: "Kode Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+Raleway Dots: CSS class
+
+.raleway-dots-regular {
+  font-family: "Raleway Dots", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+Glegoo: CSS classes
+
+.glegoo-regular {
+  font-family: "Glegoo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.glegoo-bold {
+  font-family: "Glegoo", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+Gotu: CSS class
+
+.gotu-regular {
+  font-family: "Gotu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+*/

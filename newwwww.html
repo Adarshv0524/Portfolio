@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        
+        
+  
+  /* Styles for View Resume Modal */
+  .view-resume {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    backdrop-filter: blur(1px);
+    transition: backdrop-filter 0.3s ease;
+  }
+  
+  /* View Resume Modal Content */
+  .view-resume-content {
+    background-color: #dba7a7;
+    margin: 5% auto;
+    padding: 0px;
+    border: 1px solid #888;
+    width: 70%;
+    max-width: 1000pxpx;
+    height: 90vh;
+    border-radius: 25px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+    animation-name: modalEnter;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    position: relative;
+  }
+  
+  @keyframes modalEnter {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+  }
+  
+  /* Close Button */
+  .close {
+    display: none;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  /* Resume Iframe */
+  #resume-iframe {
+    width: 100%;
+    height: 100%;
+    border: #091423 4px solid;
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  /* Close Button */
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .close-btn:hover,
+  .close-btn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  
+  .credits{
+    margin-left: 15px;
+  }
+  
+  .credits > a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold; 
+    font-family: "Gotu" ,sans-serif;
+  }
+  
+  .credits > a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ff6600;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .credits > a:hover{
+    color: #633636;
+    transform: scale(1.5);
+  }
+  .credits > a:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
+  }
+    </style>
+</head>
+<body>
+    
+
+    <section id="resume" class="resume ">
+        <div id="section-title">
+          <div class="section-heading">
+            Resume
+          </div>
+            <span id="resume-descreption" class="font-Ubuntu-sans">
+              Welcome to a detailed look at my career journey in technology. 
+              This portfolio documents my academic and professional accomplishments, 
+              emphasizing the information and experiences I have obtained along the road. 
+              Through these pages, I hope to give you with a comprehensive view of my 
+              abilities and the aspirations that continue to carry me forward.
+            </span>
+              
+              <div class="resume-options">
+                <button id="view-btn">View Resume</button>
+              </div>
+            
+              <div id="resume-modal" class="view-resume">
+                <div class="view-resume-content">
+                  <iframe id="resume-iframe" src="" frameborder="0"></iframe>
+                </div>
+              </div>
+            </div>
+
+        <div class="timeline">
+
+            <div class="timeline-box">
+              <p>Summary</p>
+              <div class="timeline-item">
+                  <div class="timeline-item-header"><em>Adarsh Verma</em></div>
+                  <div class="timeline-item-description">
+                  <p><em>Ayodhya, Uttar-Pradesh, India</em></p>
+                  <p >
+                    Skilled in programming, physics, and mathematics,
+                     with a focus on programming. Aspiring to be a software engineer. 
+                     Fluent in English, Hindi, and Awadhi, 
+                    with a strong interest in programming, asterophysics, and celestial events.
+                  </p>
+                  </div>
+
+              </div>
+
+              
+            </div>
+        </div>
+
+      </section>
+
+<script>
+    
+
+// Code for resume view and download
+
+// Get the modal
+var modal = document.getElementById("resume-modal");
+
+// Get the button that opens the modal
+var viewBtn = document.getElementById("view-btn");
+
+// Get the iframe element
+var resumeIframe = document.getElementById("resume-iframe");
+
+// When the user clicks the View button, open the modal
+viewBtn.onclick = function() {
+  modal.style.display = "block";
+  // Set the source of the iframe to the URL of your resume
+  resumeIframe.src = "..static/pdf/Resume.pdf";
+}
+
+// Close modal when clicking outside the modal content
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+    resumeIframe.src = "../Resume.pdf"; // Clear iframe source
+  }
+}
+
+// Close modal when clicking on the close icon
+var closeBtn = document.createElement("span");
+closeBtn.innerHTML = "&times;"; // Cross icon symbol
+closeBtn.classList.add("close-modal");
+closeBtn.onclick = function() {
+  modal.style.display = "none";
+  resumeIframe.src = "static/pdf/Resume.pdf"; // Clear iframe source
+};
+document.getElementsByClassName("view-resume-content")[0].appendChild(closeBtn);
+
+
+
+
+
+ 
+</script>
+</body>
+</html>
