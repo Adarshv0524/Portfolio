@@ -95,7 +95,7 @@ var resumeIframe = document.getElementById("resume-iframe");
 viewBtn.onclick = function() {
   modal.style.display = "block";
   // Set the source of the iframe to the URL of your resume
-  resumeIframe.src = "../static/pdf/Resume.pdf";
+  resumeIframe.src = "https://drive.google.com/file/d/1AzlUXk1nsRXD71NXWjcpKnROnOJTDBtp/view?usp=drive_link";
 }
 
 // Close modal when clicking outside the modal content
