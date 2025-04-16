@@ -743,9 +743,10 @@ body {
         display: flex;
         justify-content: center;
     }
-    #list-details img {
+    #list-details-child img {
         height: 50vh;
         width: auto;
+        border-radius: 50%;
     }
 }
 
