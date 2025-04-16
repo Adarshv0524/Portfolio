@@ -37,7 +37,6 @@ document.addEventListener('click', function(event) {
         }
     }
 });
-
 // Resume modal functionality
 const modal = document.getElementById("resume-modal");
 const viewBtn = document.getElementById("view-btn");
@@ -49,7 +48,7 @@ document.querySelector(".view-resume-content").appendChild(closeBtn);
 
 viewBtn.onclick = function() {
     modal.style.display = "block";
-    resumeIframe.src = "https://1drv.ms/b/s!Av0WPbKOYrgLgmJ3XLSdunG9Bl9b?e=Nty1JC";
+    resumeIframe.src = "static/pdf/Resume.pdf";
     document.body.style.overflow = 'hidden';
 };
 
