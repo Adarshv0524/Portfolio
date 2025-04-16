@@ -1,123 +1,68 @@
-// Get references to the necessary elements
+
+// Hamburger menu toggle
 const topNav = document.getElementById('top-nav');
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const header = document.getElementById('header');
 const sidebar = document.querySelector('.sidebar');
 const closeIcon = document.createElement('span');
-closeIcon.innerHTML = '&times;';
+closeIcon.innerHTML = '×';
 closeIcon.classList.add('close-icon');
 
-// Add transition classes initially
-header.classList.add('transition');
-sidebar.classList.add('transition');
-
-// Add a click event listener to the hamburger menu
 hamburgerMenu.addEventListener('click', toggleSidebar);
 
-// Function to toggle the sidebar
 function toggleSidebar() {
-  // Check if the screen width is less than 768px
-  if (window.innerWidth < 768) {
-    // Toggle the display of the header and sidebar
-    header.style.display = header.style.display === 'none' ? 'block' : 'none';
-    sidebar.style.display = sidebar.style.display === 'none' ? 'block' : 'none';
-
-
-    // Add or remove the close icon
-    if (sidebar.style.display === 'block') {
-      sidebar.appendChild(closeIcon);
-      closeIcon.addEventListener('click', toggleSidebar);
-    } else {
-      closeIcon.removeEventListener('click', toggleSidebar);
-      sidebar.removeChild(closeIcon);
+    if (window.innerWidth < 768) {
+        const isHidden = header.style.display === 'none';
+        header.style.display = isHidden ? 'block' : 'none';
+        sidebar.style.display = isHidden ? 'block' : 'none';
+        if (isHidden) {
+            sidebar.appendChild(closeIcon);
+            closeIcon.addEventListener('click', toggleSidebar);
+        } else if (sidebar.contains(closeIcon)) {
+            closeIcon.removeEventListener('click', toggleSidebar);
+            sidebar.removeChild(closeIcon);
+        }
     }
-  }
 }
 
-// Add an event listener to the document for click events
 document.addEventListener('click', function(event) {
-  // Check if the screen width is less than 768px
-  if (window.innerWidth < 768) {
-    // Check if the click target is not the sidebar or its children
-    if (!sidebar.contains(event.target) && event.target !== hamburgerMenu) {
-      // Close the sidebar
-      header.style.display = 'none';
-      sidebar.style.display = 'none';
-      closeIcon.removeEventListener('click', toggleSidebar);
-      sidebar.removeChild(closeIcon);
+    if (window.innerWidth < 768 && sidebar.style.display === 'block') {
+        if (!sidebar.contains(event.target) && event.target !== hamburgerMenu) {
+            header.style.display = 'none';
+            sidebar.style.display = 'none';
+            if (sidebar.contains(closeIcon)) {
+                closeIcon.removeEventListener('click', toggleSidebar);
+                sidebar.removeChild(closeIcon);
+            }
+        }
     }
-  }
 });
 
+// Resume modal functionality
+const modal = document.getElementById("resume-modal");
+const viewBtn = document.getElementById("view-btn");
+const resumeIframe = document.getElementById("resume-iframe");
+const closeBtn = document.createElement("span");
+closeBtn.innerHTML = "×";
+closeBtn.classList.add("close-btn");
+document.querySelector(".view-resume-content").appendChild(closeBtn);
 
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-  // Initialize EmailJS with your user ID
-  emailjs.init("YOUR_USER_ID");
-
-  // Add event listener to the form submission
-  document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the form from submitting normally
-
-    // Send the email
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
-      .then(function(response) {
-        console.log('Email sent successfully', response);
-        // Optionally, display a success message to the user
-      }, function(error) {
-        console.error('Email send failed', error);
-        // Optionally, display an error message to the user
-      });
-  });
-});
-
-
-
-
-// Code for resume view and download
-
-// Get the modal
-var modal = document.getElementById("resume-modal");
-
-// Get the button that opens the modal
-var viewBtn = document.getElementById("view-btn");
-
-// Get the iframe element
-var resumeIframe = document.getElementById("resume-iframe");
-
-// When the user clicks the View button, open the modal
 viewBtn.onclick = function() {
-  modal.style.display = "block";
-  // Set the source of the iframe to the URL of your resume
-  resumeIframe.src = "https://1drv.ms/b/s!Av0WPbKOYrgLgmJ3XLSdunG9Bl9b?e=Nty1JC";
-}
-
-// Close modal when clicking outside the modal content
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-    resumeIframe.src = "https://1drv.ms/b/s!Av0WPbKOYrgLgmJ3XLSdunG9Bl9b?e=Nty1JC"; // Clear iframe source
-  }
-}
-
-// Close modal when clicking on the close icon
-var closeBtn = document.createElement("span");
-closeBtn.innerHTML = "&times;"; // Cross icon symbol
-closeBtn.classList.add("close-modal");
-closeBtn.onclick = function() {
-  modal.style.display = "none";
-  resumeIframe.src = "https://1drv.ms/b/s!Av0WPbKOYrgLgmJ3XLSdunG9Bl9b?e=Nty1JC"; // Clear iframe source
+    modal.style.display = "block";
+    resumeIframe.src = "https://1drv.ms/b/s!Av0WPbKOYrgLgmJ3XLSdunG9Bl9b?e=Nty1JC";
+    document.body.style.overflow = 'hidden';
 };
-document.getElementsByClassName("view-resume-content")[0].appendChild(closeBtn);
 
+closeBtn.onclick = function() {
+    modal.style.display = "none";
+    resumeIframe.src = "";
+    document.body.style.overflow = 'auto';
+};
 
-
-
-
- 
+window.onclick = function(event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+        resumeIframe.src = "";
+        document.body.style.overflow = 'auto';
+    }
+};
