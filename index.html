@@ -2,6 +2,14 @@
 <html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
+    <!-- Preconnect & Preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="font" href="static/fonts/UbuntuSans.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="image" href="static/assets/hero.png">
+
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Adarsh's Portfolio</title>
 
@@ -14,6 +22,26 @@
       gtag('config', 'G-H7LZ4B1PYG');
     </script>
     <!-- google analytics part end here  -->
+
+
+    <!-- SEO Meta -->
+    <meta name="description" content="Adarsh Verma’s portfolio: AI/ML student, Flutter & web developer with live GitHub feed, blog, and interactive resume.">
+    <meta name="keywords" content="Adarsh Verma, AI, Machine Learning, Flutter, Portfolio, GitHub">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Adarsh Verma – AI & ML Student">
+    <meta property="og:description" content="Explore my projects, blog posts, GitHub activity, and interactive resume.">
+    <meta property="og:image" content="https://adarshv0524.github.io/Portfolio/static/assets/og-image.png">
+    <meta property="og:url" content="https://adarshv0524.github.io/Portfolio">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@adarshv0524">
+    <meta name="twitter:title" content="Adarsh Verma – AI & ML Student">
+    <meta name="twitter:description" content="Explore my projects, blog posts, GitHub activity, and interactive resume.">
+    <meta name="twitter:image" content="https://adarshv0524.github.io/Portfolio/static/assets/og-image.png">
+
 
 
 
@@ -48,7 +76,7 @@
         </div>
         <div class="top-nav-content">
             <div id="image-container1">
-                <img src="static/assets/logo.png" alt="" class="logo-image">
+                <img src="static/assets/logo.png" alt="" class="logo-image" loading="lazy">
             </div>
             <h1 class="text-light"><a href="index.html">Adarsh Verma</a></h1>
         </div>
@@ -61,11 +89,11 @@
                 </div>
                 <h1 class="text-light"><a href="index.html">Adarsh Verma</a></h1>
                 <div class="social-links">
-                    <a href="https://www.geeksforgeeks.org/user/adarshv0524/" class="twitter"><i class="gfg"><img src="static/assets/icons/gfg.png" alt=""></i></a>
-                    <a href="https://leetcode.com/u/Adarshv0524/" class="facebook"><i class="leetcode"><img src="static/assets/icons/leetcode.svg" alt=""></i></a>
-                    <a href="https://www.instagram.com/adarshv0524/" class="instagram"><i class="instagram"><img src="static/assets/icons/instagram.svg" alt=""></i></a>
-                    <a href="https://github.com/Adarshv0524" class="github"><i class="github"><img src="static/assets/icons/github.svg" alt=""></i></a>
-                    <a href="https://www.linkedin.com/in/adarshv0524/" class="linkedin"><i class="linkedin"><img src="static/assets/icons/linkedin-in.svg" alt=""></i></a>
+                    <a href="https://www.geeksforgeeks.org/user/adarshv0524/" class="twitter"><i class="gfg"><img src="static/assets/icons/gfg.png" alt="gfg icon" loading="lazy"></i></a>
+                    <a href="https://leetcode.com/u/Adarshv0524/" class="facebook"><i class="leetcode"><img src="static/assets/icons/leetcode.svg" alt="" loading="lazy"></i></a>
+                    <a href="https://www.instagram.com/adarshv0524/" class="instagram"><i class="instagram"><img src="static/assets/icons/instagram.svg" alt="" loading="lazy"></i></a>
+                    <a href="https://github.com/Adarshv0524" class="github"><i class="github"><img src="static/assets/icons/github.svg" alt="" loading="lazy"></i></a>
+                    <a href="https://www.linkedin.com/in/adarshv0524/" class="linkedin"><i class="linkedin"><img src="static/assets/icons/linkedin-in.svg" alt="" loading="lazy"></i></a>
                 </div>
             </div>
             <nav id="navbar" class="nav-menu navbar">
@@ -99,13 +127,6 @@
                     <div class="section-heading">About Me</div>
                     <div id="descriptive-text-about-me" class="font-Ubuntu-sans">
                         I'm Adarsh Verma, currently pursuing a Bachelor's degree in Computer Science and Engineering with a focus on Artificial Intelligence and Machine Learning. Academic excellence and innovation drive me, and I'm passionate about pushing boundaries. While AI and ML are my primary interests, I also enjoy the teamwork and thrill of cricket. With a commitment to constant learning, I'm excited to make a positive impact in the tech world.
-                    </div>
-                    <!-- GitHub Activity Feed -->
-                    <div id="github-feed" class="github-feed">
-                        <h3 class="section-heading">Latest GitHub Activity</h3>
-                        <div id="github-list" class="github-list">
-                        <!-- JS will inject repo cards here -->
-                        </div>
                     </div>
                       <!-- Contributions Heatmap -->
                     <div id="github-heatmap" class="github-heatmap">
@@ -237,7 +258,7 @@
                 </div>
                 <div class="card-container">
                     <div class="card">
-                        <img src="static/assets/healtech.png" alt="HealTech: A Smart Healthcare System">
+                        <img src="static/assets/healtech.png" alt="HealTech: A Smart Healthcare System" loading="lazy">
                         <div class="card-content">
                             <h3 class="font-Kode-Mono">HealTech : Smart Healthcare</h3>
                             <p>
@@ -246,7 +267,7 @@
                         </div>
                     </div>
                     <div class="card">
-                        <img src="static/assets/Smart Health Monitor .png" alt="Smart Health Monitor">
+                        <img src="static/assets/Smart Health Monitor .png" alt="Smart Health Monitor" loading="lazy">
                         <div class="card-content">
                             <h3 class="font-Kode-Mono">Smart Health Monitor</h3>
                             <p>Uses machine learning to detect health issues early, improving healthcare with personalized insights based on user data.</p>
@@ -254,7 +275,7 @@
                         </div>
                     </div>
                     <div class="card">
-                        <img src="static/assets/smart-select.jpg" alt="Smart Select">
+                        <img src="static/assets/smart-select.jpg" alt="Smart Select" loading="lazy">
                         <div class="card-content">
                             <h3 class="font-Kode-Mono">Smart Select</h3>
                             <p>Analyzes over 400,000 Amazon reviews to recommend smartphones based on sentiment scores and user feedback.</p>
@@ -262,7 +283,7 @@
                         </div>
                     </div>
                     <div class="card">
-                        <img src="static/assets/microprojects.png" alt="Adarsh' microprojects">
+                        <img src="static/assets/microprojects.png" alt="Adarsh' microprojects" loading="lazy">
                         <div class="card-content">
                             <h3 class="font-Kode-Mono">MicroProjects</h3>
                             <p>Just a collections of my experiments , there's a lot to update into this.</p>
@@ -329,34 +350,54 @@
                     <div id="contact-page-content"></div>
                     <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
                         <input type="hidden" name="access_key" value="670e8def-ef66-4ef4-a216-73bef4f75606">
+                        
+                        <!-- Honeypot field (invisible to humans, deters bots) -->
+                        <div style="display:none;">
+                            <label>Leave this empty:</label>
+                            <input type="text" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+
+
                         <div>
                             <label for="name">Name:</label>
                             <input type="text" id="name" name="name" required>
+                            <small class="error" id="error-name"></small>
                         </div>
                         <div>
                             <label for="email">Email:</label>
                             <input type="email" id="email" name="email" required>
+                            <small class="error" id="error-email"></small>
                         </div>
                         <div>
                             <label for="contact">Contact:</label>
                             <input type="tel" id="contact" name="contact">
+                            <small class="error" id="error-contact"></small>
                         </div>
                         <div>
                             <label for="message">Message:</label>
                             <textarea id="message" name="message" rows="4" required></textarea>
+                            <small class="error" id="error-message"></small>
                         </div>
                         <div>
                             <button type="submit">Send Message</button>
                         </div>
                     </form>
+                    <!-- Success Modal -->
+                    <div id="success-modal" class="modal-overlay">
+                    <div class="modal-content">
+                        <p>✅ Your message has been sent!</p>
+                        <button id="modal-close">Close</button>
+                    </div>
+                    </div>
+
                 </div>
             </section>
         </section>
         <section class="footer" id="footer">
             <section class="footer-container">
-                <div class="credits"><img src="static/assets/icons/om.png" alt="om" style="height:20px"></div>
+                <div class="credits"><img src="static/assets/icons/om.png" alt="om" style="height:20px" loading="lazy"></div>
                 <div class="credits" style="padding-top:1px"><a href="https://en.wikipedia.org/wiki/San%C4%81tan%C4%AB">जय श्री राम</a></div>
-                <div class="credits"><img src="static/assets/icons/swastika.png" alt="swastika" style="height:20px"></div>
+                <div class="credits"><img src="static/assets/icons/swastika.png" alt="swastika" style="height:20px" loading="lazy"></div>
             </section>
         </section>
     </main>

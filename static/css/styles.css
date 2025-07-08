@@ -1,4 +1,12 @@
-  /* Root variables for consistent theming */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+
+
+/* Root variables for consistent theming */
   :root {
     --primary-color: #040b14;
     --secondary-color: #7b4990;
@@ -83,6 +91,7 @@ body {
     transition: all ease-in-out 0.5s;
     height: 100%;
     background-color: var(--primary-color);
+    z-index: 100;
 }
 
 .sidebar {
@@ -181,6 +190,8 @@ body {
 
 .navbar {
     display: flex;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .social-links {
@@ -216,7 +227,7 @@ body {
 
 /* Hero Section */
 #hero {
-    background: url(../assets/hero.png) top center fixed;
+    background: url("../assets/hero.png");
     padding: 20px;
     width: calc(100% - 300px);
     margin-left: 300px;
@@ -224,7 +235,9 @@ body {
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
+    perspective: 1px;
 }
+
 
 .container {
     display: flex;
@@ -851,8 +864,8 @@ body {
 /* Media Queries */
 @media screen and (min-height: 768px) {
     #hero {
-        background: url("assets/hero-background 1.png") center center fixed;
-        padding-right: 0;
+        background-image: url("../assets/hero.png");        padding-right: 0;
+        background-attachment: fixed;
         width: calc(100% - 300px);
         margin-left: 0;
         height: 100vh;
@@ -1024,92 +1037,95 @@ body {
   background-color: var(--accent-color);
 }
 
-/* github-feed.css */
 
-/* 1. Container & Heading */
-.github-feed {
-  margin-top: 2rem;
-  background: var(--bg-card);
+
+/* 5. GitHub Heatmap Container */
+.github-heatmap {
+  margin-top: 2.5rem;
   padding: 1.5rem;
+  background: var(--background-color);
   border-radius: 0.75rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden; /* prevent scroll bars */
+  width: 100vw;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Heatmap Image */
+.github-heatmap img {
+  width: 95vw;
+  max-width: 900px;
+  height: auto;
+  display: block;
+
+  user-select: none;
+  pointer-events: none;
+
+  border-radius: 0.4rem;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+
+
+
+
+/* contact-form.css */
+
+/* 1. Error messages */
+#error-name,
+#error-email,
+#error-contact,
+#error-message {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  visibility: hidden;
+  margin-top: 0.25rem;
+}
+
+/* 2. Honeypot - hide completely */
+input[name="website"] {
+  display: none;
+}
+
+/* 3. Success Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;             /* hidden by default */
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+.modal-overlay.active {
+  display: flex;
+}
+.modal-content {
+  background: var(--bg-card);
+  color: var(--text-color);
+  padding: 2rem;
+  border-radius: 0.75rem;
+  text-align: center;
   box-shadow: var(--shadow);
 }
-.github-feed .section-heading {
-  margin-bottom: 1rem;
-  font-size: 1.6rem;
-  color: var(--secondary-color);
+.modal-content p {
+  margin-bottom: 1.25rem;
 }
-
-/* 2. Repo Grid */
-.github-list {
-  display: grid;
-  gap: 1rem;
-  /* auto-fit: fill as many 240px columns as will fit */
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-
-/* 3. Repo Card */
-.github-repo {
-  background: var(--background-color);
-  padding: 1rem;
+.modal-content button {
+  padding: 0.5rem 1rem;
+  background: var(--secondary-color);
+  color: #fff;
+  border: none;
   border-radius: 0.5rem;
-  border-left: 4px solid var(--accent-color);
-  transition: transform var(--transition-speed);
+  cursor: pointer;
+  transition: background var(--transition-speed);
 }
-.github-repo:hover {
-  transform: translateY(-4px);
-}
-.github-repo h4 {
-  margin: 0 0 0.5rem;
-  font-size: 1.1rem;
-  color: var(--primary-color);
-}
-.github-repo p {
-  margin: 0.3rem 0;
-  font-size: 0.9rem;
-  color: var(--text-color);
-}
-.github-repo a {
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  color: var(--accent-color);
-  text-decoration: none;
-  border-bottom: 1px dashed var(--accent-color);
-}
-.github-repo a:hover {
-  border-bottom-style: solid;
+.modal-content button:hover {
+  background: var(--accent-color);
 }
 
-/* 4. Heatmap Container */
-.github-heatmap {
-  margin-top: 2rem;
-  text-align: center;
-  background: var(--background-color);
-  padding: 1rem;
-  border-radius: 0.5rem;
-  overflow-x: auto;
-}
-.github-heatmap img {
-  /* let the heatmap scroll horizontally on small screens */
-  max-width: none;
-  width: 100%;
-  height: auto;
-  display: inline-block;
-}
 
-/* 5. Mobile‑first tweaks */
-@media (max-width: 600px) {
-  .github-feed {
-    padding: 1rem;
-  }
-  .github-feed .section-heading {
-    font-size: 1.4rem;
-  }
-  .github-repo {
-    padding: 0.75rem;
-  }
-  .github-repo h4 {
-    font-size: 1rem;
-  }
-}

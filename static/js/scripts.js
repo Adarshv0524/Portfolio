@@ -65,5 +65,67 @@ window.onclick = (e) => {
 
 
 
-// enhancements
+// contact-form.js
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contact-form');
+  const modal = document.getElementById('success-modal');
+  const closeBtn = document.getElementById('modal-close');
+
+  // Simple live validation
+  const fields = ['name','email','contact','message'];
+  fields.forEach(id => {
+    const el = document.getElementById(id);
+    el.addEventListener('input', () => {
+      const err = document.getElementById(`error-${id}`);
+      if (el.validity.valid) {
+        err.textContent = '';
+        err.style.visibility = 'hidden';
+      } else {
+        err.textContent = el.validationMessage;
+        err.style.visibility = 'visible';
+      }
+    });
+  });
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    // Check honeypot
+    if (form.website.value) return; // spam – silently drop
+
+    // Quick final validity check
+    if (!form.checkValidity()) {
+      fields.forEach(id => document.getElementById(id).dispatchEvent(new Event('input')));
+      return;
+    }
+
+    // Collect form data
+    const data = new FormData(form);
+    const payload = Object.fromEntries(data.entries());
+
+    try {
+      // Post to Web3Forms
+      const res = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) {
+        modal.classList.add('active');
+        form.reset();
+      } else {
+        alert('Submission failed. Please try again.');
+      }
+    } catch {
+      alert('Network error. Please try later.');
+    }
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.classList.remove('active');
+  });
+});
+
+
+
+
 
