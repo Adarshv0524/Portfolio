@@ -1039,36 +1039,106 @@ body {
 
 
 
-/* 5. GitHub Heatmap Container */
+/* Enhanced GitHub Heatmap Container */
 .github-heatmap {
   margin-top: 2.5rem;
   padding: 1.5rem;
-  background: var(--background-color);
-  border-radius: 0.75rem;
-
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  overflow: hidden; /* prevent scroll bars */
-  width: 100vw;
+  overflow: hidden;
+  width: 90vw;
   max-width: 100%;
   box-sizing: border-box;
+  position: relative;
+
+  backdrop-filter: blur(14px) saturate(120%);
+  box-shadow: 0 0 36px rgba(0, 255, 255, 0.15),
+              inset 0 0 12px rgba(0, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.4s ease;
+  transform-style: preserve-3d;
+}
+
+.github-heatmap::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0,255,255,0.04),
+    rgba(0,255,255,0.04) 1px,
+    transparent 2px,
+    transparent 6px
+  );
+  z-index: 1;
+  animation: gridShift 15s linear infinite;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  opacity: 0.8;
+}
+
+.github-heatmap::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 255, 255, 0.05) 0%,
+    transparent 70%
+  );
+  animation: pulseGlow 10s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes gridShift {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.25;
+  }
+}
+
+.github-heatmap:hover {
+  transform: scale(1.025) rotateX(1.5deg);
+  box-shadow: 0 0 48px rgba(0, 255, 255, 0.25);
 }
 
 /* Heatmap Image */
 .github-heatmap img {
-  width: 95vw;
-  max-width: 900px;
+  width: 90vw;
+  max-width: 70vw;
   height: auto;
   display: block;
-
+  z-index: 2;
+  border-radius: 0.6rem;
+  filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.1));
   user-select: none;
   pointer-events: none;
-
-  border-radius: 0.4rem;
-  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
 }
+
+.github-heatmap:hover img {
+  transform: scale(1.01);
+}
+
+
 
 
 
