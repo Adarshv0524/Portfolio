@@ -1,0 +1,42 @@
+/* static/css/theme-toggle.css */
+
+/* theme-toggle.css */
+
+/* Light is your default; no changes needed */
+
+:root[data-theme="dark"] {
+  --primary-color:      #1e1e2f !important;
+  --secondary-color:    #2e2e3f !important;
+  --accent-color:       #ffb86c !important;
+  --background-color:   #121212 !important;
+  --bg-card:            #1f1f1f !important;
+  --text-color:         #e0e0e0 !important;
+  --btn-bg:             #44475a !important;
+  --btn-bg-hover:       #6272a4 !important;
+  /* …and any other var you reference in your main styles… */
+}
+
+/* Apply theme */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Example usage for button or link colors */
+a, .btn-primary {
+  color: var(--accent);
+}
+
+/* Toggle Button UI */
+#theme-toggle {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: var(--accent);
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 9999;
+}

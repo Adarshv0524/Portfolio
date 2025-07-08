@@ -1,0 +1,18 @@
+/* sticky-cta.css */
+.sticky-cta {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 12px 20px;
+  background: var(--secondary-color);
+  color: var(--btn-color);
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: var(--shadow-hover);
+  transition: transform 0.2s ease;
+}
+.sticky-cta:hover {
+  transform: translateY(-3px);
+}

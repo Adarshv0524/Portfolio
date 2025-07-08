@@ -1,0 +1,109 @@
+/* resume.css */
+
+/* 1. Container & Background */
+#resume-html {
+  padding: 3rem;
+  background: linear-gradient(135deg, rgba(4,11,20,0.9), rgba(32,14,14,0.9)) fixed;
+  color: var(--text-color);
+  font-family: 'Ubuntu Sans', sans-serif;
+}
+
+/* 2. Grid Layout */
+.resume-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2.5rem;
+}
+@media (max-width: 900px) {
+  .resume-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 3. Column Panels */
+.resume-col {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 1rem;
+  backdrop-filter: blur(12px);
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.8);
+  transition: transform 0.3s;
+}
+.resume-col:hover {
+  transform: translateY(-5px);
+}
+
+/* 4. Headings */
+.resume-col h2 {
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent-color);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
+.resume-col h3 {
+  font-size: 1.6rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid var(--accent-color);
+  color: #fff;
+}
+.resume-col h4 {
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  color: var(--secondary-color);
+  letter-spacing: 0.5px;
+}
+
+/* 5. Lists & Paragraphs */
+.resume-col ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.5rem 0 1.2rem 0;
+}
+.resume-col ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.4;
+}
+.resume-col ul li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+}
+.resume-col p {
+  margin: 0.6rem 0;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.9);
+}
+
+/* 6. Links Styling */
+.resume-col a {
+  color: var(--accent-color);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--accent-color);
+}
+.resume-col a:hover {
+  color: #fff;
+  border-bottom-style: solid;
+}
+
+/* 7. Accent Bar on Left Column */
+.resume-col:first-child {
+  border-left: 4px solid var(--accent-color);
+}
+
+/* 8. Subtle Neon Glow */
+#resume-html {
+  box-shadow: inset 0 0 100px rgba(0,0,0,0.8), 0 0 30px rgba(255,255,255,0.1);
+}
+
+/* 9. Font Mix */
+.resume-col h2,
+.resume-col h3,
+.resume-col h4 {
+  font-family: 'Jura', sans-serif;
+}

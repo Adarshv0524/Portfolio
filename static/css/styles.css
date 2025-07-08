@@ -281,7 +281,7 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
-    background: url(../assets/bg.png) fixed;
+    /* background: url(../assets/bg.png) fixed; */
     scroll-behavior: smooth;
 }
 

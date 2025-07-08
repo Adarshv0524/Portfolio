@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,8 +23,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&family=Gotu&family=Kode+Mono:wght@400..700&family=Ojuju:wght@200..800&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway+Dots&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="static/css/progress-bar.css">
+    <link rel="stylesheet" href="static/css/sticky-cta.css">
+    <link rel="stylesheet" href="static/css/resume.css">
+    <link rel="stylesheet" href="static/css/theme-toggle.css">
+
+
+
+
 </head>
 <body>
+
+    <!-- Theme toggle -->
+   <button id="theme-toggle" aria-label="Toggle theme">🌓</button>
+
+    <div id="scroll-progress"></div>
+
     <section id="top-nav">
         <div class="hamburger-menu">
             <span class="bar"></span>
@@ -124,11 +139,74 @@
                         Welcome to a detailed look at my career journey in technology. This portfolio documents my academic and professional accomplishments, emphasizing the skills and experiences I’ve gained. I aim to provide a comprehensive view of my abilities and aspirations.
                     </span>
                     <div class="resume-options">
-                        <button id="view-btn" aria-label="View Resume">View Resume</button>
+                        <button id="view-btn" data-resume-src="static/pdf/Resume.pdf" aria-label="View Resume">View Resume</button>
                     </div>
                     <div id="resume-modal" class="view-resume">
                         <div class="view-resume-content">
-                            <iframe id="resume-iframe" src="static/pdf/Resume.pdf" frameborder="0"></iframe>
+>                           <section>
+                                <div id="resume-html">
+                                <div class="resume-grid">
+
+                                <!-- Left column: Contact & Education -->
+                                <div class="resume-col">
+                                <h2>Adarsh Kumar Verma</h2>
+                                <p>+91 8601928554 | adarshverma0524@gmail.com</p>
+                                <p><a href="https://linkedin.com/in/adarshv0524">linkedin.com/in/adarshv0524</a> | <a href="https://adarshv0524.github.io/Portfolio">adarshv0524.github.io/Portfolio</a></p>
+
+                                <h3>Education</h3>
+                                <ul>
+                                    <li><strong>VIT Bhopal University</strong>, B.Tech CSE (AIML) — Sep 2022 – 2026  
+                                        <br>GPA 8.44/10.0</li>
+                                    <li><strong>D.P. Public School</strong>, Intermediate — 92%  
+                                        <br>Prayagraj, UP</li>
+                                    <li><strong>Little Flower School</strong>, High School — 91%  
+                                        <br>Harraiya, UP</li>
+                                </ul>
+                                </div>
+
+                                <!-- Right column: Projects, Skills, Leadership, Achievements, Certs -->
+                                <div class="resume-col">
+                                <h3>Projects</h3>
+                                <h4>HEALTECH</h4>
+                                <ul>
+                                    <li>Reduced patient travel time by 62% via AI‑driven remote diagnostics…</li>
+                                    <li>Built Flask+SQL backend handling 100+ concurrent requests (99.8% uptime).</li>
+                                    <li>Secured data with OAuth 2.0 &amp; HTTPS, unified medical history tracking.</li>
+                                </ul>
+
+                                <h4>SMART‑SELECT</h4>
+                                <ul>
+                                    <li>Sentiment‑analysis engine on 400K reviews, 92% accuracy → +40% satisfaction.</li>
+                                    <li>Flask web UI filtering in <150 ms per query for real‑time engagement.</li>
+                                </ul>
+
+                                <h3>Skills</h3>
+                                <p><strong>Technical:</strong> Python, Flutter, Java, Flask, TensorFlow, PyTorch, NLP, CV, GenAI, Firebase, MySQL, HTML, CSS, JavaScript, Node.js, Git<br>
+                                    <strong>Non‑Tech:</strong> Figma, UI/UX, MS Suite, OBS</p>
+                                <p><strong>Languages:</strong> English (fluent), Hindi (native)</p>
+
+                                <h3>Leadership &amp; Responsibilities</h3>
+                                <p><strong>Project Lead</strong> — Managed 5‑person research team, delivered on time…</p>
+                                <p><strong>Android Dev Club Member</strong> — Built CGPA calculator UI in Flutter, 4.8★ first‑month rating.</p>
+
+                                <h3>Achievements</h3>
+                                <ul>
+                                    <li>University finalist, Smart India Hackathon (200+ teams).</li>
+                                    <li>Deployed personal Flutter app—end‑to‑end.</li>
+                                </ul>
+
+                                <h3>Certifications</h3>
+                                <ul>
+                                    <li>CINE‑CDAC ML Workshop — 30 hrs, fine‑tuned GPT‑2, +30% dev speed.</li>
+                                    <li>IBM AI Engineering Specialization (Coursera)</li>
+                                    <li>ML Specialization (Stanford &amp; DeepLearning.AI)</li>
+                                </ul>
+                                </div>
+
+                            </div>
+                            </div>
+
+                            </section>
                         </div>
                     </div>
                 </div>
@@ -270,7 +348,19 @@
           "https://www.linkedin.com/in/adarshv0524/"
         ]
       }
-      </script>
+    </script>
+
+    <script src="static/js/theme-toggle.js"></script>
+    <script src="static/js/progress-bar.js"></script>
+
+
+    <button id="download-resume" class="sticky-cta">Download Resume</button>
+    <script>
+    document.getElementById('download-resume').addEventListener('click', () => {
+        const src = document.getElementById('view-btn').dataset.resumeSrc;
+        window.open(src, '_blank');
+    });
+    </script>
 
   </body>
 </html>
