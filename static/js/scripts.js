@@ -37,35 +37,31 @@ document.addEventListener('click', function(event) {
         }
     }
 });
+
+
 // Resume modal functionality
+// In static/js/scripts.js (or wherever you handle the modal):
 const modal = document.getElementById("resume-modal");
 const viewBtn = document.getElementById("view-btn");
-const resumeIframe = document.getElementById("resume-iframe");
-const closeBtn = document.createElement("span");
-closeBtn.innerHTML = "×";
-closeBtn.classList.add("close-btn");
-document.querySelector(".view-resume-content").appendChild(closeBtn);
+const closeBtn = document.querySelector(".close-btn");
 
-viewBtn.onclick = function() {
-    modal.style.display = "block";
-    resumeIframe.src = "static/pdf/Resume.pdf";
-    document.body.style.overflow = 'hidden';
+// show
+viewBtn.onclick = () => {
+  modal.style.display = "block";
+  document.body.style.overflow = "hidden"; // prevent background scroll
 };
 
-closeBtn.onclick = function() {
+// hide
+closeBtn.onclick = () => {
+  modal.style.display = "none";
+  document.body.style.overflow = "auto";
+};
+window.onclick = (e) => {
+  if (e.target === modal) {
     modal.style.display = "none";
-    resumeIframe.src = "";
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = "auto";
+  }
 };
-
-window.onclick = function(event) {
-    if (event.target === modal) {
-        modal.style.display = "none";
-        resumeIframe.src = "";
-        document.body.style.overflow = 'auto';
-    }
-};
-
 
 
 

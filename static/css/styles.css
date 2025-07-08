@@ -281,7 +281,7 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
-    /* background: url(../assets/bg.png) fixed; */
+    background: url(../assets/bg.png) fixed;
     scroll-behavior: smooth;
 }
 
@@ -778,8 +778,9 @@ body {
 /* Resume Modal */
 .view-resume {
     display: none;
-    position: fixed;
     z-index: 1000;
+    position: fixed;
+    inset: 0;
     left: 0;
     top: 0;
     width: 100%;
@@ -787,6 +788,7 @@ body {
     background-color: rgba(240,240,240,0.9);
     backdrop-filter: blur(1px);
     animation: fadeInModal 0.5s ease forwards;
+    overflow: hidden;
 }
 
 @keyframes fadeInModal {
@@ -795,6 +797,7 @@ body {
 }
 
 .view-resume-content {
+
     background-color: #dba7a7;
     margin: 5% auto;
     padding: 0;
@@ -802,10 +805,11 @@ body {
     width: 70%;
     max-width: 1000px;
     height: 90vh;
-    border-radius: 25px;
+    border-radius: 1rem;
     box-shadow: 0 0 40px rgba(0,0,0,0.4);
     animation: modalEnter 0.5s ease-out;
     position: relative;
+    overflow-y: auto;
 }
 
 @keyframes modalEnter {
