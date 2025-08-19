@@ -25,9 +25,7 @@ body {
     display: none;
     transition: left 1s ease;
 }
-.sidebar{
 
-}
 
 #image-container{
     display: inline-block;
@@ -370,30 +368,29 @@ body {
     animation: flowAnimation 2s infinite alternate;
     }
     
-    .logo-image{
+.logo-image{
     display: block;
     height: auto;
-    
     }
 
-    .top-nav-content h1 {
+.top-nav-content h1 {
     font-size: 14px;
     padding-right: 5px;
     font-family: "Poppins", sans-serif;
     }
     
-    .top-nav-content h1 a{
+.top-nav-content h1 a{
     color: #643838;
     text-decoration: none;
     }
     
-    .top-nav-content h1 a:hover {
+.top-nav-content h1 a:hover {
     color: #361089;
     text-decoration: none;
     }
 
 
-    #footer{
+    /* #footer{
     position: relative;
     width: 100%;
     background-color: #72706e;
@@ -401,9 +398,7 @@ body {
     }
     .footer-container{
     justify-content: center;
-    }
-
-
+    } */
 
 
 
