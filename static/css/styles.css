@@ -236,6 +236,7 @@ body {
     display: flex;
     flex-direction: column;
     perspective: 1px;
+    position: fixed;
 }
 
 
@@ -800,8 +801,8 @@ body {
     color: #e0e0e0;
     text-align: center;
     font-size: 0.9rem;
-    width: calc(100% - 300px);
-    margin-left: 300px;
+    width: calc(100%);
+
 }
 
 /* Alien Dust and Particle Effect */
@@ -1027,13 +1028,14 @@ body {
 /* Media Queries */
 @media screen and (min-height: 768px) {
     #hero {
-        background-image: url("../assets/hero.png");        padding-right: 0;
+        background-image: url("../assets/hero.png");        
         background-attachment: fixed;
         width: calc(100% - 300px);
         height: 100vh;
         background-repeat: no-repeat;
         display: flex;
         flex-direction: column;
+        position: relative;
     }
 }
 
@@ -1066,6 +1068,7 @@ body {
         margin-left: auto;
         margin-right: auto;
     }
+    
 }
 
 @media screen and (max-width: 768px) {
