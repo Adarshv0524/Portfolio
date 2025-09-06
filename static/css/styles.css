@@ -236,7 +236,7 @@ body {
     display: flex;
     flex-direction: column;
     perspective: 1px;
-    position: fixed;
+    position: relative;
 }
 
 
