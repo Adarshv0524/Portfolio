@@ -12,6 +12,9 @@
   cursor: pointer;
   box-shadow: var(--shadow-hover);
   transition: transform 0.2s ease;
+  z-index: 10000; /* Ensure it's above all other elements including modals */
+  font-family: var(--font-primary);
+  font-weight: 600;
 }
 .sticky-cta:hover {
   transform: translateY(-3px);

@@ -4,8 +4,9 @@
   top: 0;
   left: 0;
   height: 4px;
-  background: var(--accent-color);
+  background: var(--accent-primary, #003366);
   width: 0%;
   z-index: 9999;
   transition: width 0.1s ease-out;
+  box-shadow: 0 0 10px rgba(65, 105, 225, 0.3);
 }

@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Adarsh Verma - Portfolio</title>
+    
     <!-- Preconnect & Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="font" href="static/fonts/UbuntuSans.woff2" type="font/woff2" crossorigin>
-    <link rel="preload" as="image" href="static/assets/hero.png">
-
-
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Adarsh's Portfolio</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/assets/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/assets/logo.png">
+    <link rel="shortcut icon" type="image/x-icon" href="static/assets/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/assets/logo.png">
+    <meta name="theme-color" content="#7b4990">
 
     <!-- for google analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
@@ -52,12 +56,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Jura:wght@600&family=Protest+Revolution&family=Protest+Riot&family=Shantell+Sans:ital,wght,INFM@0,362,46;1,362,46&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&family=Gotu&family=Kode+Mono:wght@400..700&family=Ojuju:wght@200..800&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway+Dots&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&family=Gotu&family=Kode+Mono:wght@400..700&family=Ojuju:wght@200..800&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway+Dots&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="static/css/progress-bar.css">
     <link rel="stylesheet" href="static/css/sticky-cta.css">
     <link rel="stylesheet" href="static/css/resume.css">
-    <link rel="stylesheet" href="static/css/theme-toggle.css">
 
 
 
@@ -102,7 +105,7 @@
                     <li><a href="#resume" class="nav-link"><i class="resumek"><span class="material-symbols-outlined">description</span></i><span>Resume</span></a></li>
                     <li><a href="#my-projects" class="nav-link"><i class="bx bx-user"><span class="material-symbols-outlined">link</span></i><span>My Projects</span></a></li>
                     <li><a href="#skills" class="nav-link"><i><span class="material-symbols-outlined">laptop</span></i><span>Skills</span></a></li>
-                    <li><a href="#contact" class="nav-link"><i class="envelope"><span class="material-symbols-outlined">contact_page</span></i><span>Contact</span></a></li>
+                    <li><a href="#contact-pages" class="nav-link"><i class="envelope"><span class="material-symbols-outlined">contact_page</span></i><span>Contact</span></a></li>
                 </ul>
             </nav>
 
@@ -118,292 +121,622 @@
         </div>
     </header>
     <section id="hero">
-        <div class="container">
-            <div class="content">
-                <h1 class="title">Adarsh Verma</h1>
-                <p class="description">I'm a Student</p>
-                <div class="buttons">
-                    <a href="templates/cta.html" class="button" id="hireMe">Hire Me</a>
-                    <a href="templates/ctafreelance.html" class="button" id="freelanceOffer">Freelance Offer</a>
-                </div>
+        <!-- Monogram Section -->
+        <div class="hero-monogram">
+            <div class="monogram-letters">
+                <span class="letter-a">A</span>
+                <span class="letter-v">V</span>
+            </div>
+        </div>
+
+        <!-- Content Section -->
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-name">
+                    <span class="name-rotator">
+                        <span class="name-item active">Adarsh Verma</span>
+                        <span class="name-item">𑂄𑂠𑂩𑂹𑂬 𑂫𑂩𑂹𑂧𑂰</span>
+                    </span>
+                </h1>
+                <p class="hero-tagline">Student & Aspiring Developer</p>
+                <p class="hero-expertise">Computer Science | Machine Learning | Web Development</p>
+            </div>
+            
+            <div class="hero-buttons">
+                <a href="#my-projects" class="btn-primary">View My Work</a>
+                <a href="#about-me" class="btn-secondary">About Me</a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-chevron">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M7 13l3 3 3-3"/>
+                    <path d="M7 6l3 3 3-3"/>
+                </svg>
             </div>
         </div>
     </section>
     <main id="main-content">
         <section class="content-section">
             <section id="about-me" class="about-me">
-                <div id="section-title">
-                    <div class="section-heading">About Me</div>
-                    <div id="descriptive-text-about-me" class="font-Ubuntu-sans">
-                        I'm Adarsh Verma, currently pursuing a Bachelor's degree in Computer Science and Engineering with a focus on Artificial Intelligence and Machine Learning. Academic excellence and innovation drive me, and I'm passionate about pushing boundaries. While AI and ML are my primary interests, I also enjoy the teamwork and thrill of cricket. With a commitment to constant learning, I'm excited to make a positive impact in the tech world.
-                    </div>
-                      <!-- Contributions Heatmap -->
-                    <div id="github-heatmap" class="github-heatmap">
-                        <h4>GitHub Contributions</h4>
-                        <img
-                        src="https://ghchart.rshah.org/Adarshv0524"
-                        alt="GitHub contributions chart for Adarshv0524"
-                        >
+                <div class="about-container">
+                    <div class="about-header">
+                        <div class="section-heading">About Me</div>
+                        <div class="about-subtitle">Passionate AI/ML Developer & Tech Innovator</div>
                     </div>
 
-
-
-                </div>
-                <div id="list-details">
-                    <section class="list-details-child">
-                        <img src="static/assets/my_photo.jpeg" alt="Adarsh Verma" loading="lazy">
-                    </section>
-                    <section id="listing-details" class="list-details-child">
-                        <p>Senior at VIT-B</p>
-                        <div class="font-Ubuntu-sans">Pursuing BTech</div>
-                        <div id="grouping-li" class="font-Ubuntu-sans">
-                            <div>
-                                <ul>
-                                    <li><strong>Birthday:</strong> 3rd March 2004</li>
-                                    <li><strong>City:</strong> Ayodhya</li>
-                                    <li><strong>Languages:</strong> English, Hindi, Awadhi</li>
-                                    <li><strong>Interests:</strong> AI, ML, Web Dev</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <ul>
-                                    <li><strong>Age:</strong> 22</li>
-                                    <li><strong>Email:</strong> adarshv2405@gmail.com</li>
-                                    <li><strong>Degree:</strong> Computer Science Engineering(Specialization in AIML)</li>
-                                    <li><strong>Freelance:</strong> Available</li>
-                                </ul>
+                    <div class="about-content">
+                        <!-- Profile Image with Stylish Frame -->
+                        <div class="about-image-container">
+                            <div class="image-frame">
+                                <div class="frame-decoration"></div>
+                                <img src="static/assets/my_photo.jpeg" alt="Adarsh Verma" class="profile-image" loading="lazy">
+                                <div class="frame-overlay"></div>
                             </div>
                         </div>
-                        <div class="about-post-content font-Ubuntu-sans">
-                            I have previously worked on a project that integrates Artificial Intelligence, Machine Learning, and Web Development to create innovative solutions.
+
+                        <!-- About Info Cards -->
+                        <div class="about-info">
+                            <div class="about-intro-card">
+                                <div class="intro-text">
+                                    I'm Adarsh Verma, currently pursuing a Bachelor's degree in Computer Science and Engineering with a focus on Artificial Intelligence and Machine Learning. Academic excellence and innovation drive me, and I'm passionate about pushing boundaries. While my primary interests lie in AI and ML, I also enjoy the teamwork and thrill of cricket. With a commitment to constant learning, I'm excited to make a positive impact in the tech world.
+                                </div>
+                            </div>
+
+                            <div class="about-details-grid">
+                                <div class="detail-card">
+                                    <div class="card-header">
+                                        <h3>Personal Info</h3>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="detail-item">
+                                            <span class="detail-label">Full Name</span>
+                                            <span class="detail-value">Adarsh Verma</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Age</span>
+                                            <span class="detail-value">20</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Birthday</span>
+                                            <span class="detail-value">3rd March 2004</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Location</span>
+                                            <span class="detail-value">Ayodhya, India</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="detail-card">
+                                    <div class="card-header">
+                                        <h3>Academic & Professional</h3>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="detail-item">
+                                            <span class="detail-label">University</span>
+                                            <span class="detail-value">VIT-B (Senior)</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Degree</span>
+                                            <span class="detail-value">BTech CSE (AI/ML)</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Email</span>
+                                            <span class="detail-value">adarshv2405@gmail.com</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Freelance</span>
+                                            <span class="detail-value status-available">Available</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="detail-card full-width">
+                                    <div class="card-header">
+                                        <h3>Interests & Languages</h3>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="interests-section">
+                                            <div class="interests-group">
+                                                <strong>Primary Interests:</strong>
+                                                <div class="interest-tags">
+                                                    <span class="interest-tag">AI/ML Research</span>
+                                                    <span class="interest-tag">Problem Solving</span>
+                                                    <span class="interest-tag">Innovation</span>
+                                                    <span class="interest-tag">Cricket</span>
+                                                </div>
+                                            </div>
+                                            <div class="languages-group">
+                                                <strong>Languages:</strong> English, Hindi, Awadhi
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="about-quote-card">
+                                <div class="quote-text">
+                                    "I have previously worked on a project that integrates Artificial Intelligence, Machine Learning, and Web Development to create innovative solutions."
+                                </div>
+                            </div>
                         </div>
-                    </section>
+                    </div>
                 </div>
             </section>
-            <section id="resume" class="resume">
-                <div id="section-title">
-                    <div class="section-heading">Resume</div>
-                    <span id="resume-descreption" class="font-Ubuntu-sans">
-                        Welcome to a detailed look at my career journey in technology. This portfolio documents my academic and professional accomplishments, emphasizing the skills and experiences I’ve gained. I aim to provide a comprehensive view of my abilities and aspirations.
-                    </span>
-                    <div class="resume-options">
-                        <button id="view-btn" data-resume-src="static/pdf/ada_res.pdf" aria-label="View Resume">View Resume</button>
+
+            <section id="my-projects" class="projects">
+                <div class="projects-container">
+                    <div class="projects-header">
+                        <div class="section-heading">Featured Projects</div>
+                        <p class="projects-subtitle">A timeline of innovative solutions</p>
                     </div>
-                    <div id="resume-modal" class="view-resume">
-                        <div class="view-resume-content">
-                                <button class="close-btn" aria-label="Close Resume">&times;</button>
-                                <div id="resume-html">
-                                <div class="resume-grid">
 
-                                <!-- Left column: Contact & Education -->
-                                <div class="resume-col">
-                                <h2>Adarsh Kumar Verma</h2>
-                                <p>+91 8601928554 | adarshverma0524@gmail.com</p>
-                                <p><a href="https://linkedin.com/in/adarshv0524">linkedin.com/in/adarshv0524</a> | <a href="https://adarshv0524.github.io/Portfolio">adarshv0524.github.io/Portfolio</a></p>
+                    <div class="projects-timeline">
+                        <div class="timeline-track">
+                            <div class="timeline-progress"></div>
+                            <div class="timeline-glow"></div>
+                        </div>
 
-                                <h3>Education</h3>
-                                <ul>
-                                    <li><strong>VIT Bhopal University</strong>, B.Tech CSE (AIML) — Sep 2022 – 2026  
-                                        <br>GPA 8.44/10.0</li>
-                                    <li><strong>D.P. Public School</strong>, Intermediate — 92%  
-                                        <br>Prayagraj, UP</li>
-                                    <li><strong>Little Flower School</strong>, High School — 91%  
-                                        <br>Harraiya, UP</li>
-                                </ul>
+                        <div class="project-node featured" data-year="2024">
+                            <div class="node-connector"></div>
+                            <div class="project-morph-card">
+                                <div class="project-avatar">
+                                    <img src="static/assets/lumina.png" alt="Lumina" loading="lazy">
                                 </div>
-
-                                <!-- Right column: Projects, Skills, Leadership, Achievements, Certs -->
-                                <div class="resume-col">
-                                <h3>Projects</h3>
-                                <h4>HEALTECH</h4>
-                                <ul>
-                                    <li>Reduced patient travel time by 62% via AI‑driven remote diagnostics…</li>
-                                    <li>Built Flask+SQL backend handling 100+ concurrent requests (99.8% uptime).</li>
-                                    <li>Secured data with OAuth 2.0 &amp; HTTPS, unified medical history tracking.</li>
-                                </ul>
-
-                                <h4>SMART‑SELECT</h4>
-                                <ul>
-                                    <li>Sentiment‑analysis engine on 400K reviews, 92% accuracy → +40% satisfaction.</li>
-                                    <li>Flask web UI filtering in <150 ms per query for real‑time engagement.</li>
-                                </ul>
-
-                                <h3>Skills</h3>
-                                <p><strong>Technical:</strong> Python, Flutter, Java, Flask, TensorFlow, PyTorch, NLP, CV, GenAI, Firebase, MySQL, HTML, CSS, JavaScript, Node.js, Git<br>
-                                    <strong>Non‑Tech:</strong> Figma, UI/UX, MS Suite, OBS</p>
-                                <p><strong>Languages:</strong> English (fluent), Hindi (native)</p>
-
-                                <h3>Leadership &amp; Responsibilities</h3>
-                                <p><strong>Project Lead</strong> — Managed 5‑person research team, delivered on time…</p>
-                                <p><strong>Android Dev Club Member</strong> — Built CGPA calculator UI in Flutter, 4.8★ first‑month rating.</p>
-
-                                <h3>Achievements</h3>
-                                <ul>
-                                    <li>University finalist, Smart India Hackathon (200+ teams).</li>
-                                    <li>Deployed personal Flutter app—end‑to‑end.</li>
-                                </ul>
-
-                                <h3>Certifications</h3>
-                                <ul>
-                                    <li>CINE‑CDAC ML Workshop — 30 hrs, fine‑tuned GPT‑2, +30% dev speed.</li>
-                                    <li>IBM AI Engineering Specialization (Coursera)</li>
-                                    <li>ML Specialization (Stanford &amp; DeepLearning.AI)</li>
-                                </ul>
+                                <div class="project-core">
+                                    <div class="project-title-section">
+                                        <h3 class="project-title">Lumina</h3>
+                                        <div class="project-tech-orbs">
+                                            <div class="tech-orb ai" data-tech="AI/ML"></div>
+                                            <div class="tech-orb api" data-tech="Gemini"></div>
+                                            <div class="tech-orb nlp" data-tech="NLP"></div>
+                                        </div>
+                                    </div>
+                                    <div class="project-essence">
+                                        <span class="essence-text">Advanced document QA system with multimodal AI, PDF/PPTX support, and Gemini integration.</span>
+                                    </div>
+                                    <div class="project-portal">
+                                        <a href="https://github.com/Veerbhadra0524/lumina" target="_blank" class="portal-link">
+                                            View on GitHub →
+                                        </a>
+                                    </div>
                                 </div>
-
                             </div>
+                        </div>
+
+                        <div class="project-node" data-year="2024">
+                            <div class="node-connector"></div>
+                            <div class="project-morph-card">
+                                <div class="project-avatar">
+                                    <img src="static/assets/healtech.png" alt="HealTech" loading="lazy">
+                                </div>
+                                <div class="project-core">
+                                    <div class="project-title-section">
+                                        <h3 class="project-title">HealTech</h3>
+                                        <div class="project-tech-orbs">
+                                            <div class="tech-orb web" data-tech="Flask"></div>
+                                            <div class="tech-orb ai" data-tech="ML"></div>
+                                            <div class="tech-orb data" data-tech="SQL"></div>
+                                        </div>
+                                    </div>
+                                    <div class="project-essence">
+                                        <span class="essence-text">AI healthcare platform with 92% disease prediction accuracy and multilingual support.</span>
+                                    </div>
+                                    <div class="project-portal">
+                                        <a href="#" class="portal-link" onclick="alert('Project details available upon request')">
+                                            View Details →
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
 
+                        <div class="project-node" data-year="2023">
+                            <div class="node-connector"></div>
+                            <div class="project-morph-card">
+                                <div class="project-avatar">
+                                    <img src="static/assets/smart-select.jpg" alt="Smart Select" loading="lazy">
+                                </div>
+                                <div class="project-core">
+                                    <div class="project-title-section">
+                                        <h3 class="project-title">Smart Select</h3>
+                                        <div class="project-tech-orbs">
+                                            <div class="tech-orb lang" data-tech="Python"></div>
+                                            <div class="tech-orb nlp" data-tech="NLP"></div>
+                                            <div class="tech-orb web" data-tech="Flask"></div>
+                                        </div>
+                                    </div>
+                                    <div class="project-essence">
+                                        <span class="essence-text">Smartphone recommendation system analyzing 400K+ reviews with sentiment analysis.</span>
+                                    </div>
+                                    <div class="project-portal">
+                                        <a href="https://github.com/Adarshv0524/Smart-Select" target="_blank" class="portal-link">
+                                            View on GitHub →
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-node" data-year="2023">
+                            <div class="node-connector"></div>
+                            <div class="project-morph-card">
+                                <div class="project-avatar">
+                                    <img src="static/assets/microprojects.png" alt="MicroProjects" loading="lazy">
+                                </div>
+                                <div class="project-core">
+                                    <div class="project-title-section">
+                                        <h3 class="project-title">MicroProjects</h3>
+                                        <div class="project-tech-orbs">
+                                            <div class="tech-orb lang" data-tech="JS"></div>
+                                            <div class="tech-orb api" data-tech="APIs"></div>
+                                            <div class="tech-orb web" data-tech="CSS"></div>
+                                        </div>
+                                    </div>
+                                    <div class="project-essence">
+                                        <span class="essence-text">Collection of innovative web experiments and interactive demos.</span>
+                                    </div>
+                                    <div class="project-portal">
+                                        <a href="https://adarshv0524.github.io/microprojects/" target="_blank" class="portal-link">
+                                            View Live Demo →
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-node micro" data-year="2023">
+                            <div class="node-connector"></div>
+                            <div class="project-morph-card">
+                                <div class="project-avatar">
+                                    <img src="static/assets/Smart Health Monitor .png" alt="Smart Health Monitor" loading="lazy">
+                                </div>
+                                <div class="project-core">
+                                    <div class="project-title-section">
+                                        <h3 class="project-title">Health Monitor</h3>
+                                        <div class="project-tech-orbs">
+                                            <div class="tech-orb ai" data-tech="ML"></div>
+                                            <div class="tech-orb data" data-tech="Analytics"></div>
+                                        </div>
+                                    </div>
+                                    <div class="project-essence">
+                                        <span class="essence-text">ML health monitoring for early detection.</span>
+                                    </div>
+                                    <div class="project-portal">
+                                        <a href="static/pdf/pe-i.pdf" target="_blank" class="portal-link">
+                                            Learn More →
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                </section>
+            </section>
 
-            <div id="my-projects" class="projects">
-                <div id="section-title">
-                    <div class="section-heading">My Projects</div>
-                    <div class="project-descreption">
-                        <div class="font-Ubuntu-sans">Here are some recent projects showcasing my experience with technology and problem-solving.</div>
+            <section id="github-activity" class="github-activity">
+                <div class="github-container">
+                    <div class="github-header">
+                        <div class="section-heading">GitHub Activity</div>
+                        <p class="github-subtitle">My coding journey over the past year</p>
+                    </div>
+                    
+                    <div class="github-stats-grid">
+                        <div class="github-contributions-card">
+                            <h3>Contribution Graph</h3>
+                            <div class="contributions-wrapper">
+                                <img src="https://ghchart.rshah.org/7b4990/Adarshv0524" alt="GitHub contributions chart for Adarshv0524" loading="lazy">
+                            </div>
+                        </div>
+                        
+                        <div class="github-stats-cards">
+                            <div class="stat-card">
+                                <div class="stat-icon">📊</div>
+                                <div class="stat-content">
+                                    <h4>Repositories</h4>
+                                    <p>Building innovative projects</p>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">🔥</div>
+                                <div class="stat-content">
+                                    <h4>Active Contributor</h4>
+                                    <p>Consistent coding practice</p>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">🚀</div>
+                                <div class="stat-content">
+                                    <h4>Open Source</h4>
+                                    <p>Contributing to community</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="github-cta">
+                        <a href="https://github.com/Adarshv0524" target="_blank" class="github-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            Visit My GitHub
+                        </a>
                     </div>
                 </div>
-                <div class="card-container">
-
-                    <div class="card">
-                        <img src="static/assets/lumina.png" alt="Lumina: Document-based QA System" loading="lazy">
-                        <div class="card-content">
-                            <h3 class="font-Kode-Mono">Lumina : Document-based QA</h3>
-                            <p>
-                                Lumina is a document-based QA system with an immersive chat interface. It allows users to upload documents (PDF, PPTX, images), enabling hybrid search with BM25 + embeddings. With multimodal Gemini integration, Lumina can answer queries using both text and vision, delivering precise, context-aware responses.
-                            </p>
-                            <a href="https://github.com/Veerbhadra0524/lumina" target="_blank" class="btn">Learn More</a>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <img src="static/assets/healtech.png" alt="HealTech: A Smart Healthcare System" loading="lazy">
-                        <div class="card-content">
-                            <h3 class="font-Kode-Mono">HealTech : Smart Healthcare</h3>
-                            <p>
-                                HEALTECH, an AI healthcare platform, connects patients nationwide with doctors. It offers real-time appointments, AI symptom analysis, medical history, and pharmacy linkage. Using machine learning, it predicts diseases with up to 92% accuracy, prioritizing underserved communities with multilingual support.                            </p>
-                            <a href="" target="_blank" class="btn">Learn More</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="static/assets/smart-select.jpg" alt="Smart Select" loading="lazy">
-                        <div class="card-content">
-                            <h3 class="font-Kode-Mono">Smart Select</h3>
-                            <p>Analyzes over 400,000 Amazon reviews to recommend smartphones based on sentiment scores and user feedback.</p>
-                            <a href="https://github.com/Adarshv0524/Smart-Select" target="_blank" class="btn">Learn More</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="static/assets/microprojects.png" alt="Adarsh' microprojects" loading="lazy">
-                        <div class="card-content">
-                            <h3 class="font-Kode-Mono">MicroProjects</h3>
-                            <p>Just a collections of my experiments , there's a lot to update into this.</p>
-                            <a href="https://adarshv0524.github.io/microprojects/" target="_blank" class="btn">Learn More</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="static/assets/Smart Health Monitor .png" alt="Smart Health Monitor" loading="lazy">
-                        <div class="card-content">
-                            <h3 class="font-Kode-Mono">Smart Health Monitor</h3>
-                            <p>Uses machine learning to detect health issues early, improving healthcare with personalized insights based on user data.</p>
-                            <a href="static/pdf/pe-i.pdf" target="_blank" class="btn">Learn More</a>
-                        </div>
-                    </div>
-
-
-                </div>
-
-            </div>
-
+            </section>
 
             <section id="skills" class="skills">
-                <div id="section-title">
-                    <div class="section-heading">Skills</div>
-                    <span class="font-Ubuntu-sans">A quick overview of my technical competencies and frameworks.</span>
-                </div>
-                <div class="skills-grid">
-                    <h3>Technical Skills</h3>
-                    <ul>
-                        <li>Java</li>
-                        <li>Python</li>
-                        <li>JavaScript</li>
-                        <li>HTML/CSS</li>
-                        <li>Flask</li>
-                        <li>ExpressJs</li>
-                        <li>SQL</li>
-                        <li>WordPress</li>
-                        <li>Git/GitHub</li>
-                        <li>VS Code</li>
-                        <li>Docker</li>
-                    </ul>
-                    <h3>Machine Learning & Deep Learning</h3>
-                    <ul>
-                        <li>Scikit-learn</li>
-                        <li>TensorFlow</li>
-                        <li>PyTorch</li>
-                        <li>Keras</li>
-                        <li>NLP</li>
-                        <li>Computer Vision (OpenCV)</li>
-                    </ul>
+                <div class="skills-container">
+                    <div class="skills-header">
+                        <div class="section-heading">Skills & Technologies</div>
+                        <p class="skills-subtitle">Tools I work with</p>
+                    </div>
+
+                    <div class="skills-cloud">
+                        <div class="skill-bubble" data-category="ai">Python</div>
+                        <div class="skill-bubble" data-category="mobile">Dart</div>
+                        <div class="skill-bubble" data-category="web">HTML/CSS</div>
+                        <div class="skill-bubble" data-category="tools">SQL</div>
+
+                        <div class="skill-bubble" data-category="ai">TensorFlow</div>
+                        <div class="skill-bubble" data-category="ai">Scikit-learn</div>
+                        <div class="skill-bubble" data-category="ai">PyTorch</div>
+                        <div class="skill-bubble" data-category="ai">Computer Vision</div>
+
+                        <div class="skill-bubble" data-category="mobile">Flutter</div>
+                        <div class="skill-bubble" data-category="web">Flask</div>
+                        <div class="skill-bubble" data-category="web">REST APIs</div>
+                        <div class="skill-bubble" data-category="web">Responsive Design</div>
+
+
+                        <div class="skill-bubble" data-category="tools">Git</div>
+                        <div class="skill-bubble" data-category="tools">Docker</div>
+                        <div class="skill-bubble" data-category="tools">Linux</div>
+                    </div>
+
+                    <div class="skills-legend">
+                        <div class="legend-item" data-filter="ai">
+                            <span class="legend-color ai"></span>
+                            <span class="legend-text">AI/ML & Data</span>
+                        </div>
+                        <div class="legend-item" data-filter="web">
+                            <span class="legend-color web"></span>
+                            <span class="legend-text">Web Dev</span>
+                        </div>
+                        <div class="legend-item" data-filter="mobile">
+                            <span class="legend-color mobile"></span>
+                            <span class="legend-text">Mobile Dev</span>
+                        </div>
+                        <div class="legend-item" data-filter="tools">
+                            <span class="legend-color tools"></span>
+                            <span class="legend-text">Tools</span>
+                        </div>
+                    </div>
                 </div>
             </section>
-            <section id="contact-pages" class="contact-page">
-                <div id="section-title">
-                    <div class="section-heading">Contact</div>
-                    <div>
-                        <span class="font-Ubuntu-sans">Reach out via:
-                            <ul class="font-Raleway-Dots">
-                                <li>Email: <a href="mailto:adarshv2405@gmail.com">adarshv2405@gmail.com</a></li>
-                                <li>Phone: +91-8601928554</li>
-                            </ul>
-                        </span>
+
+            <section id="resume" class="resume">
+                <div class="resume-container">
+                    <div class="resume-header">
+                        <div class="section-heading">Resume</div>
+                        <p class="resume-subtitle">My professional journey in technology</p>
                     </div>
-                    <div id="contact-page-content"></div>
-                    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
-                        <input type="hidden" name="access_key" value="670e8def-ef66-4ef4-a216-73bef4f75606">
+                    
+                    <div class="resume-content">
+                        <div class="resume-preview">
+                            <div class="resume-card">
+                                <div class="resume-card-header">
+                                    <h3>Adarsh Kumar Verma</h3>
+                                    <p>AI/ML Engineer & Full Stack Developer</p>
+                                </div>
+                                
+                                <div class="resume-highlights">
+                                    <div class="highlight-item">
+                                        <div class="highlight-icon">🎓</div>
+                                        <div class="highlight-text">
+                                            <strong>B.Tech CSE (AIML)</strong>
+                                            <span>VIT Bhopal • GPA 8.57/10.0</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="highlight-item">
+                                        <div class="highlight-icon">🚀</div>
+                                        <div class="highlight-text">
+                                            <strong>5+ Projects</strong>
+                                            <span>AI/ML, Web Dev, Mobile</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="highlight-item">
+                                        <div class="highlight-icon">🏆</div>
+                                        <div class="highlight-text">
+                                            <strong>SIH Finalist</strong>
+                                            <span>200+ teams competed</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="highlight-item">
+                                        <div class="highlight-icon">📜</div>
+                                        <div class="highlight-text">
+                                            <strong>Certified</strong>
+                                            <span>IBM AI Engineering, Stanford ML</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="resume-actions">
+                                    <button id="view-resume-btn" class="resume-btn primary">View Full Resume</button>
+                                    <a href="static/pdf/ada_res.pdf" download class="resume-btn secondary">Download PDF</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Resume Modal -->
+                    <div id="resume-modal" class="resume-modal">
+                        <div class="resume-modal-content">
+                            <div class="resume-modal-header">
+                                <h2>Resume</h2>
+                                <button class="resume-close-btn">&times;</button>
+                            </div>
+                            <div class="resume-modal-body">
+                                <iframe src="static/pdf/ada_res.pdf" width="100%" height="600px"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact-pages" class="contact-page content-section">
+                <div class="section-container">
+                    <h2 class="section-heading">Contact</h2>
+                    
+                    <!-- Contact Grid Layout -->
+                    <div class="contact-grid">
+                        <!-- Left Side - Contact Info -->
+                        <div class="contact-info-panel">
+                            <div class="panel-header">
+                                <h3 class="panel-title">Connect with Me</h3>
+                                <div class="panel-subtitle">Let's build something extraordinary together</div>
+                            </div>
+                            
+                            <div class="contact-methods">
+                                <div class="contact-item">
+                                    <div class="contact-icon-wrapper">
+                                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                            <path d="M3 8l7.89 3.26a2 2 0 001.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="contact-details">
+                                        <span class="contact-label">Email</span>
+                                        <a href="mailto:adarshv2405@gmail.com" class="contact-link">adarshv2405@gmail.com</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item">
+                                    <div class="contact-icon-wrapper">
+                                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="contact-details">
+                                        <span class="contact-label">Phone</span>
+                                        <a href="tel:+918601928554" class="contact-link">+91-8601928554</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item">
+                                    <div class="contact-icon-wrapper">
+                                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                            <circle cx="12" cy="10" r="3"/>
+                                        </svg>
+                                    </div>
+                                    <div class="contact-details">
+                                        <span class="contact-label">Location</span>
+                                        <span class="contact-text">India</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Availability Status -->
+                            <div class="availability-status">
+                                <div class="status-indicator">
+                                    <div class="status-dot"></div>
+                                    <span class="status-text">Available for projects</span>
+                                </div>
+                            </div>
+                        </div>
                         
-                        <!-- Honeypot field (invisible to humans, deters bots) -->
-                        <div style="display:none;">
-                            <label>Leave this empty:</label>
-                            <input type="text" name="website" tabindex="-1" autocomplete="off">
-                        </div>
+                        <!-- Right Side - Contact Form -->
+                        <div class="contact-form-panel">
+                            <div class="form-header">
+                                <h3 class="form-title">Send Message</h3>
+                                <div class="form-subtitle">Transform your ideas into reality</div>
+                            </div>
+                            
+                            <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                                <input type="hidden" name="access_key" value="670e8def-ef66-4ef4-a216-73bef4f75606">
+                                
+                                <!-- Honeypot field -->
+                                <div style="display:none;">
+                                    <input type="text" name="website" tabindex="-1" autocomplete="off">
+                                </div>
 
-
-                        <div>
-                            <label for="name">Name:</label>
-                            <input type="text" id="name" name="name" required>
-                            <small class="error" id="error-name"></small>
+                                <div class="form-row">
+                                    <div class="input-group">
+                                        <label for="name" class="input-label">Name</label>
+                                        <input type="text" id="name" name="name" class="form-input" placeholder="Enter your name" required>
+                                        <div class="input-border"></div>
+                                        <small class="error" id="error-name"></small>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="input-group">
+                                        <label for="email" class="input-label">Email</label>
+                                        <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" required>
+                                        <div class="input-border"></div>
+                                        <small class="error" id="error-email"></small>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="input-group">
+                                        <label for="contact" class="input-label">Phone (Optional)</label>
+                                        <input type="tel" id="contact" name="contact" class="form-input" placeholder="Enter your phone number">
+                                        <div class="input-border"></div>
+                                        <small class="error" id="error-contact"></small>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="input-group">
+                                        <label for="message" class="input-label">Message</label>
+                                        <textarea id="message" name="message" class="form-input form-textarea" rows="4" placeholder="Tell me about your project..." required></textarea>
+                                        <div class="input-border"></div>
+                                        <small class="error" id="error-message"></small>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="submit-btn">
+                                        <span class="btn-text">Send Message</span>
+                                        <div class="btn-glow"></div>
+                                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                            <line x1="22" y1="2" x2="11" y2="13"/>
+                                            <polygon points="22,2 15,22 11,13 2,9 22,2"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </form>
                         </div>
-                        <div>
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" required>
-                            <small class="error" id="error-email"></small>
-                        </div>
-                        <div>
-                            <label for="contact">Contact:</label>
-                            <input type="tel" id="contact" name="contact">
-                            <small class="error" id="error-contact"></small>
-                        </div>
-                        <div>
-                            <label for="message">Message:</label>
-                            <textarea id="message" name="message" rows="4" required></textarea>
-                            <small class="error" id="error-message"></small>
-                        </div>
-                        <div>
-                            <button type="submit">Send Message</button>
-                        </div>
-                    </form>
+                    </div>
+                    
                     <!-- Success Modal -->
-                    <div id="success-modal" class="modal-overlay">
-                    <div class="modal-content">
-                        <p>✅ Your message has been sent!</p>
-                        <button id="modal-close">Close</button>
+                    <div id="success-modal" class="success-modal">
+                        <div class="modal-backdrop"></div>
+                        <div class="modal-container">
+                            <div class="modal-content">
+                                <div class="success-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                                        <polyline points="22,4 12,14.01 9,11.01"/>
+                                    </svg>
+                                </div>
+                                <h3 class="modal-title">Message Sent!</h3>
+                                <p class="modal-text">Thank you for reaching out. I'll get back to you within 24 hours.</p>
+                                <button id="modal-close" class="modal-close-btn">
+                                    <span>Close</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    </div>
-
                 </div>
             </section>
         </section>
@@ -415,30 +748,29 @@
             </section>
         </section> -->
 
-        <!-- Main Footer (Bottom of page) -->
-        <footer class="footer-section">
-            <div class="footer-content">
-                <div class="footer-vedic">
+    </main>
+
+    <!-- Main Footer (Bottom of page) -->
+    <!-- Progressive Disclosure Footer -->
+    <footer class="footer-section">
+        <div class="footer-content">
+            <div class="footer-vedic">
+                <div class="footer-text-container">
                     <p class="vedic-verse">
                         वंशीविभूषितकरान्नवनीरदाभात् पीताम्बरादरुणबिम्बफलाधरोष्ठात्। पूर्णन्दुसुन्दरमुखादरविन्दनेत्रात् कृष्णात्परं किमपि तत्वमहं न जाने।।
                     </p>
-                    <div class="shloka-underline"></div>
-                    <div class="carousel">
-                        <div class="carousel-content">
-                            <p>जिनके हाथ बाँसुरी से सुसज्जित है, जिनकी त्वचा नए बादल की भांति चमकती हों। जो पीत वस्त्र धारण करते हों, 
-                                जिनके अधर बिम्बा पुष्प की भांति लाल हैं। जिनके मुख चंद्रमा के समान हैं, जिनके कमाल समान नेत्र हैं,
-                                उस कृष्ण के अतिरिक्त मैं और कुछ नहीं जानता।।</p>
-                        </div>
-                    </div>
+                    <p class="revealed-text">
+                        जिनके हाथ बाँसुरी से सुसज्जित है, जिनकी त्वचा नए बादल की भांति चमकती हों। जो पीत वस्त्र धारण करते हों, 
+                        जिनके अधर बिम्बा पुष्प की भांति लाल हैं। जिनके मुख चंद्रमा के समान हैं, जिनके कमल समान नेत्र हैं,
+                        उस कृष्ण के अतिरिक्त मैं और कुछ नहीं जानता।।
+                    </p>
                 </div>
+                <div class="shloka-underline"></div>
             </div>
-        </footer>
-
-
-
-
-    </main>
+        </div>
+    </footer>
     <script src="static/js/scripts.js"></script>
+    <script src="static/js/futuristic-timeline.js"></script>
     <script src="https://web3forms.com/client/script.js" async defer></script>
     <script type="application/ld+json">
       {
@@ -466,7 +798,6 @@
     });
     </script>
     <script src="static/js/github-feed.js"></script>
-    <script src="static/js/ab-test.js"></script>
 
   </body>
 </html>

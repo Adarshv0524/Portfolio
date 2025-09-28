@@ -834,9 +834,9 @@ body {
     margin-left: 300px;
     height: 100vh;
     background-color: #F8F9FA;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    justify-content: space-between;
     padding: 0 5%;
     position: relative;
     overflow: hidden;
@@ -871,73 +871,61 @@ body {
     z-index: 2;
 }
 
-/* Hero Monogram - Elegant Serif Typography */
+/* Hero Monogram */
 .hero-monogram {
-    flex: 0 0 auto;
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding-right: 2rem;
-    z-index: 10;
-    pointer-events: none;
-}
-
-.monogram-letters {
-    display: flex;
     align-items: center;
-    gap: -8px; /* Tight letter spacing for elegance */
-    font-family: 'Times New Roman', 'Georgia', serif;
-    font-size: 120px;
-    font-weight: 400;
-    color: #2E294E;
-    text-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.1),
-        0 0 8px rgba(94, 87, 138, 0.2);
-    letter-spacing: -0.1em;
+    padding-left: 10%;
+}
+
+.monogram-svg {
+    width: 200px;
+    height: 120px;
     opacity: 0;
-    animation: monogramFadeIn 0.8s ease-out 0.3s forwards;
+    animation: fadeIn 0.5s ease-out 0.3s forwards;
 }
 
-.letter-a,
-.letter-v {
-    display: inline-block;
-    line-height: 1;
-    transition: all 0.3s ease;
+/* Stroke Draw Animation */
+#letter-a, #letter-v {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawStroke 1.5s ease-out 0.8s forwards;
 }
 
-.letter-a {
-    margin-right: -12px; /* Overlap for elegant connection */
+#letter-v {
+    animation-delay: 1.1s;
 }
 
-.letter-v {
-    margin-left: -8px;
+@keyframes drawStroke {
+    to {
+        stroke-dashoffset: 0;
+    }
 }
 
-/* Hover effect for interactivity */
-.monogram-letters:hover .letter-a,
-.monogram-letters:hover .letter-v {
-    color: #5D578A;
-    text-shadow: 
-        3px 3px 6px rgba(0, 0, 0, 0.15),
-        0 0 12px rgba(94, 87, 138, 0.3);
-    transform: scale(1.05);
-}
-
-/* Animation System */
-@keyframes monogramFadeIn {
+@keyframes fadeIn {
     to {
         opacity: 1;
     }
 }
 
+/* ===== DARK MODE MONOGRAM ===== */
+[data-theme="dark"] #letter-a,
+[data-theme="dark"] #letter-v {
+    stroke: #4169E1;
+    filter: drop-shadow(0 0 10px rgba(65, 105, 225, 0.5));
+}
+
+[data-theme="dark"] .monogram-svg {
+    filter: drop-shadow(0 0 20px rgba(65, 105, 225, 0.3));
+}
+
 /* Hero Content */
 .hero-content {
-    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding-left: 2rem;
-    padding-right: 2rem;
     opacity: 0;
     animation: slideInRight 1s ease-out 0.5s both;
 }
@@ -953,40 +941,6 @@ body {
     color: #1D1D1F;
     margin: 0 0 0.5rem 0;
     line-height: 1.1;
-}
-
-/* Name Rotator Styles */
-.name-rotator {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-}
-
-.name-item {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.name-item.active {
-    position: relative;
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.name-item.fade-out {
-    opacity: 0;
-    transform: translateY(-20px);
-}
-
-.name-item.fade-in {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .hero-tagline {
@@ -1363,12 +1317,14 @@ a:not(.nav-link):hover {
 /* ===== TIMELINE CONTRAST FIXES ===== */
 /* Light mode timeline */
 .timeline,
-.project-timeline {
+.project-timeline,
+.projects-timeline {
     position: relative;
 }
 
 .timeline::before,
-.project-timeline::before {
+.project-timeline::before,
+.projects-timeline::before {
     content: '';
     position: absolute;
     left: 20px;
@@ -4185,8 +4141,7 @@ a:not(.nav-link):hover {
         width: calc(100% - 300px);
         height: 100vh;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
+        flex-direction: column;
         position: relative;
     }
 }
@@ -4259,39 +4214,27 @@ a:not(.nav-link):hover {
     #hero {
         width: 100%;
         margin-left: 0;
-        flex-direction: column;
+        grid-template-columns: 1fr;
         text-align: center;
         padding: 2rem;
         gap: 3rem;
-        justify-content: center;
     }
     
     .hero-monogram {
         order: 1;
-        padding-right: 0;
-        margin-bottom: 2rem;
+        padding-left: 0;
     }
     
     .hero-content {
         order: 2;
         padding-left: 0;
-        padding-right: 0;
         align-items: center;
     }
     
-    .monogram-letters {
-        font-size: 90px;
-        gap: -6px;
+    .monogram-svg {
+        width: 150px;
+        height: 90px;
     }
-    
-    .letter-a {
-        margin-right: -9px;
-    }
-    
-    .letter-v {
-        margin-left: -6px;
-    }
-
     
     .hero-buttons {
         justify-content: center;
@@ -4332,19 +4275,10 @@ a:not(.nav-link):hover {
         padding: 16px 32px;
     }
     
-    .monogram-letters {
-        font-size: 72px;
-        gap: -4px;
+    .monogram-svg {
+        width: 120px;
+        height: 72px;
     }
-    
-    .letter-a {
-        margin-right: -7px;
-    }
-    
-    .letter-v {
-        margin-left: -4px;
-    }
-
 }
 
 @media (max-width: 480px) {
@@ -4356,21 +4290,10 @@ a:not(.nav-link):hover {
         font-size: clamp(1.8rem, 8vw, 2.5rem);
     }
     
-
-    
-    .monogram-letters {
-        font-size: 56px;
-        gap: -3px;
+    .monogram-svg {
+        width: 100px;
+        height: 60px;
     }
-    
-    .letter-a {
-        margin-right: -5px;
-    }
-    
-    .letter-v {
-        margin-left: -3px;
-    }
-
     
     .btn-primary, .btn-secondary {
         padding: 14px 24px;
@@ -4410,9 +4333,6 @@ a:not(.nav-link):hover {
         padding-top: 70px; /* Account for fixed nav */
         height: auto;
         min-height: 100vh;
-        flex-direction: column;
-        justify-content: center;
-        gap: 2rem;
     }
     
     .container {
@@ -4427,18 +4347,6 @@ a:not(.nav-link):hover {
         flex-direction: column;
         align-items: center;
         max-width: 100%;
-    }
-    
-    .hero-monogram {
-        order: 1;
-        padding-right: 0;
-        margin-bottom: 1rem;
-    }
-    
-    .hero-content {
-        order: 2;
-        padding: 0 1rem;
-        text-align: center;
     }
     #main-content {
         width: 100vw;

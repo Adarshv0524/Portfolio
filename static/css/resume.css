@@ -18,10 +18,27 @@
   max-width: 1200px;
   margin: 0 auto;
 }
-@media (max-width: 900px) {
+
+@media (max-width: 1024px) {
+  .resume-grid {
+    grid-template-columns: 1fr 1.5fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
   .resume-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+  
+  /* Ensure left column (contact & education) comes first on mobile */
+  .resume-col:first-child {
+    order: 1;
+  }
+  
+  .resume-col:last-child {
+    order: 2;
   }
 }
 
@@ -29,33 +46,71 @@
 .resume-col {
   background: var(--bg-card, #f7f7f7);
   border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 2rem;
   box-shadow: var(--shadow, 0 4px 8px rgba(0, 0, 0, 0.08));
   transition: var(--transition-speed, 0.3s) ease;
+  position: relative;
+  overflow: hidden;
 }
+
+.resume-col::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--secondary-color, #7b4990), var(--accent-color, #dced19));
+  opacity: 0.8;
+}
+
 .resume-col:hover {
   box-shadow: var(--shadow-hover, 0 10px 20px rgba(0, 0, 0, 0.15));
   transform: translateY(-2px);
 }
 
+.resume-col:first-child::before {
+  background: linear-gradient(90deg, var(--secondary-color, #7b4990), rgba(123, 73, 144, 0.6));
+}
+
+.resume-col:last-child::before {
+  background: linear-gradient(90deg, var(--primary-color, #040b14), var(--secondary-color, #7b4990));
+}
+
 /* 4. Headings */
 .resume-col h2 {
   font-size: 2.2rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   color: var(--primary-color, #040b14);
   font-weight: 700;
   font-family: var(--font-primary, 'Ubuntu Sans', sans-serif);
+  position: relative;
+  display: inline-block;
+}
+
+.resume-col h2::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--secondary-color, #7b4990), var(--accent-color, #dced19));
+  border-radius: 2px;
 }
 .resume-col h3 {
   font-size: 1.4rem;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--secondary-color, #7b4990);
+  padding: 0.5rem 0 0.5rem 1rem;
+  border-left: 4px solid var(--secondary-color, #7b4990);
+  background: linear-gradient(90deg, rgba(123, 73, 144, 0.1), transparent);
   color: var(--secondary-color, #7b4990);
   font-weight: 600;
   font-family: var(--font-primary, 'Ubuntu Sans', sans-serif);
+  border-radius: 0 8px 8px 0;
+  position: relative;
 }
 .resume-col h4 {
   font-size: 1.1rem;
@@ -64,6 +119,17 @@
   color: var(--primary-color, #040b14);
   font-weight: 600;
   font-family: var(--font-primary, 'Ubuntu Sans', sans-serif);
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.resume-col h4::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent-color, #dced19);
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 /* 5. Lists & Paragraphs */
@@ -74,18 +140,25 @@
 }
 .resume-col ul li {
   position: relative;
-  padding-left: 1.2rem;
+  padding-left: 1.5rem;
   margin-bottom: 0.8rem;
   line-height: 1.6;
   color: var(--text-color, #333);
   font-size: 0.95rem;
+  transition: all 0.2s ease;
 }
 .resume-col ul li::before {
-  content: '•';
+  content: '◆';
   position: absolute;
   left: 0;
   color: var(--secondary-color, #7b4990);
-  font-weight: bold;
+  font-size: 0.8rem;
+  top: 0.3rem;
+  transition: all 0.2s ease;
+}
+.resume-col ul li:hover::before {
+  color: var(--accent-color, #dced19);
+  transform: scale(1.2);
 }
 .resume-col p {
   margin: 0.8rem 0;
@@ -112,8 +185,19 @@
 
 /* 7. Left Column Accent */
 .resume-col:first-child {
-  border-left: 4px solid var(--secondary-color, #7b4990);
-  background: linear-gradient(135deg, var(--bg-card, #f7f7f7), rgba(123, 73, 144, 0.02));
+  background: linear-gradient(135deg, var(--bg-card, #f7f7f7), rgba(123, 73, 144, 0.03));
+  position: relative;
+}
+
+.resume-col:first-child::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--secondary-color, #7b4990), var(--accent-color, #dced19));
+  border-radius: 0 2px 2px 0;
 }
 
 /* 8. Professional Section Spacing */
@@ -121,7 +205,25 @@
   margin-top: 0;
 }
 
-/* 9. Education and GPA Styling for Better Readability */
+/* 9. Contact Information Enhancement */
+.resume-col:first-child p:first-of-type {
+  background: rgba(123, 73, 144, 0.08);
+  padding: 0.8rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--secondary-color, #7b4990);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.resume-col:first-child p:nth-of-type(2) {
+  background: rgba(4, 11, 20, 0.05);
+  padding: 0.6rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+/* 10. Education and GPA Styling for Better Readability */
 .resume-col li {
   position: relative;
 }
@@ -154,13 +256,58 @@
 
 /* 11. Responsive Typography */
 @media (max-width: 768px) {
+  #resume-html {
+    padding: 2rem 1.5rem;
+  }
+  
+  .resume-col {
+    padding: 1.5rem;
+  }
+  
   .resume-col h2 {
     font-size: 1.8rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
   }
+  
   .resume-col h3 {
     font-size: 1.2rem;
+    margin-top: 1.2rem;
   }
+  
   .resume-col h4 {
     font-size: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .resume-col p, .resume-col li {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  #resume-html {
+    padding: 1.5rem 1rem;
+  }
+  
+  .resume-col {
+    padding: 1rem;
+  }
+  
+  .resume-col h2 {
+    font-size: 1.6rem;
+  }
+  
+  .resume-col h3 {
+    font-size: 1.1rem;
+  }
+  
+  .resume-col h4 {
+    font-size: 0.95rem;
+  }
+  
+  .resume-col p, .resume-col li {
+    font-size: 0.85rem;
   }
 }
