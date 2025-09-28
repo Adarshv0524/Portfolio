@@ -3,58 +3,67 @@
 /* 1. Container & Background */
 #resume-html {
   padding: 3rem;
-  background: linear-gradient(135deg, var(--bg-color, #1a1a1a), rgba(0, 212, 255, 0.1));
-  color: var(--text-color, #ffffff);
-  font-family: 'Ubuntu Sans', sans-serif;
+  background: var(--background-color, #f5f5f5);
+  color: var(--text-color, #333);
+  font-family: var(--font-primary, 'Ubuntu Sans', sans-serif);
   min-height: 100%;
+  line-height: 1.6;
 }
 
 /* 2. Grid Layout */
 .resume-grid {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 2.5rem;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 @media (max-width: 900px) {
   .resume-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
 /* 3. Column Panels */
 .resume-col {
-  background: rgba(0, 212, 255, 0.05);
-  border: 1px solid rgba(0, 212, 255, 0.2);
-  border-radius: 1rem;
-  backdrop-filter: blur(12px);
+  background: var(--bg-card, #f7f7f7);
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
   padding: 2rem;
-  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
-  transition: transform 0.3s;
+  box-shadow: var(--shadow, 0 4px 8px rgba(0, 0, 0, 0.08));
+  transition: var(--transition-speed, 0.3s) ease;
 }
 .resume-col:hover {
-  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover, 0 10px 20px rgba(0, 0, 0, 0.15));
+  transform: translateY(-2px);
 }
 
 /* 4. Headings */
 .resume-col h2 {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   margin-bottom: 0.5rem;
-  color: var(--accent-color, #00d4ff);
-  text-shadow: 0 2px 8px rgba(0, 212, 255, 0.3);
+  color: var(--primary-color, #040b14);
+  font-weight: 700;
+  font-family: var(--font-primary, 'Ubuntu Sans', sans-serif);
 }
 .resume-col h3 {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin-top: 1.5rem;
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.3rem;
-  border-bottom: 2px solid var(--accent-color, #00d4ff);
-  color: var(--text-color, #ffffff);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--secondary-color, #7b4990);
+  color: var(--secondary-color, #7b4990);
+  font-weight: 600;
+  font-family: var(--font-primary, 'Ubuntu Sans', sans-serif);
 }
 .resume-col h4 {
-  font-size: 1.3rem;
-  margin-top: 1rem;
-  color: var(--accent-color, #00d4ff);
-  letter-spacing: 0.5px;
+  font-size: 1.1rem;
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color, #040b14);
+  font-weight: 600;
+  font-family: var(--font-primary, 'Ubuntu Sans', sans-serif);
 }
 
 /* 5. Lists & Paragraphs */
@@ -65,47 +74,93 @@
 }
 .resume-col ul li {
   position: relative;
-  padding-left: 1.5rem;
-  margin-bottom: 0.6rem;
-  line-height: 1.4;
-  color: var(--text-color, #ffffff);
+  padding-left: 1.2rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+  color: var(--text-color, #333);
+  font-size: 0.95rem;
 }
 .resume-col ul li::before {
-  content: '▹';
+  content: '•';
   position: absolute;
   left: 0;
-  color: var(--accent-color, #00d4ff);
+  color: var(--secondary-color, #7b4990);
+  font-weight: bold;
 }
 .resume-col p {
-  margin: 0.6rem 0;
+  margin: 0.8rem 0;
   line-height: 1.6;
-  color: var(--text-color, #ffffff);
+  color: var(--text-color, #333);
+  font-size: 0.95rem;
+}
+.resume-col p strong {
+  color: var(--primary-color, #040b14);
+  font-weight: 600;
 }
 
 /* 6. Links Styling */
 .resume-col a {
-  color: var(--accent-color, #00d4ff);
+  color: var(--secondary-color, #7b4990);
   text-decoration: none;
-  border-bottom: 1px dashed var(--accent-color, #00d4ff);
+  transition: var(--transition-speed, 0.3s) ease;
+  border-bottom: 1px solid transparent;
 }
 .resume-col a:hover {
-  color: var(--text-color, #ffffff);
-  border-bottom-style: solid;
+  color: var(--primary-color, #040b14);
+  border-bottom: 1px solid var(--secondary-color, #7b4990);
 }
 
-/* 7. Accent Bar on Left Column */
+/* 7. Left Column Accent */
 .resume-col:first-child {
-  border-left: 4px solid var(--accent-color, #00d4ff);
+  border-left: 4px solid var(--secondary-color, #7b4990);
+  background: linear-gradient(135deg, var(--bg-card, #f7f7f7), rgba(123, 73, 144, 0.02));
 }
 
-/* 8. Subtle Neon Glow */
-#resume-html {
-  box-shadow: inset 0 0 100px rgba(0,0,0,0.8), 0 0 30px rgba(255,255,255,0.1);
+/* 8. Professional Section Spacing */
+.resume-col h3:first-of-type {
+  margin-top: 0;
 }
 
-/* 9. Font Mix */
-.resume-col h2,
-.resume-col h3,
-.resume-col h4 {
-  font-family: 'Jura', sans-serif;
+/* 9. Education and GPA Styling for Better Readability */
+.resume-col li {
+  position: relative;
+}
+
+/* Style text after line breaks in education section */
+.resume-col li br {
+  margin-bottom: 0.2rem;
+}
+
+/* Better styling for sub-information like GPA, locations */
+.resume-col li strong + * {
+  font-weight: normal;
+}
+
+/* Specific styling for education details */
+.resume-col h3 + ul li {
+  margin-bottom: 1rem;
+}
+
+.resume-col h3 + ul li strong {
+  color: var(--primary-color, #040b14);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* 10. Skills Section Enhancement */
+.resume-col p:has(strong) {
+  margin-bottom: 0.4rem;
+}
+
+/* 11. Responsive Typography */
+@media (max-width: 768px) {
+  .resume-col h2 {
+    font-size: 1.8rem;
+  }
+  .resume-col h3 {
+    font-size: 1.2rem;
+  }
+  .resume-col h4 {
+    font-size: 1rem;
+  }
 }
