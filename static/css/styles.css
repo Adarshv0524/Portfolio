@@ -2200,10 +2200,15 @@ a:not(.nav-link):hover {
     left: -15px;
     right: -15px;
     bottom: -15px;
-    background: linear-gradient(135deg, var(--secondary-color), #4a90e2, #7b4990);
+    background: linear-gradient(135deg, 
+        var(--secondary-color) 0%, 
+        #4a90e2 30%, 
+        #7b4990 60%, 
+        var(--accent-primary) 100%);
     border-radius: 50px;
     z-index: 1;
-    animation: rotate 15s linear infinite;
+    animation: rotate 20s linear infinite;
+    box-shadow: 0 0 40px rgba(123, 73, 144, 0.3);
 }
 
 .image-frame::after {
@@ -2213,10 +2218,14 @@ a:not(.nav-link):hover {
     left: -8px;
     right: -8px;
     bottom: -8px;
-    background: linear-gradient(45deg, rgba(123, 73, 144, 0.3), rgba(74, 144, 226, 0.3));
+    background: linear-gradient(45deg, 
+        rgba(123, 73, 144, 0.2), 
+        rgba(74, 144, 226, 0.2), 
+        rgba(255, 255, 255, 0.1));
     border-radius: 45px;
     z-index: 2;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .frame-decoration {
@@ -2225,9 +2234,12 @@ a:not(.nav-link):hover {
     left: -20px;
     right: -20px;
     bottom: -20px;
-    border: 2px solid rgba(123, 73, 144, 0.2);
+    border: 2px solid rgba(123, 73, 144, 0.3);
     border-radius: 55px;
     z-index: 0;
+    box-shadow: 
+        0 0 30px rgba(123, 73, 144, 0.1),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
 }
 
 .profile-image {
@@ -2237,8 +2249,15 @@ a:not(.nav-link):hover {
     border-radius: 40px;
     z-index: 3;
     position: relative;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.3s ease;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    /* Create PNG-like background removal effect */
+    filter: contrast(1.1) brightness(1.05) saturate(1.1);
+    background: 
+        radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    /* Subtle border to enhance the cutout effect */
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .frame-overlay {
@@ -2247,7 +2266,10 @@ a:not(.nav-link):hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(123, 73, 144, 0.1), rgba(74, 144, 226, 0.1));
+    background: linear-gradient(135deg, 
+        rgba(123, 73, 144, 0.15), 
+        rgba(74, 144, 226, 0.1), 
+        rgba(255, 255, 255, 0.05));
     border-radius: 40px;
     z-index: 4;
     opacity: 0;
@@ -2255,13 +2277,43 @@ a:not(.nav-link):hover {
     pointer-events: none;
 }
 
+/* Add a subtle shadow mask to enhance PNG-like appearance */
+.profile-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 50% 30%, 
+        transparent 40%, 
+        rgba(0, 0, 0, 0.1) 70%, 
+        rgba(0, 0, 0, 0.2) 90%);
+    border-radius: 40px;
+    z-index: 1;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
 .image-frame:hover .profile-image {
-    transform: scale(1.05);
-    box-shadow: 0 25px 80px rgba(123, 73, 144, 0.4);
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 
+        0 25px 80px rgba(123, 73, 144, 0.4),
+        0 10px 30px rgba(0, 0, 0, 0.2);
+    filter: contrast(1.15) brightness(1.1) saturate(1.15);
 }
 
 .image-frame:hover .frame-overlay {
     opacity: 1;
+}
+
+.image-frame:hover::before {
+    animation-duration: 10s; /* Speed up rotation on hover */
+    box-shadow: 0 0 60px rgba(123, 73, 144, 0.5);
+}
+
+.image-frame:hover::after {
+    backdrop-filter: blur(20px);
 }
 
 @keyframes rotate {
@@ -3112,7 +3164,7 @@ a:not(.nav-link):hover {
     100% { transform: scale(2); opacity: 0; }
 }
 
-/* Section Spacing Responsive Design */
+/* Section Spacing & Contact Section Responsive Design */
 @media (max-width: 1024px) {
     .content-section {
         padding: 1.5rem;
@@ -3123,10 +3175,7 @@ a:not(.nav-link):hover {
         font-size: 2.2rem;
         margin-bottom: 1.5rem;
     }
-}
-
-/* Contact Section Responsive Design */
-@media (max-width: 1024px) {
+    
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -4020,18 +4069,6 @@ a:not(.nav-link):hover {
     padding-bottom: 40px;
 }
 
-@media (max-width: 768px) {
-    #main-content {
-        padding-bottom: 40px;
-    }
-}
-
-@media (max-width: 480px) {
-    #main-content {
-        padding-bottom: 40px;
-    }
-}
-
 /* Remove old footer styles */
 #footer,
 .main-footer,
@@ -4296,12 +4333,53 @@ a:not(.nav-link):hover {
     .hero-buttons {
         justify-content: center;
     }
+    
+    /* Projects section adjustments */
+    .projects {
+        padding: 40px 20px;
+    }
+    
+    /* Skills section adjustments */
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    /* Contact section adjustments */
+    .contact-section {
+        padding: 40px 20px;
+    }
 }
 
 @media (max-width: 768px) {
+    #header {
+        display: none;
+        transition: left 1s ease;
+    }
+    
     #hero {
-        padding: 1.5rem;
-        gap: 2rem;
+        width: 100vw;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 10px;
+        padding-top: 70px; /* Account for fixed nav */
+        height: auto;
+        min-height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem; /* Reduced from 2rem to 1rem */
+    }
+    
+    .hero-monogram {
+        order: 1;
+        padding-right: 0;
+        margin-bottom: 0.5rem; /* Small margin below monogram */
+    }
+    
+    .hero-content {
+        order: 2;
+        padding: 0 1rem;
+        text-align: center;
     }
     
     .hero-text {
@@ -4324,6 +4402,7 @@ a:not(.nav-link):hover {
         flex-direction: column;
         gap: 1rem;
         width: 100%;
+        justify-content: center;
     }
     
     .btn-primary, .btn-secondary {
@@ -4344,19 +4423,44 @@ a:not(.nav-link):hover {
     .letter-v {
         margin-left: -4px;
     }
-
+    
+    .container {
+        height: auto;
+        min-height: 80vh;
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 20px;
+    }
 }
 
+/* Extra small mobile devices - consolidate all 480px rules */
 @media (max-width: 480px) {
     #hero {
-        padding: 1rem;
+        gap: 0.5rem; /* Even smaller gap for very small screens */
+        padding: 5px;
+        padding-top: 100px;
+    }
+    
+    .hero-monogram {
+        padding-top: 100px;
+        margin-bottom: 0.25rem; /* Minimal margin */
+        order: 1;
+        padding-right: 0;
+    }
+    
+    .hero-content {
+        order: 2;
+        padding: 0 1rem;
+        text-align: center;
     }
     
     .hero-name {
         font-size: clamp(1.8rem, 8vw, 2.5rem);
     }
     
-
+    .hero-text {
+        margin-bottom: 2rem; /* Reduced text margin */
+    }
     
     .monogram-letters {
         font-size: 56px;
@@ -4370,57 +4474,10 @@ a:not(.nav-link):hover {
     .letter-v {
         margin-left: -3px;
     }
-
     
     .btn-primary, .btn-secondary {
         padding: 14px 24px;
         font-size: 0.9rem;
-    }
-}
-
-/* Tablet styles */
-@media screen and (max-width: 1024px) {
-    /* Ensure projects section has better spacing on tablets */
-    .projects {
-        padding: 40px 20px;
-    }
-    
-    /* Skills section adjustments */
-    .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-    }
-    
-    /* Contact section adjustments */
-    .contact-section {
-        padding: 40px 20px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    #header {
-        display: none;
-        transition: left 1s ease;
-    }
-    #hero {
-        width: 100vw;
-        margin-left: 0;
-        margin-right: 0;
-        padding: 10px;
-        padding-top: 70px; /* Account for fixed nav */
-        height: auto;
-        min-height: 100vh;
-        flex-direction: column;
-        justify-content: center;
-        gap: 2rem;
-    }
-    
-    .container {
-        height: auto;
-        min-height: 80vh;
-        justify-content: center;
-        text-align: center;
-        margin-bottom: 20px;
     }
     
     .content {
@@ -4429,29 +4486,20 @@ a:not(.nav-link):hover {
         max-width: 100%;
     }
     
-    .hero-monogram {
-        order: 1;
-        padding-right: 0;
-        margin-bottom: 1rem;
-    }
-    
-    .hero-content {
-        order: 2;
-        padding: 0 1rem;
-        text-align: center;
-    }
     #main-content {
         width: 100vw;
         margin-left: 0;
         padding-top: 60px; /* Account for fixed nav */
         flex: 1;
     }
+    
     #footer {
         position: relative;
         width: 100%;
         background-color: #72706e;
         height: 10vh;
     }
+    
     #top-nav {
         background-color: var(--primary-color);
         height: 60px;
@@ -4475,6 +4523,7 @@ a:not(.nav-link):hover {
         justify-content: flex-start;
         z-index: 1200; /* Higher than sidebar to keep hamburger accessible */
     }
+    
     .hamburger-menu {
         width: 50px;
         height: 50px;
@@ -4490,6 +4539,7 @@ a:not(.nav-link):hover {
         padding: 12px;
         border-radius: 8px;
     }
+    
     .bar {
         position: absolute;
         left: 50%;
@@ -4500,6 +4550,7 @@ a:not(.nav-link):hover {
         transform: translate(-50%,-50%) rotate(0deg);
         transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
     }
+    
     .bar:nth-child(1) { margin-top: 0; }
     .bar:nth-child(2) { margin-top: 10px; }
     .bar:nth-child(3) { margin-top: 20px; }
@@ -4510,15 +4561,18 @@ a:not(.nav-link):hover {
         background-color: rgba(0, 0, 0, 0.3);
         backdrop-filter: blur(10px);
     }
+    
     .hamburger-menu.active .bar:nth-child(1) {
         background-color: #007bff;
         transform: translate(50%,-50%) rotate(-60deg);
     }
+    
     .hamburger-menu.active .bar:nth-child(2) {
         background-color: #cb0000;
         opacity: 0.5;
         transform: translate(0%,-50%) rotate(60deg);
     }
+    
     .hamburger-menu.active .bar:nth-child(3) {
         background-color: #f0ad4e;
         transform: translate(-50%,-50%) rotate(-60deg);
@@ -4529,11 +4583,13 @@ a:not(.nav-link):hover {
         background-color: rgba(255, 255, 255, 0.1);
         border: 1px solid rgba(255, 255, 255, 0.2);
     }
+    
     .top-nav-content {
         display: flex;
         align-items: center;
         gap: 12px;
     }
+    
     #image-container1 {
         display: flex;
         align-items: center;
@@ -4544,31 +4600,37 @@ a:not(.nav-link):hover {
         width: 40px;
         border: 2px solid var(--secondary-color);
     }
+    
     #image-container1 img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
+    
     .top-nav-content h1 {
         font-size: 18px;
         margin: 0;
         font-family: var(--font-primary);
         font-weight: 600;
     }
+    
     .top-nav-content h1 a {
         color: var(--text-white);
         text-decoration: none;
         transition: color var(--transition-speed) ease;
     }
+    
     .top-nav-content h1 a:hover {
         color: var(--secondary-color);
     }
+    
     .card-container {
         flex-direction: column;
         align-items: center;
     }
-    .timeline{
-      flex-direction: column;
+    
+    .timeline {
+        flex-direction: column;
     }
     
     /* General mobile improvements */
@@ -4587,6 +4649,11 @@ a:not(.nav-link):hover {
         height: auto;
     }
 }
+
+
+
+
+
 
 
 
