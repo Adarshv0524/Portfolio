@@ -68,6 +68,7 @@
         'python': 'python',
         'java': 'text/x-java',
         'cpp': 'text/x-c++src',
+        'dart': 'text/x-dart',
         'html': 'htmlmixed',
         'css': 'css',
         'markdown': 'markdown',
@@ -85,6 +86,7 @@
         'cpp': 'cpp',
         'c': 'cpp',
         'h': 'cpp',
+        'dart': 'dart',
         'html': 'html',
         'htm': 'html',
         'css': 'css',
@@ -173,7 +175,25 @@
                 }
             },
             hintOptions: {
-                completeSingle: false
+                completeSingle: false,
+                alignWithWord: true,
+                closeOnUnfocus: true
+            }
+        });
+
+        // Enable autocomplete on input
+        editor.on('inputRead', function(cm, change) {
+            if (change.text[0] && /\w/.test(change.text[0])) {
+                // Auto-trigger hints after typing a word character
+                setTimeout(function() {
+                    if (!cm.state.completionActive) {
+                        cm.showHint({
+                            completeSingle: false,
+                            alignWithWord: true,
+                            closeOnUnfocus: true
+                        });
+                    }
+                }, 100);
             }
         });
 
