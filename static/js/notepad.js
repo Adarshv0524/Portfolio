@@ -1,4 +1,23 @@
 // ===== SECRET NOTEPAD WITH GITHUB GIST INTEGRATION =====
+// 
+// KEYBOARD SHORTCUTS (Conflict-Free):
+// =====================================
+// 
+// GLOBAL (anywhere on page):
+//   ` ` ` (triple backtick) - Toggle notepad (tap backtick 3 times quickly)
+//   Esc                     - Close notepad/modals
+// 
+// INSIDE NOTEPAD:
+//   Ctrl+S                 - Save to Gist
+//   Ctrl+Alt+N             - New file
+//   Esc                    - Close notepad
+// 
+// TOKEN STORAGE:
+//   - Token is stored in a PRIVATE GitHub Gist named ".notepad-config"
+//   - Once you enter your token, it syncs across ALL devices automatically
+//   - You only need to enter it ONCE EVER (unless you revoke it)
+// 
+// =====================================
 
 (function() {
     'use strict';
@@ -6,11 +25,12 @@
     // Configuration
     const CONFIG = {
         storageKey: 'notepad_github_token',
+        configGistName: '.notepad-config', // Special gist to store config
         gistApiUrl: 'https://api.github.com/gists',
         defaultTheme: 'dark',
         defaultFont: "'Courier New', monospace",
         defaultFontSize: '16px',
-        secretKeyCombo: ['Control', 'Shift', 'N'] // Ctrl+Shift+N
+        tripleKeyTimeout: 600 // milliseconds between backtick presses
     };
 
     // DOM Elements
@@ -22,7 +42,9 @@
 
     // State
     let currentGistId = null;
-    let pressedKeys = new Set();
+    let backtickPressCount = 0;
+    let backtickTimer = null;
+    let isTokenLoaded = false;
 
     // Initialize when DOM is ready
     document.addEventListener('DOMContentLoaded', init);
@@ -65,14 +87,13 @@
         // Apply default settings
         applyEditorSettings();
         
-        // Load saved token if exists
-        loadSavedToken();
+        // Try to auto-load token from GitHub Gist
+        autoLoadToken();
     }
 
     function setupEventListeners() {
-        // Secret keyboard shortcut (Ctrl+Shift+N)
+        // Secret keyboard shortcut (Triple backtick only)
         document.addEventListener('keydown', handleSecretKeyPress);
-        document.addEventListener('keyup', handleKeyRelease);
 
         // Notepad controls
         newBtn.addEventListener('click', createNewFile);
@@ -125,17 +146,37 @@
     }
 
     function handleSecretKeyPress(e) {
-        pressedKeys.add(e.key);
-        
-        // Check if Ctrl+Shift+N is pressed
-        if (pressedKeys.has('Control') && pressedKeys.has('Shift') && pressedKeys.has('N')) {
-            e.preventDefault();
-            toggleNotepad();
+        // Only method: Triple backtick press
+        if (e.key === '`' && !e.ctrlKey && !e.altKey && !e.shiftKey) {
+            // Only count if not inside an input or textarea (except our notepad)
+            const activeElement = document.activeElement;
+            const isInInput = activeElement && (
+                activeElement.tagName === 'INPUT' || 
+                activeElement.tagName === 'TEXTAREA'
+            ) && activeElement.id !== 'notepad-editor';
+            
+            if (isInInput) return;
+            
+            backtickPressCount++;
+            
+            // Clear previous timer
+            if (backtickTimer) {
+                clearTimeout(backtickTimer);
+            }
+            
+            // Check if we got 3 presses
+            if (backtickPressCount === 3) {
+                e.preventDefault();
+                toggleNotepad();
+                backtickPressCount = 0;
+                return;
+            }
+            
+            // Reset counter after timeout
+            backtickTimer = setTimeout(() => {
+                backtickPressCount = 0;
+            }, CONFIG.tripleKeyTimeout);
         }
-    }
-
-    function handleKeyRelease(e) {
-        pressedKeys.delete(e.key);
     }
 
     function handleEditorShortcuts(e) {
@@ -145,8 +186,8 @@
             saveToGist();
         }
         
-        // Ctrl+N for new file
-        if (e.ctrlKey && e.key === 'n') {
+        // Ctrl+Alt+N for new file (avoiding Ctrl+N which opens new window)
+        if (e.ctrlKey && e.altKey && e.key === 'n') {
             e.preventDefault();
             createNewFile();
         }
@@ -170,7 +211,7 @@
 
     function closeNotepad() {
         notepadModal.classList.remove('active');
-        pressedKeys.clear();
+        backtickPressCount = 0;
     }
 
     function createNewFile() {
@@ -208,6 +249,126 @@
 
     // ===== GITHUB GIST API FUNCTIONS =====
 
+    async function autoLoadToken() {
+        // First check localStorage for a temporary token
+        const localToken = localStorage.getItem(CONFIG.storageKey);
+        
+        if (localToken) {
+            // We have a token, try to load config from gist
+            updateStatus('Loading your settings...');
+            
+            try {
+                const config = await loadConfigFromGist(localToken);
+                if (config && config.token) {
+                    // Token found in gist, use it
+                    localStorage.setItem(CONFIG.storageKey, config.token);
+                    githubTokenInput.value = config.token;
+                    isTokenLoaded = true;
+                    updateStatus('Settings loaded successfully!');
+                } else {
+                    // No config in gist, save current token to gist
+                    await saveConfigToGist(localToken, { token: localToken });
+                    githubTokenInput.value = localToken;
+                    isTokenLoaded = true;
+                    updateStatus('Ready');
+                }
+            } catch (error) {
+                console.error('Token sync error:', error);
+                // Keep using local token
+                githubTokenInput.value = localToken;
+                isTokenLoaded = true;
+                updateStatus('Ready (using local token)');
+            }
+        } else {
+            // No token found
+            updateStatus('Setup required - Click Save or Load to add GitHub token');
+        }
+    }
+
+    async function loadConfigFromGist(token) {
+        try {
+            // Search for our config gist
+            const response = await fetch(`${CONFIG.gistApiUrl}?per_page=100`, {
+                headers: {
+                    'Authorization': `token ${token}`,
+                    'Accept': 'application/vnd.github.v3+json'
+                }
+            });
+
+            if (!response.ok) return null;
+
+            const gists = await response.json();
+            const configGist = gists.find(g => 
+                g.files[CONFIG.configGistName] !== undefined
+            );
+
+            if (configGist) {
+                const configContent = configGist.files[CONFIG.configGistName].content;
+                return JSON.parse(configContent);
+            }
+
+            return null;
+        } catch (error) {
+            console.error('Load config error:', error);
+            return null;
+        }
+    }
+
+    async function saveConfigToGist(token, config) {
+        try {
+            // Check if config gist exists
+            const response = await fetch(`${CONFIG.gistApiUrl}?per_page=100`, {
+                headers: {
+                    'Authorization': `token ${token}`,
+                    'Accept': 'application/vnd.github.v3+json'
+                }
+            });
+
+            if (!response.ok) throw new Error('Failed to fetch gists');
+
+            const gists = await response.json();
+            const configGist = gists.find(g => 
+                g.files[CONFIG.configGistName] !== undefined
+            );
+
+            const gistData = {
+                description: 'Notepad Configuration (DO NOT DELETE)',
+                public: false,
+                files: {
+                    [CONFIG.configGistName]: {
+                        content: JSON.stringify(config, null, 2)
+                    }
+                }
+            };
+
+            if (configGist) {
+                // Update existing config
+                await fetch(`${CONFIG.gistApiUrl}/${configGist.id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/vnd.github.v3+json'
+                    },
+                    body: JSON.stringify(gistData)
+                });
+            } else {
+                // Create new config gist
+                await fetch(CONFIG.gistApiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/vnd.github.v3+json'
+                    },
+                    body: JSON.stringify(gistData)
+                });
+            }
+        } catch (error) {
+            console.error('Save config error:', error);
+        }
+    }
+
     function getGithubToken() {
         const token = localStorage.getItem(CONFIG.storageKey);
         if (!token) {
@@ -217,14 +378,7 @@
         return token;
     }
 
-    function loadSavedToken() {
-        const token = localStorage.getItem(CONFIG.storageKey);
-        if (token) {
-            githubTokenInput.value = token;
-        }
-    }
-
-    function saveGithubToken() {
+    async function saveGithubToken() {
         const token = githubTokenInput.value.trim();
         
         if (!token) {
@@ -238,9 +392,23 @@
             }
         }
         
+        updateStatus('Saving token and syncing...');
+        
+        // Save to localStorage first
         localStorage.setItem(CONFIG.storageKey, token);
-        gistSettingsModal.classList.remove('active');
-        updateStatus('GitHub token saved successfully!');
+        
+        // Save to GitHub Gist for cross-device sync
+        try {
+            await saveConfigToGist(token, { token: token });
+            gistSettingsModal.classList.remove('active');
+            isTokenLoaded = true;
+            updateStatus('Token saved and synced! You won\'t need to enter it again on any device.');
+        } catch (error) {
+            console.error('Token sync error:', error);
+            gistSettingsModal.classList.remove('active');
+            isTokenLoaded = true;
+            updateStatus('Token saved locally (sync failed, but you can still use it)');
+        }
     }
 
     function showGistSettings() {

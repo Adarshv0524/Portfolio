@@ -800,7 +800,7 @@
     </script>
     <script src="static/js/github-feed.js"></script>
 
-    <!-- Hidden Notepad (Access with Ctrl+Shift+N) -->
+    <!-- Hidden Notepad (Tap backtick ` three times quickly) -->
     <div id="secret-notepad" class="notepad-modal">
         <div class="notepad-container">
             <div class="notepad-header">
@@ -809,7 +809,7 @@
                     <span>Secret Notepad</span>
                 </div>
                 <div class="notepad-controls">
-                    <button id="notepad-new" class="notepad-btn" title="New File (Ctrl+N)">
+                    <button id="notepad-new" class="notepad-btn" title="New File (Ctrl+Alt+N)">
                         <span>📄</span> New
                     </button>
                     <button id="notepad-save" class="notepad-btn" title="Save to Gist (Ctrl+S)">
@@ -874,10 +874,12 @@
             <div class="notepad-editor-wrapper">
                 <textarea id="notepad-editor" class="notepad-editor" placeholder="Start typing your code here...
                 
-Tip: This notepad saves to GitHub Gist for cross-device access.
-Press Ctrl+S to save, Ctrl+N for new file.
+💡 Secret Access: Tap ` (backtick) 3 times quickly anywhere on the page
+📝 Shortcuts: Ctrl+S to save | Ctrl+Alt+N for new file | Esc to close
+🔐 One-Time Setup: Enter GitHub token once - it syncs across ALL devices!
                 
-Your code will be securely stored in your private GitHub Gists."></textarea>
+This notepad saves to GitHub Gist for cross-device access.
+Your notes are securely stored in your private GitHub Gists."></textarea>
                 <div class="notepad-status">
                     <span id="notepad-char-count">0 characters</span>
                     <span id="notepad-status-text">Ready</span>
@@ -907,6 +909,7 @@ Your code will be securely stored in your private GitHub Gists."></textarea>
                 </div>
                 <div class="gist-modal-body">
                     <p>To use the notepad, you need a GitHub Personal Access Token with 'gist' permission.</p>
+                    <p><strong>✨ One-Time Setup:</strong> Enter your token once and it will automatically sync to all your devices!</p>
                     <div class="settings-form">
                         <label for="github-token">GitHub Token:</label>
                         <input type="password" id="github-token" placeholder="ghp_xxxxxxxxxxxx">

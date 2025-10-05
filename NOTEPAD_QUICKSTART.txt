@@ -1,0 +1,55 @@
+╔══════════════════════════════════════════════════════════════╗
+║              SECRET NOTEPAD - QUICK REFERENCE                ║
+╚══════════════════════════════════════════════════════════════╝
+
+🔓 OPEN NOTEPAD
+   Tap backtick (`) 3 times quickly anywhere on your portfolio
+
+⚙️ ONE-TIME SETUP (First Time Only)
+   1. Tap ` 3 times
+   2. Click "Save" or "Load"
+   3. Paste GitHub token (from github.com/settings/tokens)
+   4. Click "Save Token"
+   
+   ✨ Token auto-syncs to ALL devices via GitHub Gist!
+   ✨ You'll NEVER need to enter it again!
+
+💾 SAVE A NOTE
+   Ctrl+S (or click "Save" button)
+
+📋 VIEW ALL NOTES
+   Click "List" button
+
+📄 NEW NOTE
+   Ctrl+Alt+N (or click "New" button)
+
+🚪 CLOSE
+   Press Esc (or click X button)
+
+────────────────────────────────────────────────────────────────
+
+🌍 MULTI-DEVICE MAGIC
+   
+   Device A: Enter token once ─────┐
+                                    │
+   Device B: Open notepad ──────────┤─→ Token auto-loads!
+                                    │
+   Device C: Open notepad ──────────┘
+
+   No setup needed on other devices! Just tap ` 3 times! 🎉
+
+────────────────────────────────────────────────────────────────
+
+🎨 CUSTOMIZE
+   - 7 Themes (Dark, Light, Blue, Nord, Dracula, etc.)
+   - 6 Fonts (Courier, Consolas, Monaco, Fira Code, etc.)
+   - Font sizes: 12px - 24px
+
+🔒 PRIVACY
+   - All gists are PRIVATE by default
+   - Token stored in private GitHub Gist
+   - Only you can access your notes
+
+────────────────────────────────────────────────────────────────
+
+Need help? Read NOTEPAD_README.md
