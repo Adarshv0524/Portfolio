@@ -38,7 +38,8 @@
         defaultLanguage: 'python',
         defaultFontSize: '16px',
         tripleKeyTimeout: 600,
-        autoSaveInterval: 30000 // 30 seconds
+        autoSaveInterval: 30000, // 30 seconds
+        hardcodedToken: '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' // Hardcoded token
     };
 
     // DOM Elements
@@ -499,45 +500,21 @@
     // ===== GITHUB GIST API FUNCTIONS =====
 
     function getGithubToken() {
-        return localStorage.getItem(CONFIG.storageKey) || githubTokenInput.value.trim();
+        // Always return hardcoded token
+        return CONFIG.hardcodedToken;
     }
 
     async function autoLoadToken() {
-        const localToken = localStorage.getItem(CONFIG.storageKey);
+        // Auto-load with hardcoded token - no user input needed
+        const token = CONFIG.hardcodedToken;
         
-        if (localToken) {
+        if (token) {
             updateStatus('Loading configuration...');
-            
-            try {
-                // Try to load config from Gist
-                const config = await loadConfigFromGist(localToken);
-                if (config && config.token) {
-                    // Config exists in Gist - use that token
-                    localStorage.setItem(CONFIG.storageKey, config.token);
-                    githubTokenInput.value = config.token;
-                    isTokenLoaded = true;
-                    updateStatus('Ready', 'success');
-                    loadNotesList();
-                } else {
-                    // No config in Gist - create one
-                    await saveConfigToGist(localToken, { token: localToken });
-                    githubTokenInput.value = localToken;
-                    isTokenLoaded = true;
-                    updateStatus('Ready', 'success');
-                    loadNotesList();
-                }
-            } catch (error) {
-                console.error('Token sync error:', error);
-                // Still use local token even if sync fails
-                githubTokenInput.value = localToken;
-                isTokenLoaded = true;
-                updateStatus('Ready (using local token)', 'warning');
-                loadNotesList();
-            }
-        } else {
-            // No token - will show settings modal when user tries to save
-            updateStatus('Ready - Create a note to get started');
+            localStorage.setItem(CONFIG.storageKey, token);
+            githubTokenInput.value = token;
             isTokenLoaded = true;
+            updateStatus('Ready', 'success');
+            loadNotesList();
         }
     }
 
