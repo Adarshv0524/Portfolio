@@ -62,6 +62,12 @@
     <link rel="stylesheet" href="static/css/sticky-cta.css">
     <link rel="stylesheet" href="static/css/resume.css">
     <link rel="stylesheet" href="static/css/notepad.css">
+    
+    <!-- CodeMirror 6 for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/dracula.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/nord.min.css">
 
 
 
@@ -803,86 +809,112 @@
     <!-- Hidden Notepad (Tap backtick ` three times quickly) -->
     <div id="secret-notepad" class="notepad-modal">
         <div class="notepad-container">
-            <div class="notepad-header">
-                <div class="notepad-title">
-                    <span class="notepad-icon">📝</span>
-                    <span>Secret Notepad</span>
+            <!-- Sidebar for Notes List -->
+            <div id="notepad-sidebar" class="notepad-sidebar">
+                <div class="sidebar-header">
+                    <h3>📝 My Notes</h3>
+                    <button id="sidebar-close" class="sidebar-close-btn" title="Close Sidebar">✕</button>
                 </div>
-                <div class="notepad-controls">
-                    <button id="notepad-new" class="notepad-btn" title="New File (Ctrl+Alt+N)">
-                        <span>📄</span> New
-                    </button>
-                    <button id="notepad-save" class="notepad-btn" title="Save to Gist (Ctrl+S)">
-                        <span>💾</span> Save
-                    </button>
-                    <button id="notepad-load" class="notepad-btn" title="Load from Gist">
-                        <span>📂</span> Load
-                    </button>
-                    <button id="notepad-list" class="notepad-btn" title="My Gists">
-                        <span>📋</span> List
-                    </button>
-                    <button id="notepad-close" class="notepad-btn close-btn" title="Close (Esc)">
-                        <span>✕</span>
-                    </button>
+                <div class="sidebar-search">
+                    <input type="text" id="sidebar-search-input" placeholder="🔍 Search notes...">
+                </div>
+                <div class="sidebar-filter">
+                    <select id="sidebar-filter-type">
+                        <option value="all">All Files</option>
+                        <option value="code">Code Files</option>
+                        <option value="markdown">Markdown</option>
+                        <option value="text">Text</option>
+                    </select>
+                </div>
+                <div id="sidebar-notes-list" class="sidebar-notes-list">
+                    <p class="sidebar-empty">No notes yet. Create your first note!</p>
                 </div>
             </div>
             
-            <div class="notepad-toolbar">
-                <div class="toolbar-section">
-                    <label for="notepad-filename">Filename:</label>
-                    <input type="text" id="notepad-filename" placeholder="untitled.txt" value="untitled.txt">
+            <!-- Main Editor Area -->
+            <div class="notepad-main">
+                <div class="notepad-header">
+                    <div class="notepad-title">
+                        <button id="sidebar-toggle" class="notepad-btn" title="Toggle Sidebar">
+                            <span>📂</span>
+                        </button>
+                        <span class="notepad-icon">📝</span>
+                        <span>Secret Notepad</span>
+                    </div>
+                    <div class="notepad-controls">
+                        <button id="notepad-new" class="notepad-btn" title="New File (Ctrl+Alt+N)">
+                            <span>📄</span> New
+                        </button>
+                        <button id="notepad-save" class="notepad-btn" title="Save to Gist (Ctrl+S)">
+                            <span>💾</span> Save
+                        </button>
+                        <button id="notepad-download" class="notepad-btn" title="Download File">
+                            <span>⬇️</span> Download
+                        </button>
+                        <button id="notepad-autosave-toggle" class="notepad-btn" title="Toggle Auto-Save">
+                            <span>🔄</span> Auto-Save: <span id="autosave-status">OFF</span>
+                        </button>
+                        <button id="notepad-close" class="notepad-btn close-btn" title="Close (Esc)">
+                            <span>✕</span>
+                        </button>
+                    </div>
                 </div>
                 
-                <div class="toolbar-section">
-                    <label for="font-family">Font:</label>
-                    <select id="font-family">
-                        <option value="'Courier New', monospace">Courier New</option>
-                        <option value="'Consolas', monospace">Consolas</option>
-                        <option value="'Monaco', monospace">Monaco</option>
-                        <option value="'Fira Code', monospace">Fira Code</option>
-                        <option value="'JetBrains Mono', monospace">JetBrains Mono</option>
-                        <option value="'Source Code Pro', monospace">Source Code Pro</option>
-                    </select>
+                <div class="notepad-toolbar">
+                    <div class="toolbar-section">
+                        <label for="notepad-filename">Filename:</label>
+                        <input type="text" id="notepad-filename" placeholder="untitled.txt" value="untitled.txt">
+                    </div>
+                    
+                    <div class="toolbar-section">
+                        <label for="language-select">Language:</label>
+                        <select id="language-select">
+                            <option value="text">Plain Text</option>
+                            <option value="javascript">JavaScript</option>
+                            <option value="python">Python</option>
+                            <option value="java">Java</option>
+                            <option value="cpp">C/C++</option>
+                            <option value="html">HTML</option>
+                            <option value="css">CSS</option>
+                            <option value="markdown">Markdown</option>
+                            <option value="json">JSON</option>
+                            <option value="xml">XML</option>
+                            <option value="sql">SQL</option>
+                        </select>
+                    </div>
+                    
+                    <div class="toolbar-section">
+                        <label for="font-size">Size:</label>
+                        <select id="font-size">
+                            <option value="12px">12px</option>
+                            <option value="14px">14px</option>
+                            <option value="16px" selected>16px</option>
+                            <option value="18px">18px</option>
+                            <option value="20px">20px</option>
+                        </select>
+                    </div>
+                    
+                    <div class="toolbar-section">
+                        <label for="editor-theme">Theme:</label>
+                        <select id="editor-theme">
+                            <option value="default">Light</option>
+                            <option value="dark" selected>Dark</option>
+                            <option value="monokai">Monokai</option>
+                            <option value="dracula">Dracula</option>
+                            <option value="nord">Nord</option>
+                        </select>
+                    </div>
                 </div>
                 
-                <div class="toolbar-section">
-                    <label for="font-size">Size:</label>
-                    <select id="font-size">
-                        <option value="12px">12px</option>
-                        <option value="14px">14px</option>
-                        <option value="16px" selected>16px</option>
-                        <option value="18px">18px</option>
-                        <option value="20px">20px</option>
-                        <option value="24px">24px</option>
-                    </select>
-                </div>
-                
-                <div class="toolbar-section">
-                    <label for="editor-theme">Theme:</label>
-                    <select id="editor-theme">
-                        <option value="light">Light</option>
-                        <option value="dark" selected>Dark</option>
-                        <option value="very-dark">Very Dark</option>
-                        <option value="blue">Contrast Blue</option>
-                        <option value="nord">Nord</option>
-                        <option value="dracula">Dracula</option>
-                        <option value="monokai">Monokai</option>
-                    </select>
-                </div>
-            </div>
-            
-            <div class="notepad-editor-wrapper">
-                <textarea id="notepad-editor" class="notepad-editor" placeholder="Start typing your code here...
-                
-💡 Secret Access: Tap ` (backtick) 3 times quickly anywhere on the page
-📝 Shortcuts: Ctrl+S to save | Ctrl+Alt+N for new file | Esc to close
-🔐 One-Time Setup: Enter GitHub token once - it syncs across ALL devices!
-                
-This notepad saves to GitHub Gist for cross-device access.
-Your notes are securely stored in your private GitHub Gists."></textarea>
-                <div class="notepad-status">
-                    <span id="notepad-char-count">0 characters</span>
-                    <span id="notepad-status-text">Ready</span>
+                <div class="notepad-editor-wrapper">
+                    <div id="notepad-editor" class="notepad-editor"></div>
+                    <div class="notepad-status">
+                        <span id="notepad-cursor-pos">Ln 1, Col 1</span>
+                        <span id="notepad-line-count">1 line</span>
+                        <span id="notepad-word-count">0 words</span>
+                        <span id="notepad-char-count">0 characters</span>
+                        <span id="notepad-status-text">Ready</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -921,7 +953,27 @@ Your notes are securely stored in your private GitHub Gists."></textarea>
         </div>
     </div>
 
-    <script src="static/js/notepad.js"></script>
+    <!-- CodeMirror 5 (more stable for production) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/clike/clike.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/sql/sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/closebrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/matchbrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/selection/active-line.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/javascript-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/html-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/css-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/sql-hint.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.css">
+
+    <script src="static/js/notepad-enhanced.js"></script>
 
   </body>
 </html>
