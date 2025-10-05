@@ -34,8 +34,8 @@
         storageKey: 'notepad_github_token',
         configGistName: '.notepad-config',
         gistApiUrl: 'https://api.github.com/gists',
-        defaultTheme: 'default',
-        defaultLanguage: 'text',
+        defaultTheme: 'monokai',
+        defaultLanguage: 'python',
         defaultFontSize: '16px',
         tripleKeyTimeout: 600,
         autoSaveInterval: 30000 // 30 seconds
@@ -153,7 +153,7 @@
         const editorElement = document.getElementById('notepad-editor');
         
         editor = CodeMirror(editorElement, {
-            mode: languageMap['text'],
+            mode: languageMap[CONFIG.defaultLanguage],
             theme: CONFIG.defaultTheme,
             lineNumbers: true,
             lineWrapping: true,
@@ -223,6 +223,14 @@
         closeBtn.addEventListener('click', closeNotepad);
         sidebarToggleBtn.addEventListener('click', toggleSidebar);
         sidebarCloseBtn.addEventListener('click', () => sidebar.classList.add('collapsed'));
+        
+        // Settings button
+        const settingsBtn = document.getElementById('notepad-settings');
+        if (settingsBtn) {
+            settingsBtn.addEventListener('click', () => {
+                gistSettingsModal.classList.add('active');
+            });
+        }
 
         // Filename change
         filenameInput.addEventListener('change', handleFilenameChange);
@@ -431,6 +439,8 @@
             statusText.classList.add('error');
         } else if (type === 'success') {
             statusText.classList.add('success');
+        } else if (type === 'warning') {
+            statusText.classList.add('warning');
         }
     }
 
@@ -488,33 +498,46 @@
 
     // ===== GITHUB GIST API FUNCTIONS =====
 
+    function getGithubToken() {
+        return localStorage.getItem(CONFIG.storageKey) || githubTokenInput.value.trim();
+    }
+
     async function autoLoadToken() {
         const localToken = localStorage.getItem(CONFIG.storageKey);
         
         if (localToken) {
-            updateStatus('Loading your settings...');
+            updateStatus('Loading configuration...');
             
             try {
+                // Try to load config from Gist
                 const config = await loadConfigFromGist(localToken);
                 if (config && config.token) {
+                    // Config exists in Gist - use that token
                     localStorage.setItem(CONFIG.storageKey, config.token);
                     githubTokenInput.value = config.token;
                     isTokenLoaded = true;
-                    updateStatus('Settings loaded successfully!', 'success');
+                    updateStatus('Ready', 'success');
+                    loadNotesList();
                 } else {
+                    // No config in Gist - create one
                     await saveConfigToGist(localToken, { token: localToken });
                     githubTokenInput.value = localToken;
                     isTokenLoaded = true;
-                    updateStatus('Ready');
+                    updateStatus('Ready', 'success');
+                    loadNotesList();
                 }
             } catch (error) {
                 console.error('Token sync error:', error);
+                // Still use local token even if sync fails
                 githubTokenInput.value = localToken;
                 isTokenLoaded = true;
-                updateStatus('Ready (using local token)');
+                updateStatus('Ready (using local token)', 'warning');
+                loadNotesList();
             }
         } else {
-            updateStatus('Setup required - Save a note to add GitHub token');
+            // No token - will show settings modal when user tries to save
+            updateStatus('Ready - Create a note to get started');
+            isTokenLoaded = true;
         }
     }
 
@@ -527,11 +550,14 @@
                 }
             });
 
-            if (!response.ok) return null;
+            if (!response.ok) {
+                console.error('Failed to load gists:', response.status, response.statusText);
+                return null;
+            }
 
             const gists = await response.json();
             const configGist = gists.find(g => 
-                g.files[CONFIG.configGistName] !== undefined
+                g.files && g.files[CONFIG.configGistName] !== undefined
             );
 
             if (configGist) {
@@ -648,7 +674,13 @@
 
     async function saveToGist(silent = false) {
         const token = getGithubToken();
-        if (!token) return;
+        
+        // If no token, show settings modal
+        if (!token) {
+            gistSettingsModal.classList.add('active');
+            updateStatus('Please enter your GitHub token to save', 'warning');
+            return;
+        }
 
         const filename = filenameInput.value.trim() || 'untitled.txt';
         const content = editor.getValue();
@@ -673,6 +705,7 @@
         try {
             let response;
             
+            // Update existing gist or create new one
             if (currentGistId) {
                 response = await fetch(`${CONFIG.gistApiUrl}/${currentGistId}`, {
                     method: 'PATCH',
@@ -696,29 +729,37 @@
             }
 
             if (!response.ok) {
-                throw new Error(`GitHub API error: ${response.status}`);
+                const errorData = await response.json();
+                console.error('GitHub API error:', errorData);
+                throw new Error(`GitHub API error: ${response.status} - ${errorData.message || response.statusText}`);
             }
 
             const result = await response.json();
             currentGistId = result.id;
             
             if (!silent) {
-                updateStatus(`Saved successfully!`, 'success');
-                setTimeout(() => updateStatus('Ready'), 3000);
+                updateStatus(`✓ Saved successfully!`, 'success');
+                setTimeout(() => updateStatus('Ready'), 2000);
             }
             
-            // Reload notes list
+            // Reload notes list to show the new/updated note
             loadNotesList();
         } catch (error) {
             console.error('Save error:', error);
-            if (!silent) updateStatus(`Save failed: ${error.message}`, 'error');
+            if (!silent) {
+                if (error.message.includes('401') || error.message.includes('Bad credentials')) {
+                    updateStatus(`Save failed: Invalid GitHub token`, 'error');
+                } else {
+                    updateStatus(`Save failed: ${error.message}`, 'error');
+                }
+            }
         }
     }
 
     async function loadNotesList() {
         const token = getGithubToken();
         if (!token) {
-            sidebarNotesList.innerHTML = '<p class="sidebar-empty">Setup GitHub token to see your notes</p>';
+            sidebarNotesList.innerHTML = '<p class="sidebar-empty">No token configured</p>';
             return;
         }
 
@@ -730,19 +771,29 @@
                 }
             });
 
-            if (!response.ok) throw new Error(`GitHub API error: ${response.status}`);
+            if (!response.ok) {
+                console.error('Failed to load gists:', response.status, response.statusText);
+                throw new Error(`GitHub API error: ${response.status}`);
+            }
 
             const gists = await response.json();
             
+            // Filter to only notepad files (exclude config gist)
             allNotes = gists.filter(g => 
-                g.description && g.description.includes('Notepad:') && 
+                g.description && 
+                g.description.startsWith('Notepad:') && 
+                g.files &&
                 !g.files[CONFIG.configGistName]
             );
 
             displayNotesList(allNotes);
         } catch (error) {
             console.error('Load notes error:', error);
-            sidebarNotesList.innerHTML = `<p class="sidebar-empty" style="color: #ff6b6b;">Failed to load notes</p>`;
+            if (error.message.includes('401')) {
+                sidebarNotesList.innerHTML = `<p class="sidebar-empty" style="color: #ff6b6b;">Invalid token - please update</p>`;
+            } else {
+                sidebarNotesList.innerHTML = `<p class="sidebar-empty" style="color: #ff6b6b;">Failed to load notes</p>`;
+            }
         }
     }
 

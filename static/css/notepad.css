@@ -1,4 +1,4 @@
-/* ===== SECRET NOTEPAD STYLES ===== */
+/* ===== SECRET NOTEPAD - MINIMAL & PROFESSIONAL ===== */
 
 .notepad-modal {
     display: none;
@@ -7,9 +7,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(0, 0, 0, 0.97);
     z-index: 99999;
-    animation: fadeIn 0.3s ease;
+    animation: fadeIn 0.2s ease;
+    backdrop-filter: blur(8px);
 }
 
 .notepad-modal.active {
@@ -28,37 +29,38 @@
 }
 
 .notepad-container {
-    width: 90%;
-    max-width: 1400px;
-    height: 90vh;
-    background: #1e1e1e;
-    border-radius: 12px;
-    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+    width: 95%;
+    max-width: 1600px;
+    height: 92vh;
+    background: #1a1a1a;
+    border-radius: 6px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
     display: flex;
     overflow: hidden;
-    animation: slideUp 0.4s ease;
+    animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 @keyframes slideUp {
     from {
-        transform: translateY(50px);
+        transform: translateY(30px) scale(0.98);
         opacity: 0;
     }
     to {
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
         opacity: 1;
     }
 }
 
-/* Sidebar */
+/* Sidebar - Minimal & Clean */
 .notepad-sidebar {
-    width: 280px;
-    background: #252526;
-    border-right: 1px solid #3d3d3d;
+    width: 260px;
+    background: #151515;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .notepad-sidebar.collapsed {
@@ -67,39 +69,43 @@
 }
 
 .sidebar-header {
-    background: #2d2d30;
-    padding: 15px;
+    background: #1a1a1a;
+    padding: 12px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #3d3d3d;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .sidebar-header h3 {
     margin: 0;
-    font-size: 14px;
-    color: #cccccc;
+    font-size: 12px;
+    color: #999;
     font-family: 'Inter', sans-serif;
-    font-weight: 600;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .sidebar-close-btn {
     background: none;
     border: none;
-    color: #cccccc;
-    font-size: 18px;
+    color: #666;
+    font-size: 16px;
     cursor: pointer;
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 4px;
+    border-radius: 3px;
     transition: all 0.2s ease;
+    padding: 0;
 }
 
 .sidebar-close-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+    color: #aaa;
 }
 
 .sidebar-search {
@@ -212,81 +218,93 @@
     overflow: hidden;
 }
 
-/* Header */
+/* Header - Ultra Minimal */
 .notepad-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 12px 20px;
+    background: #1a1a1a;
+    padding: 10px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .notepad-title {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 18px;
-    font-weight: 600;
-    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    color: #888;
     font-family: 'Inter', sans-serif;
 }
 
 .notepad-icon {
-    font-size: 24px;
+    font-size: 16px;
+    opacity: 0.7;
 }
 
 .notepad-controls {
     display: flex;
-    gap: 8px;
+    gap: 6px;
+    align-items: center;
 }
 
 .notepad-btn {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: white;
-    padding: 8px 15px;
-    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #999;
+    padding: 6px 12px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
     display: flex;
     align-items: center;
     gap: 6px;
-    transition: all 0.3s ease;
-    font-family: 'Inter', sans-serif;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .notepad-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #ccc;
 }
 
-.notepad-btn.close-btn {
-    background: rgba(255, 59, 48, 0.2);
-    border-color: rgba(255, 59, 48, 0.3);
+.notepad-btn:active {
+    transform: scale(0.96);
+}
+
+.notepad-btn span:first-child {
+    font-size: 14px;
+    opacity: 0.8;
 }
 
 .notepad-btn.close-btn:hover {
-    background: rgba(255, 59, 48, 0.4);
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.3);
+    color: #ef4444;
 }
 
-.notepad-btn.primary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border: none;
-    padding: 10px 20px;
-    font-weight: 600;
+.notepad-btn.settings-btn {
+    opacity: 0.25;
+    padding: 5px 8px;
+    transition: all 0.3s ease;
 }
 
-/* Toolbar */
+.notepad-btn.settings-btn:hover {
+    opacity: 0.7;
+}
+
+/* Toolbar - Clean & Organized */
 .notepad-toolbar {
-    background: #2d2d2d;
-    padding: 12px 20px;
+    background: #1a1a1a;
+    padding: 10px 16px;
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 16px;
     align-items: center;
-    border-bottom: 1px solid #3d3d3d;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    flex-wrap: wrap;
 }
 
 .toolbar-section {
@@ -296,26 +314,37 @@
 }
 
 .toolbar-section label {
-    color: #b0b0b0;
-    font-size: 13px;
+    color: #666;
+    font-size: 11px;
     font-weight: 500;
     font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
 }
 
 .toolbar-section input,
 .toolbar-section select {
-    background: #1e1e1e;
-    border: 1px solid #3d3d3d;
-    color: #e0e0e0;
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 13px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #ccc;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
     outline: none;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     font-family: 'Consolas', monospace;
 }
 
 .toolbar-section input:focus,
+.toolbar-section select:focus {
+    border-color: rgba(102, 126, 234, 0.5);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+#notepad-filename {
+    min-width: 180px;
+    font-weight: 500;
+}
 .toolbar-section select:focus {
     border-color: #667eea;
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
@@ -537,35 +566,36 @@ li.CodeMirror-hint-active {
     color: #f8f8f2;
 }
 
-/* Status Bar */
+/* Status Bar - Minimal */
 .notepad-status {
-    background: #2d2d2d;
-    padding: 6px 20px;
+    background: #151515;
+    padding: 5px 16px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    border-top: 1px solid #3d3d3d;
-    font-size: 11px;
-    color: #b0b0b0;
-    font-family: 'Inter', sans-serif;
-    gap: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 10px;
+    color: #666;
+    font-family: 'Consolas', monospace;
+    gap: 12px;
 }
 
 #notepad-cursor-pos {
-    color: #cccccc;
+    color: #888;
     font-weight: 500;
 }
 
 #notepad-line-count,
 #notepad-word-count,
 #notepad-char-count {
-    color: #858585;
+    color: #666;
 }
 
 #notepad-status-text {
     color: #667eea;
     font-weight: 500;
     margin-left: auto;
+    font-size: 11px;
 }
 
 #notepad-status-text.saving {
@@ -578,6 +608,10 @@ li.CodeMirror-hint-active {
 
 #notepad-status-text.success {
     color: #51cf66;
+}
+
+#notepad-status-text.warning {
+    color: #f59e0b;
 }
 
 /* Gist Modals */
@@ -888,44 +922,6 @@ li.CodeMirror-hint-active {
 .notepad-status span:hover {
     background: rgba(102, 126, 234, 0.2);
     transform: translateY(-2px);
-}
-
-/* Enhanced Toolbar */
-.notepad-toolbar {
-    background: linear-gradient(to bottom, #2d2d30, #252526);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-.toolbar-section label {
-    font-size: 12px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #a0a0a0;
-}
-
-.toolbar-section input,
-.toolbar-section select {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-.toolbar-section input:hover,
-.toolbar-section select:hover {
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
-/* Enhanced Filename Input */
-#filename-input {
-    font-family: 'Consolas', 'Monaco', monospace;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-}
-
-#filename-input:focus {
-    background: #454545;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
 }
 
 /* Sidebar Note Items Animation */

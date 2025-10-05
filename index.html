@@ -842,6 +842,9 @@
                         <span>Secret Notepad</span>
                     </div>
                     <div class="notepad-controls">
+                        <button id="notepad-settings" class="notepad-btn settings-btn" title="GitHub Token Settings" style="opacity: 0.3; font-size: 11px;">
+                            <span>⚙️</span>
+                        </button>
                         <button id="notepad-new" class="notepad-btn" title="New File (Ctrl+Alt+N)">
                             <span>📄</span> New
                         </button>
@@ -871,7 +874,7 @@
                         <select id="language-select">
                             <option value="text">Plain Text</option>
                             <option value="javascript">JavaScript</option>
-                            <option value="python">Python</option>
+                            <option value="python" selected>Python</option>
                             <option value="java">Java</option>
                             <option value="cpp">C/C++</option>
                             <option value="dart">Dart</option>
@@ -899,8 +902,8 @@
                         <label for="editor-theme">Theme:</label>
                         <select id="editor-theme">
                             <option value="default">Light</option>
-                            <option value="dark" selected>Dark</option>
-                            <option value="monokai">Monokai</option>
+                            <option value="dark">Dark</option>
+                            <option value="monokai" selected>Monokai</option>
                             <option value="dracula">Dracula</option>
                             <option value="nord">Nord</option>
                         </select>
