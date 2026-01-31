@@ -711,9 +711,18 @@ body {
 }
 
 @keyframes flowAnimation {
-    0% { border-color: #9b59b6; }
-    50% { border-color: #ffb6c1; }
-    100% { border-color: #a2cffe; }
+    0% { 
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.85;
+        transform: scale(1.05);
+    }
+    100% { 
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 #image-container {
@@ -727,6 +736,7 @@ body {
     margin-top: 25px;
     margin-left: 80px;
     animation: flowAnimation 5s infinite alternate;
+    will-change: transform, opacity;
 }
 
 .logo-image {
@@ -5208,7 +5218,7 @@ a:not(.nav-link):not(.btn-primary):not(.btn-secondary):hover {
 /* Default Text (Sanskrit verse) - Quiescent State */
 .vedic-verse {
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(255, 255, 255, 0.65);
     line-height: 1.6;
     margin: 0;
     font-family: var(--font-primary);
