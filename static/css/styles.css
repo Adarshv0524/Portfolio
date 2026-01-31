@@ -4,9 +4,20 @@ html, body {
   overflow-x: hidden;
 }
 
+/* Performance Optimizations - Prevent Forced Reflows */
+section {
+  contain: layout style;
+}
+
+.project-card, .skill-card, .hero-content, .monogram-letters {
+  contain: layout;
+  will-change: transform;
+}
+
 /* Performance & Accessibility Optimizations */
 img {
   object-fit: cover;
+  content-visibility: auto;
 }
 
 /* Minimum touch target size for mobile accessibility */
@@ -94,6 +105,35 @@ a, button, .nav-link, .project-link, .social-links a {
     --btn-bg-hover: var(--accent-secondary);
     --link-color: var(--accent-primary);
     --link-hover: var(--accent-secondary);
+}
+
+/* Reduce animations on mobile for performance */
+@media (max-width: 768px) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  /* Keep only essential animations */
+  .hero-monogram,
+  .monogram-letters {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+  
+  .project-card:hover,
+  .skill-card:hover {
+    transform: none !important;
+  }
+  
+  /* Disable will-change on mobile */
+  .project-card,
+  .skill-card,
+  .hero-content,
+  .monogram-letters {
+    will-change: auto !important;
+  }
 }
 
 /* ===== FLOATING THEME TOGGLE BUTTON ===== */
@@ -906,6 +946,7 @@ body {
     padding-right: 2rem;
     z-index: 10;
     pointer-events: none;
+    will-change: transform, opacity;
 }
 
 .monogram-letters {
@@ -922,6 +963,7 @@ body {
     letter-spacing: -0.1em;
     opacity: 0;
     animation: monogramFadeIn 0.8s ease-out 0.3s forwards;
+    will-change: transform, opacity;
 }
 
 .letter-a,
@@ -1311,6 +1353,8 @@ a:not(.nav-link):not(.btn-primary):not(.btn-secondary):hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
     padding: 1.5rem !important;
     transition: all 0.3s ease !important;
+    will-change: transform, box-shadow;
+    contain: layout style;
 }
 
 .card:hover,

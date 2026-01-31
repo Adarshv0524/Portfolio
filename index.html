@@ -1550,6 +1550,12 @@
           'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/anyword-hint.min.js'
         ];
         
+        // Load show-hint CSS dynamically
+        const cssLink = document.createElement('link');
+        cssLink.rel = 'stylesheet';
+        cssLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.css';
+        document.head.appendChild(cssLink);
+        
         await Promise.all(scripts.map(loadScript));
         console.log('CodeMirror loaded successfully');
       }
@@ -1612,7 +1618,6 @@
         }
       });
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.css">
 
     <script src="static/js/skills-orbital.js" defer></script>
 
