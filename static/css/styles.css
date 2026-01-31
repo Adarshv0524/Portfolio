@@ -4,7 +4,19 @@ html, body {
   overflow-x: hidden;
 }
 
+/* Performance & Accessibility Optimizations */
+img {
+  object-fit: cover;
+}
 
+/* Minimum touch target size for mobile accessibility */
+a, button, .nav-link, .project-link, .social-links a {
+  min-width: 48px;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* Root variables for consistent theming */
 :root {
