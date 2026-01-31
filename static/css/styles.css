@@ -721,6 +721,19 @@ body {
     flex-direction: column;
 }
 
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Dark Mode Profile Container */
+[data-theme="dark"] .profile {
+    border-bottom: 1px solid rgba(65, 105, 225, 0.2);
+}
+
 .profile h1 {
     font-size: 24px;
     margin: 15px;
@@ -746,6 +759,37 @@ body {
 }
 
 [data-theme="dark"] .profile h1 a:hover {
+    color: var(--accent-primary);
+    text-shadow: 0 0 15px rgba(65, 105, 225, 0.5);
+}
+
+/* Sidebar Title Styling */
+.sidebar-title {
+    font-size: 24px;
+    margin: 15px 0;
+    padding: 0;
+    font-weight: 700;
+    text-align: center;
+    font-family: var(--font-primary);
+}
+
+.sidebar-title a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sidebar-title a:hover {
+    color: #fc0000;
+}
+
+/* Dark Mode Sidebar Title */
+[data-theme="dark"] .sidebar-title a {
+    color: var(--text-primary);
+    text-shadow: 0 0 10px rgba(65, 105, 225, 0.3);
+}
+
+[data-theme="dark"] .sidebar-title a:hover {
     color: var(--accent-primary);
     text-shadow: 0 0 15px rgba(65, 105, 225, 0.5);
 }
@@ -5963,7 +6007,7 @@ a:not(.nav-link):not(.btn-primary):not(.btn-secondary):hover {
     
     .sidebar-title {
         font-size: 22px;
-        margin: 0;
+        margin: 15px 0;
         font-family: var(--font-primary);
         font-weight: 700;
         text-align: center;
@@ -5978,6 +6022,17 @@ a:not(.nav-link):not(.btn-primary):not(.btn-secondary):hover {
     .sidebar-title a:hover {
         color: var(--accent-primary);
     }
+    
+    /* Dark Mode Sidebar Title */
+[data-theme="dark"] .sidebar-title a {
+    color: var(--text-primary);
+    text-shadow: 0 0 10px rgba(65, 105, 225, 0.3);
+}
+
+[data-theme="dark"] .sidebar-title a:hover {
+    color: var(--accent-primary);
+    text-shadow: 0 0 15px rgba(65, 105, 225, 0.5);
+}
     
     .top-nav-content h1 a {
         color: var(--text-white);
