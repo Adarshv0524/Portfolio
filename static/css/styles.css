@@ -49,8 +49,12 @@ a, button, .nav-link, .project-link, .social-links a {
     --social-link-background: rgb(218, 225, 247);
     --border-gradient: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
     --transition-speed: 0.3s;
-    --font-primary: "Ubuntu Sans", sans-serif;
-    --font-secondary: "Kode Mono", monospace;
+    
+    /* Font stacks with system fallbacks for instant rendering */
+    --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", "Ubuntu Sans", system-ui, sans-serif;
+    --font-secondary: "SF Mono", "Cascadia Code", "Consolas", "Kode Mono", monospace;
+    --font-inter: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", system-ui, sans-serif;
+    --font-poppins: -apple-system, BlinkMacSystemFont, "Segoe UI", "Poppins", system-ui, sans-serif;
     
     /* Consistent Breakpoints */
     --breakpoint-xs: 480px;
