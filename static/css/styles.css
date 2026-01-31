@@ -684,9 +684,10 @@ body {
     top: 0;
     width: 300px;
     transition: all ease-in-out 0.5s;
-    height: 100%;
+    height: 100vh;
     background-color: var(--primary-color);
     z-index: 1100;
+    overflow: hidden;
 }
 
 /* Dark Mode Sidebar */
@@ -719,24 +720,20 @@ body {
     margin-top: 0;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    justify-content: space-between;
 }
 
 .profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Dark Mode Profile Container */
-[data-theme="dark"] .profile {
-    border-bottom: 1px solid rgba(65, 105, 225, 0.2);
+    padding: 20px 0 10px;
+    text-align: center;
+    flex-shrink: 0;
 }
 
 .profile h1 {
     font-size: 24px;
-    margin: 15px;
+    margin: 15px 0;
     padding: 0;
     font-weight: 600;
     text-align: center;
@@ -763,37 +760,6 @@ body {
     text-shadow: 0 0 15px rgba(65, 105, 225, 0.5);
 }
 
-/* Sidebar Title Styling */
-.sidebar-title {
-    font-size: 24px;
-    margin: 15px 0;
-    padding: 0;
-    font-weight: 700;
-    text-align: center;
-    font-family: var(--font-primary);
-}
-
-.sidebar-title a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.sidebar-title a:hover {
-    color: #fc0000;
-}
-
-/* Dark Mode Sidebar Title */
-[data-theme="dark"] .sidebar-title a {
-    color: var(--text-primary);
-    text-shadow: 0 0 10px rgba(65, 105, 225, 0.3);
-}
-
-[data-theme="dark"] .sidebar-title a:hover {
-    color: var(--accent-primary);
-    text-shadow: 0 0 15px rgba(65, 105, 225, 0.5);
-}
-
 @keyframes flowAnimation {
     0% { 
         opacity: 1;
@@ -810,15 +776,16 @@ body {
 }
 
 #image-container {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 8px;
     border: 8px solid #834c4c;
     border-radius: 50%;
     overflow: hidden;
     height: 100px;
     width: 100px;
-    margin-top: 25px;
-    margin-left: 80px;
+    margin: 15px auto 10px;
     animation: flowAnimation 5s infinite alternate;
     will-change: transform, opacity;
 }
@@ -830,7 +797,27 @@ body {
 }
 
 .nav-menu {
-    padding: 10px 0;
+    padding: 5px 0;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.nav-menu::-webkit-scrollbar {
+    width: 4px;
+}
+
+.nav-menu::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-menu::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+}
+
+.nav-menu::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
 }
 
 .nav-menu ul {
@@ -849,10 +836,10 @@ body {
     display: flex;
     align-items: center;
     color: #eeeff3;
-    padding: 12px 15px;
-    margin-bottom: 8px;
+    padding: 10px 15px;
+    margin-bottom: 6px;
     transition: color 0.3s;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .nav-menu a i,
@@ -886,15 +873,19 @@ body {
     justify-content: center;
 }
 
+.social-links {
+    margin: 10px 0;
+}
+
 .profile .social-links a i {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     background-color: var(--social-link-background);
-    margin: 0 8px;
-    height: 42px;
-    width: 42px;
+    margin: 0 6px;
+    height: 38px;
+    width: 38px;
     transition: all var(--transition-speed) ease;
     box-shadow: var(--shadow);
 }
@@ -5228,13 +5219,12 @@ a:not(.nav-link):not(.btn-primary):not(.btn-secondary):hover {
 .sidebar-footer {
     background: linear-gradient(135deg, #040b14, #0a0f1a);
     color: #ccc;
-    padding: 15px;
-    font-size: 12px;
+    padding: 12px 10px;
+    font-size: 11px;
     border-top: 1px solid rgba(255,255,255,0.1);
-    margin-top: auto; /* Push to bottom */
-    flex-shrink: 0; /* Prevent shrinking */
+    margin-top: auto;
+    flex-shrink: 0;
     position: relative;
-    bottom: 0;
 }
 
 .sidebar-footer .footer-container {
@@ -6006,32 +5996,46 @@ a:not(.nav-link):not(.btn-primary):not(.btn-secondary):hover {
     }
     
     .sidebar-title {
-        font-size: 22px;
-        margin: 15px 0;
+        font-size: 24px;
+        margin: 10px 0 5px;
         font-family: var(--font-primary);
-        font-weight: 700;
+        font-weight: 800;
         text-align: center;
+        line-height: 1.2;
     }
     
     .sidebar-title a {
         color: var(--text-white);
         text-decoration: none;
-        transition: color 0.3s ease;
+        display: block;
+        cursor: pointer;
     }
     
     .sidebar-title a:hover {
-        color: var(--accent-primary);
+        color: var(--text-white);
+        opacity: 0.9;
     }
-    
-    /* Dark Mode Sidebar Title */
-[data-theme="dark"] .sidebar-title a {
-    color: var(--text-primary);
-    text-shadow: 0 0 10px rgba(65, 105, 225, 0.3);
+
+/* Add sidebar-title styles for main layout too */
+.sidebar-title {
+    font-size: 26px;
+    margin: 10px 0 5px;
+    font-family: var(--font-primary);
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.2;
 }
 
-[data-theme="dark"] .sidebar-title a:hover {
-    color: var(--accent-primary);
-    text-shadow: 0 0 15px rgba(65, 105, 225, 0.5);
+.sidebar-title a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+.sidebar-title a:hover {
+    color: #fff;
+    opacity: 0.9;
 }
     
     .top-nav-content h1 a {
