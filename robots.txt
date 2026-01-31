@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /
+Sitemap: https://adarshkumarverma.in/sitemap.xml
+
+# Allow all search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Allow image indexing
+User-agent: Googlebot-Image
+Allow: /static/assets/
+
+# Block AI crawlers (optional - uncomment if desired)
+# User-agent: GPTBot
+# Disallow: /
+
+# User-agent: ChatGPT-User
+# Disallow: /
+
+# User-agent: CCBot
+# Disallow: /
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1

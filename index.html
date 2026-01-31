@@ -2,12 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Adarsh Verma - Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Adarsh Verma | AI ML Engineer | VIT Bhopal | Python Developer</title>
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://adarshkumarverma.in/">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
     
     <!-- Preconnect & Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" as="style" href="static/css/styles.css">
+    <link rel="preload" as="image" href="static/assets/logo.png">
+    <link rel="preload" as="image" href="static/assets/my_photo.jpeg">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -15,7 +28,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="static/assets/logo.png">
     <link rel="shortcut icon" type="image/x-icon" href="static/assets/logo.png">
     <link rel="apple-touch-icon" sizes="180x180" href="static/assets/logo.png">
-    <meta name="theme-color" content="#7b4990">
+    <meta name="theme-color" content="#4169E1">
+    <meta name="msapplication-TileColor" content="#4169E1">
+    <meta name="msapplication-TileImage" content="/static/assets/logo.png">
 
     <!-- for google analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
@@ -29,22 +44,52 @@
 
 
     <!-- SEO Meta -->
-    <meta name="description" content="Adarsh Verma’s portfolio: AI/ML student, Flutter & web developer with live GitHub feed, blog, and interactive resume.">
-    <meta name="keywords" content="Adarsh Verma, AI, Machine Learning, Flutter, Portfolio, GitHub">
+    <meta name="description" content="Adarsh Verma (Adarsh Kumar Verma) - AI/ML Engineer & Full Stack Developer from Ayodhya. Expert in Python, TensorFlow, Flutter, Machine Learning. VIT Bhopal CSE student. View projects & resume.">
+    <meta name="keywords" content="Adarsh Verma, Adarsh Kumar Verma, AI Engineer, Machine Learning Developer, Python Developer, Flutter Developer, VIT Bhopal, Ayodhya, Full Stack Developer, Data Science, Deep Learning, TensorFlow, PyTorch, React, Node.js">
+    
+    <!-- Author & Copyright -->
+    <meta name="author" content="Adarsh Verma">
+    <meta name="copyright" content="Adarsh Verma">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    
+    <!-- Geo Tags for Local SEO -->
+    <meta name="geo.region" content="IN-UP">
+    <meta name="geo.placename" content="Ayodhya">
+    <meta name="geo.position" content="26.7922;82.1998">
+    <meta name="ICBM" content="26.7922, 82.1998">
+    
+    <!-- Language -->
+    <link rel="alternate" hreflang="en" href="https://adarshkumarverma.in/">
+    <link rel="alternate" hreflang="hi" href="https://adarshkumarverma.in/">
+    <link rel="alternate" hreflang="x-default" href="https://adarshkumarverma.in/">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Adarsh Verma – AI & ML Student">
-    <meta property="og:description" content="Explore my projects, blog posts, GitHub activity, and interactive resume.">
-    <meta property="og:image" content="https://adarshv0524.github.io/Portfolio/static/assets/og-image.png">
-    <meta property="og:url" content="https://adarshv0524.github.io/Portfolio">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adarshkumarverma.in/">
+    <meta property="og:title" content="Adarsh Verma | AI ML Engineer | VIT Bhopal | Python Developer">
+    <meta property="og:description" content="Adarsh Verma (Adarsh Kumar Verma) - AI/ML Engineer & Full Stack Developer from Ayodhya. Expert in Python, Flutter, Machine Learning. View projects & resume.">
+    <meta property="og:image" content="https://adarshkumarverma.in/static/assets/og-image.png">
+    <meta property="og:image:alt" content="Adarsh Verma - AI ML Engineer Portfolio">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Adarsh Verma Portfolio">
+    <meta property="og:locale" content="en_US">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@adarshv0524">
-    <meta name="twitter:title" content="Adarsh Verma – AI & ML Student">
-    <meta name="twitter:description" content="Explore my projects, blog posts, GitHub activity, and interactive resume.">
-    <meta name="twitter:image" content="https://adarshv0524.github.io/Portfolio/static/assets/og-image.png">
+    <meta name="twitter:creator" content="@adarshv0524">
+    <meta name="twitter:title" content="Adarsh Verma | AI ML Engineer | VIT Bhopal">
+    <meta name="twitter:description" content="AI/ML Engineer & Full Stack Developer from Ayodhya. Expert in Python, Flutter, Machine Learning. View projects & resume.">
+    <meta name="twitter:image" content="https://adarshkumarverma.in/static/assets/og-image.png">
+    <meta name="twitter:image:alt" content="Adarsh Verma Portfolio">
+    <meta name="twitter:domain" content="adarshkumarverma.in">
 
 
 
@@ -78,31 +123,31 @@
     <div id="scroll-progress"></div>
 
     <section id="top-nav">
-        <div class="hamburger-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+        <div class="hamburger-menu" role="button" aria-label="Toggle navigation menu" aria-expanded="false" tabindex="0">
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
         </div>
         <div class="top-nav-content">
             <div id="image-container1">
-                <img src="static/assets/logo.png" alt="" class="logo-image" loading="lazy">
+                <img src="static/assets/logo.png" alt="Adarsh Verma Logo - AI ML Developer" class="logo-image" loading="lazy" width="40" height="40">
             </div>
-            <h1 class="text-light"><a href="index.html">Adarsh Verma</a></h1>
+            <h1 class="text-light"><a href="/">Adarsh Verma</a></h1>
         </div>
     </section>
     <header id="header" class="header transition">
         <div class="sidebar transition">
             <div class="profile">
                 <div id="image-container">
-                    <img src="static/assets/logo.png" alt="" class="logo-image">
+                    <img src="static/assets/logo.png" alt="Adarsh Verma Logo" class="logo-image" width="80" height="80">
                 </div>
-                <h1 class="text-light"><a href="index.html">Adarsh Verma</a></h1>
+                <h1 class="text-light"><a href="/">Adarsh Verma</a></h1>
                 <div class="social-links">
-                    <a href="https://www.geeksforgeeks.org/user/adarshv0524/" class="twitter"><i class="gfg"><img src="static/assets/icons/gfg.png" alt="gfg icon" loading="lazy"></i></a>
-                    <a href="https://leetcode.com/u/Adarshv0524/" class="facebook"><i class="leetcode"><img src="static/assets/icons/leetcode.svg" alt="" loading="lazy"></i></a>
-                    <a href="https://www.instagram.com/adarshv0524/" class="instagram"><i class="instagram"><img src="static/assets/icons/instagram.svg" alt="" loading="lazy"></i></a>
-                    <a href="https://github.com/Adarshv0524" class="github"><i class="github"><img src="static/assets/icons/github.svg" alt="" loading="lazy"></i></a>
-                    <a href="https://www.linkedin.com/in/adarshv0524/" class="linkedin"><i class="linkedin"><img src="static/assets/icons/linkedin-in.svg" alt="" loading="lazy"></i></a>
+                    <a href="https://www.geeksforgeeks.org/user/adarshv0524/" class="twitter" aria-label="Visit Adarsh Verma's GeeksforGeeks Profile" rel="noopener noreferrer" target="_blank"><i class="gfg"><img src="static/assets/icons/gfg.png" alt="GeeksforGeeks Profile - Adarsh Verma" loading="lazy" width="20" height="20"></i></a>
+                    <a href="https://leetcode.com/u/Adarshv0524/" class="facebook" aria-label="Visit Adarsh Verma's LeetCode Profile" rel="noopener noreferrer" target="_blank"><i class="leetcode"><img src="static/assets/icons/leetcode.svg" alt="LeetCode Profile - Adarsh Verma" loading="lazy" width="20" height="20"></i></a>
+                    <a href="https://www.instagram.com/adarshv0524/" class="instagram" aria-label="Follow Adarsh Verma on Instagram" rel="noopener noreferrer" target="_blank"><i class="instagram"><img src="static/assets/icons/instagram.svg" alt="Instagram - Adarsh Verma" loading="lazy" width="20" height="20"></i></a>
+                    <a href="https://github.com/Adarshv0524" class="github" aria-label="Visit Adarsh Verma's GitHub Profile" rel="noopener noreferrer" target="_blank"><i class="github"><img src="static/assets/icons/github.svg" alt="GitHub Profile - Adarsh Verma" loading="lazy" width="20" height="20"></i></a>
+                    <a href="https://www.linkedin.com/in/adarshv0524/" class="linkedin" aria-label="Connect with Adarsh Verma on LinkedIn" rel="noopener noreferrer" target="_blank"><i class="linkedin"><img src="static/assets/icons/linkedin-in.svg" alt="LinkedIn Profile - Adarsh Verma" loading="lazy" width="20" height="20"></i></a>
                 </div>
             </div>
             <nav id="navbar" class="nav-menu navbar">
@@ -145,8 +190,8 @@
                         <span class="name-item">𑂄𑂠𑂩𑂹𑂬 𑂫𑂩𑂹𑂧𑂰</span>
                     </span>
                 </h1>
-                <p class="hero-tagline">Student & Aspiring Developer</p>
-                <p class="hero-expertise">Computer Science | Machine Learning | Flutter</p>
+                <p class="hero-tagline">AI/ML Engineer & Full Stack Developer</p>
+                <p class="hero-expertise">Python | Machine Learning | Flutter | FastAPI</p>
             </div>
             
             <div class="hero-buttons">
@@ -165,6 +210,24 @@
             </div>
         </div>
     </section>
+    
+    <!-- Hidden SEO Content for Search Engines -->
+    <div class="seo-content" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;">
+        <h2>About Adarsh Verma - AI ML Engineer from Ayodhya</h2>
+        <p>
+            <strong>Adarsh Verma</strong>, also known as <strong>Adarsh Kumar Verma</strong>, is a skilled <strong>AI/ML Engineer</strong> and <strong>Full Stack Developer</strong> from <strong>Ayodhya, Uttar Pradesh, India</strong>. As a dedicated computer science student at <strong>VIT Bhopal University</strong>, <strong>Adarsh</strong> specializes in <strong>artificial intelligence</strong>, <strong>machine learning</strong>, <strong>Python programming</strong>, and <strong>Flutter development</strong>.
+        </p>
+        <p>
+            With expertise in deep learning frameworks like <strong>TensorFlow</strong> and <strong>PyTorch</strong>, <strong>Adarsh Verma</strong> has developed innovative projects including <strong>Lumina</strong> and various full-stack web applications. <strong>Adarsh's</strong> technical skills span across <strong>AI/ML</strong>, <strong>mobile development with Flutter</strong>, and <strong>web development with React and Node.js</strong>.
+        </p>
+        <p>
+            Connect with <strong>Adarsh Verma</strong> for <strong>AI/ML consulting</strong>, <strong>Flutter app development</strong>, <strong>Python programming projects</strong>, or <strong>machine learning solutions</strong>. Based in <strong>Ayodhya</strong> and studying at <strong>VIT Bhopal</strong>, <strong>Adarsh Kumar Verma</strong> brings fresh perspectives to technology and innovation.
+        </p>
+        <p>
+            <strong>Adarsh Verma's</strong> portfolio showcases projects in <strong>artificial intelligence</strong>, <strong>machine learning</strong>, <strong>deep learning</strong>, <strong>computer vision</strong>, and <strong>natural language processing</strong>. Whether you're looking for a <strong>Python developer</strong>, <strong>AI engineer</strong>, or <strong>Flutter developer</strong>, <strong>Adarsh</strong> is available for freelance opportunities and collaborations.
+        </p>
+    </div>
+    
     <main id="main-content">
         <section class="content-section">
             <section id="about-me" class="about-me">
@@ -175,99 +238,108 @@
                     </div>
 
                     <div class="about-content">
-                        <!-- Profile Image with Stylish Frame -->
-                        <div class="about-image-container">
-                            <div class="image-frame">
-                                <div class="frame-decoration"></div>
-                                <img src="static/assets/my_photo.jpeg" alt="Adarsh Verma" class="profile-image" loading="lazy">
-                                <div class="frame-overlay"></div>
+                        <!-- Profile Section with Image and Intro -->
+                        <div class="profile-showcase">
+                            <div class="profile-image-wrapper">
+                                <div class="image-glow"></div>
+                                <img src="static/assets/my_photo.jpeg" alt="Adarsh Verma - AI ML Engineer from Ayodhya, India" class="profile-img" loading="lazy">
+                                <div class="status-badge">
+                                    <span class="status-dot"></span>
+                                    Currently Interning @ EY
+                                </div>
+                            </div>
+                            
+                            <div class="profile-intro">
+                                <div class="intro-highlight">
+                                    <h3>Hey there! 👋</h3>
+                                    <p class="intro-lead">
+                                        I'm <strong>Adarsh Verma</strong>, an AI/ML Engineer currently interning at <strong class="highlight-text">EY (Ernst & Young)</strong> since January 2026. 
+                                        I'm in my final year at <strong>VIT Bhopal University</strong>, pursuing B.Tech in CSE with specialization in Artificial Intelligence and Machine Learning.
+                                    </p>
+                                    <p class="intro-description">
+                                        From Ayodhya, Uttar Pradesh, I'm passionate about building innovative AI solutions and pushing the boundaries of what's possible with machine learning. 
+                                        My journey spans from deep learning frameworks to full-stack development, always driven by curiosity and a commitment to excellence.
+                                    </p>
+                                </div>
+
+                                <!-- Quick Stats Bar -->
+                                <div class="stats-bar">
+                                    <div class="stat-item">
+                                        <div class="stat-icon">🎓</div>
+                                        <div class="stat-content">
+                                            <div class="stat-label">Education</div>
+                                            <div class="stat-value">VIT Bhopal</div>
+                                        </div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-icon">💼</div>
+                                        <div class="stat-content">
+                                            <div class="stat-label">Current Role</div>
+                                            <div class="stat-value">Intern @ EY</div>
+                                        </div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-icon">📍</div>
+                                        <div class="stat-content">
+                                            <div class="stat-label">Location</div>
+                                            <div class="stat-value">Ayodhya, India</div>
+                                        </div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-icon">🗣️</div>
+                                        <div class="stat-content">
+                                            <div class="stat-label">Languages</div>
+                                            <div class="stat-value">EN / HI / Awadhi</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- What I Do Section -->
+                        <div class="what-i-do-section">
+                            <h3 class="subsection-title">What I Do</h3>
+                            <div class="expertise-grid">
+                                <div class="expertise-card">
+                                    <div class="expertise-icon">🤖</div>
+                                    <h4>AI/ML Development</h4>
+                                    <p>Building intelligent systems with TensorFlow, PyTorch, and cutting-edge deep learning techniques</p>
+                                </div>
+                                <div class="expertise-card">
+                                    <div class="expertise-icon">📱</div>
+                                    <h4>Mobile Development</h4>
+                                    <p>Creating beautiful cross-platform apps with Flutter and modern UI/UX principles</p>
+                                </div>
+                                <div class="expertise-card">
+                                    <div class="expertise-icon">⚡</div>
+                                    <h4>Backend Engineering</h4>
+                                    <p>Designing scalable APIs with FastAPI, Servlet, and cloud-native architectures</p>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- About Info Cards -->
-                        <div class="about-info">
-                            <div class="about-intro-card">
-                                <div class="intro-text">
-                                    I'm Adarsh Verma, currently pursuing a Bachelor's degree in Computer Science and Engineering with a focus on Artificial Intelligence and Machine Learning. Academic excellence and innovation drive me, and I'm passionate about pushing boundaries. While my primary interests lie in AI and ML, I also enjoy the teamwork and thrill of cricket. With a commitment to constant learning, I'm excited to make a positive impact in the tech world.
+                        <!-- Interests & Passion -->
+                        <div class="interests-passion">
+                            <div class="passion-box">
+                                <div class="passion-header">
+                                    <span class="passion-emoji">✨</span>
+                                    <h4>Beyond Code</h4>
+                                </div>
+                                <div class="interest-pills">
+                                    <span class="pill">AI/ML Research</span>
+                                    <span class="pill">Problem Solving</span>
+                                    <span class="pill">Innovation</span>
+                                    <span class="pill">Cricket</span>
                                 </div>
                             </div>
-
-                            <div class="about-details-grid">
-                                <div class="detail-card">
-                                    <div class="card-header">
-                                        <h3>Personal Info</h3>
-                                    </div>
-                                    <div class="card-content">
-                                        <div class="detail-item">
-                                            <span class="detail-label">Full Name</span>
-                                            <span class="detail-value">Adarsh Verma</span>
-                                        </div>
-                                        <div class="detail-item">
-                                            <span class="detail-label">Age</span>
-                                            <span class="detail-value">20</span>
-                                        </div>
-                                        <div class="detail-item">
-                                            <span class="detail-label">Birthday</span>
-                                            <span class="detail-value">3rd March 2004</span>
-                                        </div>
-                                        <div class="detail-item">
-                                            <span class="detail-label">Location</span>
-                                            <span class="detail-value">Ayodhya, India</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="detail-card">
-                                    <div class="card-header">
-                                        <h3>Academic & Professional</h3>
-                                    </div>
-                                    <div class="card-content">
-                                        <div class="detail-item">
-                                            <span class="detail-label">University</span>
-                                            <span class="detail-value">VIT-B (Senior)</span>
-                                        </div>
-                                        <div class="detail-item">
-                                            <span class="detail-label">Degree</span>
-                                            <span class="detail-value">BTech CSE (AI/ML)</span>
-                                        </div>
-                                        <div class="detail-item">
-                                            <span class="detail-label">Email</span>
-                                            <span class="detail-value">adarshv2405@gmail.com</span>
-                                        </div>
-                                        <div class="detail-item">
-                                            <span class="detail-label">Freelance</span>
-                                            <span class="detail-value status-available">Available</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="detail-card full-width">
-                                    <div class="card-header">
-                                        <h3>Interests & Languages</h3>
-                                    </div>
-                                    <div class="card-content">
-                                        <div class="interests-section">
-                                            <div class="interests-group">
-                                                <strong>Primary Interests:</strong>
-                                                <div class="interest-tags">
-                                                    <span class="interest-tag">AI/ML Research</span>
-                                                    <span class="interest-tag">Problem Solving</span>
-                                                    <span class="interest-tag">Innovation</span>
-                                                    <span class="interest-tag">Cricket</span>
-                                                </div>
-                                            </div>
-                                            <div class="languages-group">
-                                                <strong>Languages:</strong> English, Hindi, Awadhi
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="about-quote-card">
-                                <div class="quote-text">
+                            
+                            <div class="quote-box">
+                                <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+                                </svg>
+                                <p class="quote-text">
                                     "I have previously worked on a project that integrates Artificial Intelligence, Machine Learning, and Web Development to create innovative solutions."
-                                </div>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -278,147 +350,162 @@
                 <div class="projects-container">
                     <div class="projects-header">
                         <div class="section-heading">Featured Projects</div>
-                        <p class="projects-subtitle">A timeline of innovative solutions</p>
+                        <p class="projects-subtitle">Innovation through code</p>
                     </div>
 
-                    <div class="projects-timeline">
-                        <div class="timeline-track">
-                            <div class="timeline-progress"></div>
-                            <div class="timeline-glow"></div>
-                        </div>
-
-                        <div class="project-node featured" data-year="2024">
-                            <div class="node-connector"></div>
-                            <div class="project-morph-card">
-                                <div class="project-avatar">
+                    <!-- Compact Carousel Projects -->
+                    <div class="projects-carousel-wrapper">
+                        <div class="projects-carousel">
+                            <!-- Project 1: Lumina -->
+                            <div class="project-card-modern featured">
+                                <div class="project-badge">Featured</div>
+                                <div class="project-image-wrapper">
                                     <img src="static/assets/lumina.png" alt="Lumina" loading="lazy">
-                                </div>
-                                <div class="project-core">
-                                    <div class="project-title-section">
-                                        <h3 class="project-title">Lumina</h3>
-                                        <div class="project-tech-orbs">
-                                            <div class="tech-orb ai" data-tech="AI/ML"></div>
-                                            <div class="tech-orb api" data-tech="Gemini"></div>
-                                            <div class="tech-orb nlp" data-tech="NLP"></div>
+                                    <div class="project-overlay">
+                                        <div class="tech-stack">
+                                            <span class="tech-chip ai">AI/ML</span>
+                                            <span class="tech-chip api">Gemini</span>
+                                            <span class="tech-chip nlp">NLP</span>
                                         </div>
                                     </div>
-                                    <div class="project-essence">
-                                        <span class="essence-text">Advanced document QA system with multimodal AI, PDF/PPTX support, and Gemini integration.</span>
-                                    </div>
-                                    <div class="project-portal">
-                                        <a href="https://github.com/Veerbhadra0524/lumina" target="_blank" class="portal-link">
-                                            View on GitHub →
-                                        </a>
-                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-name">Lumina</h3>
+                                    <p class="project-desc">Advanced document QA system with multimodal AI, PDF/PPTX support, and Gemini integration.</p>
+                                    <a href="https://github.com/Veerbhadra0524/lumina" target="_blank" class="project-link">
+                                        <span>Explore</span>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                            <path d="M8 0L6.59 1.41 12.17 7H0v2h12.17l-5.58 5.59L8 16l8-8z"/>
+                                        </svg>
+                                    </a>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="project-node" data-year="2024">
-                            <div class="node-connector"></div>
-                            <div class="project-morph-card">
-                                <div class="project-avatar">
+                            <!-- Project 2: Chat Buddhi -->
+                            <div class="project-card-modern">
+                                <div class="project-image-wrapper">
+                                    <img src="static/assets/chatbot.png" alt="Chat Buddhi" loading="lazy">
+                                    <div class="project-overlay">
+                                        <div class="tech-stack">
+                                            <span class="tech-chip ai">AI</span>
+                                            <span class="tech-chip web">FastAPI</span>
+                                            <span class="tech-chip nlp">NLP</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-name">Chat Buddhi</h3>
+                                    <p class="project-desc">Intelligent chatbot with natural language understanding and context-aware responses.</p>
+                                    <a href="https://chat-buddhi.onrender.com/" target="_blank" class="project-link">
+                                        <span>Explore</span>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                            <path d="M8 0L6.59 1.41 12.17 7H0v2h12.17l-5.58 5.59L8 16l8-8z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Project 3: HealTech -->
+                            <div class="project-card-modern">
+                                <div class="project-image-wrapper">
                                     <img src="static/assets/healtech.png" alt="HealTech" loading="lazy">
-                                </div>
-                                <div class="project-core">
-                                    <div class="project-title-section">
-                                        <h3 class="project-title">HealTech</h3>
-                                        <div class="project-tech-orbs">
-                                            <div class="tech-orb web" data-tech="Flask"></div>
-                                            <div class="tech-orb ai" data-tech="ML"></div>
-                                            <div class="tech-orb data" data-tech="SQL"></div>
+                                    <div class="project-overlay">
+                                        <div class="tech-stack">
+                                            <span class="tech-chip web">Flask</span>
+                                            <span class="tech-chip ai">ML</span>
+                                            <span class="tech-chip data">SQL</span>
                                         </div>
                                     </div>
-                                    <div class="project-essence">
-                                        <span class="essence-text">AI healthcare platform with 92% disease prediction accuracy and multilingual support.</span>
-                                    </div>
-                                    <div class="project-portal">
-                                        <a href="#" class="portal-link" onclick="alert('Project details available upon request')">
-                                            View Details →
-                                        </a>
-                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-name">HealTech</h3>
+                                    <p class="project-desc">AI healthcare platform with 92% disease prediction accuracy and multilingual support.</p>
+                                    <a href="#" class="project-link" onclick="alert('Project details available upon request')">
+                                        <span>Explore</span>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                            <path d="M8 0L6.59 1.41 12.17 7H0v2h12.17l-5.58 5.59L8 16l8-8z"/>
+                                        </svg>
+                                    </a>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="project-node" data-year="2023">
-                            <div class="node-connector"></div>
-                            <div class="project-morph-card">
-                                <div class="project-avatar">
+                            <!-- Project 4: Smart Select -->
+                            <div class="project-card-modern">
+                                <div class="project-image-wrapper">
                                     <img src="static/assets/smart-select.jpg" alt="Smart Select" loading="lazy">
-                                </div>
-                                <div class="project-core">
-                                    <div class="project-title-section">
-                                        <h3 class="project-title">Smart Select</h3>
-                                        <div class="project-tech-orbs">
-                                            <div class="tech-orb lang" data-tech="Python"></div>
-                                            <div class="tech-orb nlp" data-tech="NLP"></div>
-                                            <div class="tech-orb web" data-tech="Flask"></div>
+                                    <div class="project-overlay">
+                                        <div class="tech-stack">
+                                            <span class="tech-chip lang">Python</span>
+                                            <span class="tech-chip nlp">NLP</span>
+                                            <span class="tech-chip web">Flask</span>
                                         </div>
                                     </div>
-                                    <div class="project-essence">
-                                        <span class="essence-text">Smartphone recommendation system analyzing 400K+ reviews with sentiment analysis.</span>
-                                    </div>
-                                    <div class="project-portal">
-                                        <a href="https://github.com/Adarshv0524/Smart-Select" target="_blank" class="portal-link">
-                                            View on GitHub →
-                                        </a>
-                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-name">Smart Select</h3>
+                                    <p class="project-desc">Smartphone recommendation system analyzing 400K+ reviews with sentiment analysis.</p>
+                                    <a href="https://github.com/Adarshv0524/Smart-Select" target="_blank" class="project-link">
+                                        <span>Explore</span>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                            <path d="M8 0L6.59 1.41 12.17 7H0v2h12.17l-5.58 5.59L8 16l8-8z"/>
+                                        </svg>
+                                    </a>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="project-node" data-year="2023">
-                            <div class="node-connector"></div>
-                            <div class="project-morph-card">
-                                <div class="project-avatar">
+                            <!-- Project 5: MicroProjects -->
+                            <div class="project-card-modern">
+                                <div class="project-image-wrapper">
                                     <img src="static/assets/microprojects.png" alt="MicroProjects" loading="lazy">
-                                </div>
-                                <div class="project-core">
-                                    <div class="project-title-section">
-                                        <h3 class="project-title">MicroProjects</h3>
-                                        <div class="project-tech-orbs">
-                                            <div class="tech-orb lang" data-tech="JS"></div>
-                                            <div class="tech-orb api" data-tech="APIs"></div>
-                                            <div class="tech-orb web" data-tech="CSS"></div>
+                                    <div class="project-overlay">
+                                        <div class="tech-stack">
+                                            <span class="tech-chip lang">JS</span>
+                                            <span class="tech-chip api">APIs</span>
+                                            <span class="tech-chip web">CSS</span>
                                         </div>
                                     </div>
-                                    <div class="project-essence">
-                                        <span class="essence-text">Collection of innovative web experiments and interactive demos.</span>
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-name">MicroProjects</h3>
+                                    <p class="project-desc">Collection of innovative web experiments and interactive demos.</p>
+                                    <a href="https://adarshv0524.github.io/microprojects/" target="_blank" class="project-link">
+                                        <span>Explore</span>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                            <path d="M8 0L6.59 1.41 12.17 7H0v2h12.17l-5.58 5.59L8 16l8-8z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Project 6: Health Monitor -->
+                            <div class="project-card-modern">
+                                <div class="project-image-wrapper">
+                                    <img src="static/assets/Smart Health Monitor .png" alt="Smart Health Monitor" loading="lazy">
+                                    <div class="project-overlay">
+                                        <div class="tech-stack">
+                                            <span class="tech-chip ai">ML</span>
+                                            <span class="tech-chip data">Analytics</span>
+                                        </div>
                                     </div>
-                                    <div class="project-portal">
-                                        <a href="https://adarshv0524.github.io/microprojects/" target="_blank" class="portal-link">
-                                            View Live Demo →
-                                        </a>
-                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-name">Health Monitor</h3>
+                                    <p class="project-desc">ML health monitoring for early detection.</p>
+                                    <a href="static/pdf/pe-i.pdf" target="_blank" class="project-link">
+                                        <span>Explore</span>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                            <path d="M8 0L6.59 1.41 12.17 7H0v2h12.17l-5.58 5.59L8 16l8-8z"/>
+                                        </svg>
+                                    </a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="project-node micro" data-year="2023">
-                            <div class="node-connector"></div>
-                            <div class="project-morph-card">
-                                <div class="project-avatar">
-                                    <img src="static/assets/Smart Health Monitor .png" alt="Smart Health Monitor" loading="lazy">
-                                </div>
-                                <div class="project-core">
-                                    <div class="project-title-section">
-                                        <h3 class="project-title">Health Monitor</h3>
-                                        <div class="project-tech-orbs">
-                                            <div class="tech-orb ai" data-tech="ML"></div>
-                                            <div class="tech-orb data" data-tech="Analytics"></div>
-                                        </div>
-                                    </div>
-                                    <div class="project-essence">
-                                        <span class="essence-text">ML health monitoring for early detection.</span>
-                                    </div>
-                                    <div class="project-portal">
-                                        <a href="static/pdf/pe-i.pdf" target="_blank" class="portal-link">
-                                            Learn More →
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                        <!-- Navigation Dots -->
+                        <div class="carousel-dots">
+                            <button class="dot active" data-index="0"></button>
+                            <button class="dot" data-index="1"></button>
+                            <button class="dot" data-index="2"></button>
                         </div>
                     </div>
                 </div>
@@ -481,48 +568,111 @@
                 <div class="skills-container">
                     <div class="skills-header">
                         <div class="section-heading">Skills & Technologies</div>
-                        <p class="skills-subtitle">Tools I work with</p>
+                        <p class="skills-subtitle">My technical DNA</p>
                     </div>
 
-                    <div class="skills-cloud">
-                        <div class="skill-bubble" data-category="ai">Python</div>
-                        <div class="skill-bubble" data-category="mobile">Dart</div>
-                        <div class="skill-bubble" data-category="web">HTML/CSS</div>
-                        <div class="skill-bubble" data-category="tools">SQL</div>
-
-                        <div class="skill-bubble" data-category="ai">TensorFlow</div>
-                        <div class="skill-bubble" data-category="ai">Scikit-learn</div>
-                        <div class="skill-bubble" data-category="ai">PyTorch</div>
-                        <div class="skill-bubble" data-category="ai">Computer Vision</div>
-
-                        <div class="skill-bubble" data-category="mobile">Flutter</div>
-                        <div class="skill-bubble" data-category="web">Flask</div>
-                        <div class="skill-bubble" data-category="web">REST APIs</div>
-                        <div class="skill-bubble" data-category="web">Responsive Design</div>
-
-
-                        <div class="skill-bubble" data-category="tools">Git</div>
-                        <div class="skill-bubble" data-category="tools">Docker</div>
-                        <div class="skill-bubble" data-category="tools">Linux</div>
+                    <!-- Alien Orbital Skill System -->
+                    <div class="skill-constellation">
+                        <div class="constellation-core">
+                            <div class="core-glow"></div>
+                            <span>Tech Stack</span>
+                        </div>
+                        
+                        <svg class="constellation-connections" viewBox="0 0 800 500">
+                            <!-- AI/ML cluster connections -->
+                            <line x1="400" y1="250" x2="300" y2="150" class="connection ai" />
+                            <line x1="400" y1="250" x2="350" y2="100" class="connection ai" />
+                            <line x1="400" y1="250" x2="450" y2="100" class="connection ai" />
+                            <line x1="400" y1="250" x2="500" y2="150" class="connection ai" />
+                            <line x1="400" y1="250" x2="250" y2="200" class="connection ai" />
+                            
+                            <!-- Web cluster connections -->
+                            <line x1="400" y1="250" x2="200" y2="300" class="connection web" />
+                            <line x1="400" y1="250" x2="250" y2="350" class="connection web" />
+                            <line x1="400" y1="250" x2="300" y2="400" class="connection web" />
+                            <line x1="400" y1="250" x2="350" y2="400" class="connection web" />
+                            <line x1="400" y1="250" x2="450" y2="400" class="connection web" />
+                            
+                            <!-- Mobile cluster connections -->
+                            <line x1="400" y1="250" x2="500" y2="400" class="connection mobile" />
+                            <line x1="400" y1="250" x2="550" y2="350" class="connection mobile" />
+                            
+                            <!-- Tools cluster connections -->
+                            <line x1="400" y1="250" x2="600" y2="300" class="connection tools" />
+                            <line x1="400" y1="250" x2="550" y2="200" class="connection tools" />
+                            <line x1="400" y1="250" x2="550" y2="250" class="connection tools" />
+                            <line x1="400" y1="250" x2="600" y2="200" class="connection tools" />
+                        </svg>
+                        
+                        <div class="skill-nodes">
+                            <!-- AI/ML Nodes -->
+                            <div class="skill-node ai" data-skill="Python" data-desc="Primary language for AI/ML development" style="--x: 300; --y: 150;">
+                                <span>Python</span>
+                            </div>
+                            <div class="skill-node ai" data-skill="TensorFlow" data-desc="Deep learning framework" style="--x: 350; --y: 100;">
+                                <span>TensorFlow</span>
+                            </div>
+                            <div class="skill-node ai" data-skill="PyTorch" data-desc="ML research framework" style="--x: 450; --y: 100;">
+                                <span>PyTorch</span>
+                            </div>
+                            <div class="skill-node ai" data-skill="Scikit-learn" data-desc="Classic ML algorithms" style="--x: 500; --y: 150;">
+                                <span>Scikit</span>
+                            </div>
+                            <div class="skill-node ai" data-skill="Computer Vision" data-desc="Image processing & analysis" style="--x: 250; --y: 200;">
+                                <span>CV</span>
+                            </div>
+                            
+                            <!-- Web Nodes -->
+                            <div class="skill-node web" data-skill="HTML/CSS" data-desc="Frontend fundamentals" style="--x: 200; --y: 300;">
+                                <span>HTML/CSS</span>
+                            </div>
+                            <div class="skill-node web" data-skill="FastAPI" data-desc="Modern Python API framework" style="--x: 250; --y: 350;">
+                                <span>FastAPI</span>
+                            </div>
+                            <div class="skill-node web" data-skill="Astro" data-desc="Static site builder" style="--x: 300; --y: 400;">
+                                <span>Astro</span>
+                            </div>
+                            <div class="skill-node web" data-skill="Servlet" data-desc="Java web components" style="--x: 350; --y: 400;">
+                                <span>Servlet</span>
+                            </div>
+                            <div class="skill-node web" data-skill="REST APIs" data-desc="RESTful web services" style="--x: 450; --y: 400;">
+                                <span>REST</span>
+                            </div>
+                            
+                            <!-- Mobile Nodes -->
+                            <div class="skill-node mobile" data-skill="Flutter" data-desc="Cross-platform mobile apps" style="--x: 500; --y: 400;">
+                                <span>Flutter</span>
+                            </div>
+                            <div class="skill-node mobile" data-skill="Dart" data-desc="Flutter programming language" style="--x: 550; --y: 350;">
+                                <span>Dart</span>
+                            </div>
+                            
+                            <!-- Tools Nodes -->
+                            <div class="skill-node tools" data-skill="Git" data-desc="Version control system" style="--x: 600; --y: 300;">
+                                <span>Git</span>
+                            </div>
+                            <div class="skill-node tools" data-skill="Docker" data-desc="Containerization platform" style="--x: 550; --y: 200;">
+                                <span>Docker</span>
+                            </div>
+                            <div class="skill-node tools" data-skill="Rust" data-desc="Systems programming language" style="--x: 550; --y: 250;">
+                                <span>Rust</span>
+                            </div>
+                            <div class="skill-node tools" data-skill="SQL" data-desc="Database management" style="--x: 600; --y: 200;">
+                                <span>SQL</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-tooltip">
+                            <div class="tooltip-title"></div>
+                            <div class="tooltip-desc"></div>
+                        </div>
                     </div>
-
-                    <div class="skills-legend">
-                        <div class="legend-item" data-filter="ai">
-                            <span class="legend-color ai"></span>
-                            <span class="legend-text">AI/ML & Data</span>
-                        </div>
-                        <div class="legend-item" data-filter="web">
-                            <span class="legend-color web"></span>
-                            <span class="legend-text">Web Dev</span>
-                        </div>
-                        <div class="legend-item" data-filter="mobile">
-                            <span class="legend-color mobile"></span>
-                            <span class="legend-text">Mobile Dev</span>
-                        </div>
-                        <div class="legend-item" data-filter="tools">
-                            <span class="legend-color tools"></span>
-                            <span class="legend-text">Tools</span>
-                        </div>
+                    
+                    <div class="skill-legend-compact">
+                        <div class="legend-item" data-category="ai"><span class="legend-dot ai"></span> AI/ML</div>
+                        <div class="legend-item" data-category="web"><span class="legend-dot web"></span> Web</div>
+                        <div class="legend-item" data-category="mobile"><span class="legend-dot mobile"></span> Mobile</div>
+                        <div class="legend-item" data-category="tools"><span class="legend-dot tools"></span> Tools</div>
                     </div>
                 </div>
             </section>
@@ -547,7 +697,7 @@
                                         <div class="highlight-icon">🎓</div>
                                         <div class="highlight-text">
                                             <strong>B.Tech CSE (AIML)</strong>
-                                            <span>VIT Bhopal • GPA 8.57/10.0</span>
+                                            <span>VIT Bhopal • GPA 8.72/10.0</span>
                                         </div>
                                     </div>
                                     
@@ -601,7 +751,10 @@
 
             <section id="contact-pages" class="contact-page content-section">
                 <div class="section-container">
-                    <h2 class="section-heading">Contact</h2>
+                    <div class="contact-header-modern">
+                        <h2 class="section-heading">Get In Touch</h2>
+                        <p class="contact-subtitle">Let's discuss your next project or collaboration opportunity</p>
+                    </div>
                     
                     <!-- Contact Grid Layout -->
                     <div class="contact-grid">
@@ -779,31 +932,199 @@
     <script src="static/js/scripts.js"></script>
     <script src="static/js/futuristic-timeline.js"></script>
     <script src="https://web3forms.com/client/script.js" async defer></script>
+    
+    <!-- Comprehensive Structured Data for SEO -->
     <script type="application/ld+json">
-      {
-        "@context": "http://schema.org",
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Adarsh Verma",
+      "alternateName": ["Adarsh Kumar Verma", "Adarsh V"],
+      "jobTitle": "Intern at EY | AI/ML Engineer & Full Stack Developer",
+      "description": "AI/ML Engineer and Full Stack Developer, currently interning at EY (Ernst & Young). Specializing in Python, Flutter, and Machine Learning. Student at VIT Bhopal University pursuing B.Tech in Computer Science (AIML).",
+      "url": "https://adarshkumarverma.in",
+      "image": "https://adarshkumarverma.in/static/assets/my_photo.jpeg",
+      "email": "adarshv2405@gmail.com",
+      "birthDate": "2004-03-03",
+      "birthPlace": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ayodhya",
+          "addressRegion": "Uttar Pradesh",
+          "addressCountry": "IN"
+        }
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ayodhya",
+        "addressRegion": "Uttar Pradesh",
+        "addressCountry": "IN"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "VIT Bhopal University",
+        "url": "https://vitbhopal.ac.in"
+      },
+      "knowsAbout": [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Deep Learning",
+        "Python Programming",
+        "Flutter Development",
+        "Web Development",
+        "Data Science",
+        "Neural Networks",
+        "Computer Vision",
+        "Natural Language Processing",
+        "TensorFlow",
+        "PyTorch",
+        "React",
+        "Node.js"
+      ],
+      "knowsLanguage": [
+        {
+          "@type": "Language",
+          "name": "English"
+        },
+        {
+          "@type": "Language",
+          "name": "Hindi"
+        },
+        {
+          "@type": "Language",
+          "name": "Awadhi"
+        }
+      ],
+      "sameAs": [
+        "https://github.com/Adarshv0524",
+        "https://www.linkedin.com/in/adarshv0524/",
+        "https://www.instagram.com/adarshv0524/",
+        "https://leetcode.com/u/Adarshv0524/",
+        "https://www.geeksforgeeks.org/user/adarshv0524/"
+      ],
+      "interestIn": ["AI/ML Research", "Problem Solving", "Innovation", "Cricket"],
+      "hasOccupation": [
+        {
+          "@type": "Occupation",
+          "name": "Intern at EY (Ernst & Young)",
+          "occupationLocation": {
+            "@type": "City",
+            "name": "India"
+          },
+          "startDate": "2026-01"
+        },
+        {
+          "@type": "Occupation",
+          "name": "Student - Computer Science & Engineering (AI/ML)",
+          "occupationLocation": {
+            "@type": "City",
+            "name": "Bhopal",
+            "containedInPlace": {
+              "@type": "State",
+              "name": "Madhya Pradesh"
+            }
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- WebSite Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Adarsh Verma Portfolio",
+      "alternateName": "Adarsh Kumar Verma Portfolio",
+      "url": "https://adarshkumarverma.in",
+      "description": "Personal portfolio of Adarsh Verma (Adarsh Kumar Verma) showcasing AI/ML projects, web development work, and technical skills from Ayodhya, India",
+      "author": {
         "@type": "Person",
-        "name": "Adarsh Verma",
-        "jobTitle": "Student",
-        "affiliation": "VIT Bhopal University",
-        "url": "https://yourwebsite.com",
-        "sameAs": [
-          "https://github.com/Adarshv0524",
-          "https://www.linkedin.com/in/adarshv0524/"
-        ]
+        "name": "Adarsh Verma"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://adarshkumarverma.in/#search={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
       }
+    }
+    </script>
+    
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://adarshkumarverma.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://adarshkumarverma.in/#about-me"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Projects",
+          "item": "https://adarshkumarverma.in/#my-projects"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Resume",
+          "item": "https://adarshkumarverma.in/#resume"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Contact",
+          "item": "https://adarshkumarverma.in/#contact-pages"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- ProfessionalService Schema for Local SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Adarsh Verma - AI ML Development Services",
+      "image": "https://adarshkumarverma.in/static/assets/my_photo.jpeg",
+      "description": "Professional AI/ML engineering and full-stack development services by Adarsh Verma in Ayodhya, Uttar Pradesh. Specializing in Python, TensorFlow, Flutter, and Web Development.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ayodhya",
+        "addressRegion": "Uttar Pradesh",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 26.7922,
+        "longitude": 82.1998
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "India"
+      },
+      "priceRange": "$$",
+      "openingHours": "Mo-Su",
+      "email": "adarshv2405@gmail.com",
+      "url": "https://adarshkumarverma.in"
+    }
     </script>
 
     <script src="static/js/progress-bar.js"></script>
-
-
-    <button id="download-resume" class="sticky-cta">Download Resume</button>
-    <script>
-    document.getElementById('download-resume').addEventListener('click', () => {
-        const src = document.getElementById('view-btn').dataset.resumeSrc;
-        window.open(src, '_blank');
-    });
-    </script>
     <script src="static/js/github-feed.js"></script>
 
     <!-- Hidden Notepad (Tap backtick ` three times quickly) -->
@@ -980,6 +1301,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.css">
 
     <script src="static/js/notepad-enhanced.js"></script>
+    <script src="static/js/skills-orbital.js"></script>
 
   </body>
 </html>
