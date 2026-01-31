@@ -5899,6 +5899,42 @@ a:not(.nav-link):not(.btn-primary):not(.btn-secondary):hover {
         font-weight: 600;
     }
     
+    /* Navigation Title Styles (replacing H1) */
+    .nav-title {
+        font-size: 18px;
+        margin: 0;
+        font-family: var(--font-primary);
+        font-weight: 600;
+    }
+    
+    .nav-title a {
+        color: var(--text-white);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .nav-title a:hover {
+        color: var(--accent-secondary);
+    }
+    
+    .sidebar-title {
+        font-size: 22px;
+        margin: 0;
+        font-family: var(--font-primary);
+        font-weight: 700;
+        text-align: center;
+    }
+    
+    .sidebar-title a {
+        color: var(--text-white);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .sidebar-title a:hover {
+        color: var(--accent-primary);
+    }
+    
     .top-nav-content h1 a {
         color: var(--text-white);
         text-decoration: none;
@@ -6315,20 +6351,21 @@ input[name="website"] {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--secondary-color);
-    color: white;
+    background: #24292e;
+    color: #ffffff;
     text-decoration: none;
     padding: 0.8rem 1.5rem;
     border-radius: 8px;
     font-family: var(--font-primary);
-    font-weight: 500;
+    font-weight: 600;
     transition: all var(--transition-speed) ease;
     border: none;
     cursor: pointer;
 }
 
 .github-btn:hover {
-    background: var(--btn-bg-hover);
+    background: #000000;
+    color: #ffffff;
     transform: translateY(-2px);
     box-shadow: var(--shadow-hover);
 }

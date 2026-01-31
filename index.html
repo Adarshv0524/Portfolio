@@ -21,8 +21,8 @@
     
     <!-- Preload Critical Resources -->
     <link rel="preload" as="style" href="static/css/styles.css">
-    <link rel="preload" as="image" href="static/assets/logo.avif">
-    <link rel="preload" as="image" href="static/assets/my_photo.avif">
+    <link rel="preload" as="image" href="static/assets/logo.webp">
+    <link rel="preload" as="image" href="static/assets/my_photo.webp">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -34,11 +34,15 @@
     <meta name="msapplication-TileColor" content="#4169E1">
     <meta name="msapplication-TileImage" content="/static/assets/logo.webp">
 
-    <!-- Google Analytics - Delayed for Performance -->
+    <!-- Google Analytics - Ultra-Delayed for Performance -->
     <script>
-      // Delay GTM execution for better initial load performance
-      window.addEventListener('load', function() {
-        setTimeout(function() {
+      // Delay GTM execution until user interaction or 5 seconds after load
+      (function() {
+        var gtmLoaded = false;
+        function loadGTM() {
+          if (gtmLoaded) return;
+          gtmLoaded = true;
+          
           var script = document.createElement('script');
           script.async = true;
           script.src = 'https://www.googletagmanager.com/gtag/js?id=G-H7LZ4B1PYG';
@@ -48,6 +52,16 @@
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-H7LZ4B1PYG');
+        }
+        
+        // Load on user interaction
+        ['scroll', 'click', 'mousemove', 'touchstart'].forEach(function(event) {
+          window.addEventListener(event, loadGTM, { once: true, passive: true });
+        });
+        
+        // Fallback: load after 5 seconds if no interaction
+        window.addEventListener('load', function() {
+          setTimeout(loadGTM, 5000);
         }, 3000); // 3 second delay
       });
     </script>
@@ -170,6 +184,8 @@
     <!-- Critical CSS for Above-the-Fold Content -->
     <style>
       /* Critical styles for instant rendering */
+      * { box-sizing: border-box; }
+      
       body {
         margin: 0;
         padding: 0;
@@ -177,33 +193,137 @@
         background: #F8F9FA;
         color: #1D1D1F;
         overflow-x: hidden;
+        line-height: 1.6;
       }
       
+      /* Top Navigation */
+      #top-nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+      
+      .top-nav-content {
+        display: flex;
+        align-items: center;
+        padding: 1rem 2rem;
+        gap: 1rem;
+      }
+      
+      #top-nav h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+      
+      #top-nav h1 a {
+        color: #1D1D1F;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      
+      #top-nav h1 a:hover {
+        color: #4169E1;
+      }
+      
+      /* Logo */
+      .logo-image {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+      
+      /* Hero Section */
       #hero {
         min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
+        padding-top: 80px;
       }
       
       .hero-content {
         text-align: center;
         padding: 2rem;
+        max-width: 800px;
+        margin: 0 auto;
       }
       
       .hero-name {
         font-size: 3rem;
         font-weight: 700;
-        margin: 0;
+        margin: 0 0 1rem;
         line-height: 1.2;
+        color: #1D1D1F;
+      }
+      
+      .hero-tagline {
+        font-size: 1.5rem;
+        color: #4169E1;
+        margin: 0.5rem 0;
+      }
+      
+      .hero-expertise {
+        font-size: 1.1rem;
+        color: #666;
+        margin: 1rem 0;
+      }
+      
+      /* GitHub Button - High Contrast */
+      .github-btn {
+        display: inline-block;
+        padding: 12px 24px;
+        background: #24292e;
+        color: #ffffff !important;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: all 0.3s;
+        min-width: 44px;
+        min-height: 44px;
+        line-height: 1.5;
+      }
+      
+      .github-btn:hover {
+        background: #000000;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      }
+      
+      /* Hamburger Menu */
+      .hamburger-menu {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        padding: 8px;
+        cursor: pointer;
+        min-width: 44px;
+        min-height: 44px;
+        justify-content: center;
+      }
+      
+      .hamburger-menu .bar {
+        width: 25px;
+        height: 3px;
+        background: #1D1D1F;
+        transition: all 0.3s;
       }
       
       @media (max-width: 768px) {
         .hero-name { font-size: 2rem; }
+        .hero-tagline { font-size: 1.2rem; }
+        .hero-expertise { font-size: 1rem; }
+        .hamburger-menu { display: flex; }
       }
     </style>
 
-    <link rel="stylesheet" href="static/css/styles.css">
+    <!-- Defer main stylesheet for non-critical styles -->
+    <link rel="stylesheet" href="static/css/styles.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="static/css/styles.css"></noscript>
     
     <!-- Load Google Fonts Asynchronously -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -255,7 +375,7 @@
             <div id="image-container1">
                 <img src="static/assets/logo.webp" alt="Adarsh Verma Logo - AI ML Developer" class="logo-image" loading="eager" fetchpriority="high" width="40" height="40">
             </div>
-            <h1 class="text-light"><a href="/">Adarsh Verma</a></h1>
+            <div class="text-light nav-title"><a href="/">Adarsh Verma</a></div>
         </div>
     </section>
     <header id="header" class="header transition">
@@ -264,7 +384,7 @@
                 <div id="image-container">
                     <img src="static/assets/logo.webp" alt="Adarsh Verma Logo" class="logo-image" fetchpriority="high" width="80" height="80">
                 </div>
-                <h1 class="text-light"><a href="/">Adarsh Verma</a></h1>
+                <div class="text-light sidebar-title"><a href="/">Adarsh Verma</a></div>
                 <div class="social-links">
                     <a href="https://www.geeksforgeeks.org/user/adarshv0524/" class="twitter" aria-label="Visit Adarsh Verma's GeeksforGeeks Profile" rel="noopener noreferrer" target="_blank"><i class="gfg"><img src="static/assets/icons/gfg.webp" alt="GeeksforGeeks Profile - Adarsh Verma" loading="lazy" width="20" height="20"></i></a>
                     <a href="https://leetcode.com/u/Adarshv0524/" class="facebook" aria-label="Visit Adarsh Verma's LeetCode Profile" rel="noopener noreferrer" target="_blank"><i class="leetcode"><img src="static/assets/icons/leetcode.svg" alt="LeetCode Profile - Adarsh Verma" loading="lazy" width="20" height="20"></i></a>
@@ -1025,9 +1145,9 @@
         </section>
         <!-- <section class="footer" id="footer">
             <section class="footer-container">
-                <div class="credits"><img src="static/assets/icons/om.avif" alt="om" style="height:20px" loading="lazy" width="20" height="20"></div>
+                <div class="credits"><img src="static/assets/icons/om.webp" alt="om" style="height:20px" loading="lazy" width="20" height="20"></div>
                 <div class="credits" style="padding-top:1px"><a href="https://en.wikipedia.org/wiki/San%C4%81tan%C4%AB">जय श्री राम</a></div>
-                <div class="credits"><img src="static/assets/icons/swastika.avif" alt="swastika" style="height:20px" loading="lazy" width="20" height="20"></div>
+                <div class="credits"><img src="static/assets/icons/swastika.webp" alt="swastika" style="height:20px" loading="lazy" width="20" height="20"></div>
             </section>
         </section> -->
 
