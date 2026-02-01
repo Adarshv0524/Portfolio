@@ -12,6 +12,7 @@ coverage/
 # Production
 build/
 dist/
+.next/
 .vercel
 .output
 
