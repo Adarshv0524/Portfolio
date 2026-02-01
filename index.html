@@ -34,37 +34,15 @@
     <meta name="msapplication-TileColor" content="#4169E1">
     <meta name="msapplication-TileImage" content="/static/assets/logo.webp">
 
-    <!-- Google Analytics - Ultra-Delayed for Performance -->
-    <script>
-      // Delay GTM execution until user interaction or 5 seconds after load
-      (function() {
-        var gtmLoaded = false;
-        function loadGTM() {
-          if (gtmLoaded) return;
-          gtmLoaded = true;
-          
-          var script = document.createElement('script');
-          script.async = true;
-          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-H7LZ4B1PYG';
-          document.head.appendChild(script);
-          
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-H7LZ4B1PYG');
-        }
-        
-        // Load on user interaction
-        ['scroll', 'click', 'mousemove', 'touchstart'].forEach(function(event) {
-          window.addEventListener(event, loadGTM, { once: true, passive: true });
-        });
-        
-        // Fallback: load after 5 seconds if no interaction
-        window.addEventListener('load', function() {
-          setTimeout(loadGTM, 5000);
-        }, 3000); // 3 second delay
-      });
-    </script>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-D3X350ZQ6X"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-D3X350ZQ6X');
+        </script>
 
 
     <!-- SEO Meta -->
@@ -544,17 +522,14 @@
                             <h3 class="subsection-title">What I Do</h3>
                             <div class="expertise-grid">
                                 <div class="expertise-card">
-                                    <div class="expertise-icon">🤖</div>
                                     <h4>AI/ML Development</h4>
                                     <p>Building intelligent systems with TensorFlow, PyTorch, and cutting-edge deep learning techniques</p>
                                 </div>
                                 <div class="expertise-card">
-                                    <div class="expertise-icon">📱</div>
                                     <h4>Mobile Development</h4>
                                     <p>Creating beautiful cross-platform apps with Flutter and modern UI/UX principles</p>
                                 </div>
                                 <div class="expertise-card">
-                                    <div class="expertise-icon">⚡</div>
                                     <h4>Backend Engineering</h4>
                                     <p>Designing scalable APIs with FastAPI, Servlet, and cloud-native architectures</p>
                                 </div>
@@ -1620,6 +1595,42 @@
     </script>
 
     <script src="static/js/skills-orbital.js" defer></script>
+        <script>
+            (function () {
+                const hamburger = document.querySelector('.hamburger-menu');
+                const header = document.getElementById('header');
+                const topNav = document.getElementById('top-nav');
+
+                if (!hamburger || !header) return;
+
+                function setSidebarState(open) {
+                    document.body.classList.toggle('sidebar-open', open);
+                    hamburger.classList.toggle('active', open);
+                    if (topNav) topNav.classList.toggle('sidebar-open', open);
+                    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+                }
+
+                hamburger.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const isOpen = document.body.classList.contains('sidebar-open');
+                    setSidebarState(!isOpen);
+                });
+
+                document.addEventListener('click', function (e) {
+                    if (!document.body.classList.contains('sidebar-open')) return;
+                    const target = e.target;
+                    const clickedInsideHeader = header.contains(target);
+                    const clickedHamburger = hamburger.contains(target);
+                    if (!clickedInsideHeader && !clickedHamburger) {
+                        setSidebarState(false);
+                    }
+                });
+
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape') setSidebarState(false);
+                });
+            })();
+        </script>
 
   </body>
 </html>
